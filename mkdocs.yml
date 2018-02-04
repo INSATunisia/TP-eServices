@@ -1,27 +1,3 @@
-# site_name: TP eServices
-# theme: 'material'
-#
-#
-# site_favicon: 'img/favicon.ico'
-# extra:
-#   palette:
-#     primary: 'Pink'
-#     accent: 'grey'
-#   #  text: 'Ubuntu'
-#   #  code: 'Ubuntu Mono'
-#   logo: 'img/logo.png'
-#   social:
-#     - type: 'github'
-#       link: 'https://github.com/squidfunk'
-#     - type: 'twitter'
-#       link: 'https://twitter.com/squidfunk'
-#     - type: 'linkedin'
-#       link: 'https://de.linkedin.com/in/martin-donath-20a95039'
-#
-# pages:
-#   - 'index.md'
-#   - 'about.md'
-
 site_name: TP eServices
 site_description: Les Travaux Pratiques du cours eServices
 site_author: Lilia Sfaxi
@@ -94,7 +70,6 @@ markdown_extensions:
 # Page tree
 pages:
    - 'index.md'
-   #- Cours: 'slides/intro.md'
    - TP1: 'tp1.md'
    - TP2: 'tp2.md'
    - TP3: 'tp3.md'
