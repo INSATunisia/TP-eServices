@@ -25,11 +25,11 @@
 site_name: TP eServices
 site_description: Les Travaux Pratiques du cours eServices
 site_author: Lilia Sfaxi
-site_url: http://liliasfaxi.github.io/TP-eServices/
+site_url: http://INSATunisia.github.io/TP-eServices/
 
 # Repository
-repo_name: liliasfaxi/TP-eServices
-repo_url: https://github.com/liliasfaxi/TP-eServices
+repo_name: INSATunisia/TP-eServices
+repo_url: https://github.com/INSATunisia/TP-eServices
 
 # Copyright
 copyright: 'Copyright &copy; 2017 - 2018 Lilia Sfaxi'

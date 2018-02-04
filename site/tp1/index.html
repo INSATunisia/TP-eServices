@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Les Travaux Pratiques du cours eServices">
+      
+      
+        <link rel="canonical" href="http://liliasfaxi.github.io/TP-eServices/tp1/">
+      
+      
+        <meta name="author" content="Lilia Sfaxi">
+      
+      
+        <link rel="shortcut icon" href="../img/favicon.ico">
+      
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-1.7.1">
+    
+    
+      
+        <title>TP1 - TP eServices</title>
+      
+    
+    
+      <script src="../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-2421e7e627.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-8817cfa535.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+
+    <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/codehilite.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+
+    <link rel="stylesheet" href="../css/customizations.css">
+    <link rel="stylesheet" href="../css/site-customizations.css">
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="" data-md-color-accent="amber">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="http://liliasfaxi.github.io/TP-eServices/" title="TP eServices" class="md-logo md-header-nav__button">
+            <img src="../img/logo.png" width="24" height="24">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+            
+            TP1
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+            
+
+
+  
+
+
+  <a href="https://github.com/liliasfaxi/TP-eServices/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      liliasfaxi/TP-eServices
+    </div>
+  </a>
+
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../img/logo.png">
+      </i>
+    
+    TP eServices
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/liliasfaxi/TP-eServices/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      liliasfaxi/TP-eServices
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Travaux Pratiques eServices" class="md-nav__link">
+      Travaux Pratiques eServices
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        TP1
+      </label>
+    
+    <a href="./" title="TP1" class="md-nav__link md-nav__link--active">
+      TP1
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#telecharger-pdf" title="Télécharger PDF" class="md-nav__link">
+    Télécharger PDF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-du-tp" title="Objectifs du TP" class="md-nav__link">
+    Objectifs du TP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outils-et-versions" title="Outils et Versions" class="md-nav__link">
+    Outils et Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talend-esb" title="Talend ESB" class="md-nav__link">
+    Talend ESB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talend-open-studio-for-esb" title="Talend Open Studio for ESB" class="md-nav__link">
+    Talend Open Studio for ESB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-web-soap-helloworld" title="Service Web SOAP : Helloworld" class="md-nav__link">
+    Service Web SOAP : Helloworld
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-le-service-soap" title="Créer le service SOAP" class="md-nav__link">
+    Créer le service SOAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-service-soap" title="Configurer le service SOAP" class="md-nav__link">
+    Configurer le service SOAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-service-soap" title="Tester le service SOAP" class="md-nav__link">
+    Tester le service SOAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consommateur-du-webservice-soap" title="Consommateur du WebService SOAP" class="md-nav__link">
+    Consommateur du WebService SOAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-web-rest-interrogation-dune-base-de-donnees" title="Service Web REST : Interrogation d'une base de données" class="md-nav__link">
+    Service Web REST : Interrogation d'une base de données
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-de-la-base-de-donnees" title="Création de la base de données" class="md-nav__link">
+    Création de la base de données
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajout-de-la-connexion-a-la-base-avec-talend" title="Ajout de la connexion à la base avec Talend" class="md-nav__link">
+    Ajout de la connexion à la base avec Talend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-du-service-rest" title="Création du service REST" class="md-nav__link">
+    Création du service REST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-service-rest" title="Configuration du service REST" class="md-nav__link">
+    Configuration du service REST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-trestrequest" title="Configuration de tRestRequest" class="md-nav__link">
+    Configuration de tRestRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-user" title="Configuration de user" class="md-nav__link">
+    Configuration de user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-txmlmap" title="Configuration de tXMLMap" class="md-nav__link">
+    Configuration de tXMLMap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-service" title="Tester le Service" class="md-nav__link">
+    Tester le Service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dans-un-navigateur" title="Dans un navigateur" class="md-nav__link">
+    Dans un navigateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-soapui" title="Avec SOAPUI" class="md-nav__link">
+    Avec SOAPUI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-service-soap_1" title="Tester le service SOAP" class="md-nav__link">
+    Tester le service SOAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consommateur-du-webservice-rest" title="Consommateur du WebService REST" class="md-nav__link">
+    Consommateur du WebService REST
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tp2/" title="TP2" class="md-nav__link">
+      TP2
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tp3/" title="TP3" class="md-nav__link">
+      TP3
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tp4/" title="TP4" class="md-nav__link">
+      TP4
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tp5/" title="TP5" class="md-nav__link">
+      TP5
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#telecharger-pdf" title="Télécharger PDF" class="md-nav__link">
+    Télécharger PDF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-du-tp" title="Objectifs du TP" class="md-nav__link">
+    Objectifs du TP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outils-et-versions" title="Outils et Versions" class="md-nav__link">
+    Outils et Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talend-esb" title="Talend ESB" class="md-nav__link">
+    Talend ESB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talend-open-studio-for-esb" title="Talend Open Studio for ESB" class="md-nav__link">
+    Talend Open Studio for ESB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-web-soap-helloworld" title="Service Web SOAP : Helloworld" class="md-nav__link">
+    Service Web SOAP : Helloworld
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-le-service-soap" title="Créer le service SOAP" class="md-nav__link">
+    Créer le service SOAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-service-soap" title="Configurer le service SOAP" class="md-nav__link">
+    Configurer le service SOAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-service-soap" title="Tester le service SOAP" class="md-nav__link">
+    Tester le service SOAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consommateur-du-webservice-soap" title="Consommateur du WebService SOAP" class="md-nav__link">
+    Consommateur du WebService SOAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-web-rest-interrogation-dune-base-de-donnees" title="Service Web REST : Interrogation d'une base de données" class="md-nav__link">
+    Service Web REST : Interrogation d'une base de données
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-de-la-base-de-donnees" title="Création de la base de données" class="md-nav__link">
+    Création de la base de données
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajout-de-la-connexion-a-la-base-avec-talend" title="Ajout de la connexion à la base avec Talend" class="md-nav__link">
+    Ajout de la connexion à la base avec Talend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-du-service-rest" title="Création du service REST" class="md-nav__link">
+    Création du service REST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-service-rest" title="Configuration du service REST" class="md-nav__link">
+    Configuration du service REST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-trestrequest" title="Configuration de tRestRequest" class="md-nav__link">
+    Configuration de tRestRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-user" title="Configuration de user" class="md-nav__link">
+    Configuration de user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-txmlmap" title="Configuration de tXMLMap" class="md-nav__link">
+    Configuration de tXMLMap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-service" title="Tester le Service" class="md-nav__link">
+    Tester le Service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dans-un-navigateur" title="Dans un navigateur" class="md-nav__link">
+    Dans un navigateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-soapui" title="Avec SOAPUI" class="md-nav__link">
+    Avec SOAPUI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-service-soap_1" title="Tester le service SOAP" class="md-nav__link">
+    Tester le service SOAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consommateur-du-webservice-rest" title="Consommateur du WebService REST" class="md-nav__link">
+    Consommateur du WebService REST
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/liliasfaxi/TP-eServices/edit/master/docs/tp1.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
+                
+                <h1 id="tp1-services-web-rest-et-soap-avec-talend">TP1 - Services Web REST et SOAP avec Talend<a class="headerlink" href="#tp1-services-web-rest-et-soap-avec-talend" title="Permanent link">&para;</a></h1>
+<p><img alt="Web Services" src="../img/ws.png" /></p>
+<h2 id="telecharger-pdf">Télécharger PDF<a class="headerlink" href="#telecharger-pdf" title="Permanent link">&para;</a></h2>
+<p><a href="../tp1.pdf"><img alt="Download TP1" src="../img/pdf.png" /></a></p>
+<h2 id="objectifs-du-tp">Objectifs du TP<a class="headerlink" href="#objectifs-du-tp" title="Permanent link">&para;</a></h2>
+<p>Création et consommation de web services SOAP et REST en utilisant l'outil Talend.</p>
+<h2 id="outils-et-versions">Outils et Versions<a class="headerlink" href="#outils-et-versions" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.talend.com/download_page_type/talend-open-studio/">Talend Open Studio for ESB</a> Version: 6.3.0</li>
+<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">Java</a> Version 1.8.0_121</li>
+<li><a href="https://dev.mysql.com/downloads/">MySQL</a> Version 14.14 Distrib 5.6.34</li>
+<li><a href="https://www.soapui.org/downloads/soapui.html">SOAPUI</a> Version 5.3.0</li>
+</ul>
+<h2 id="talend-esb">Talend ESB<a class="headerlink" href="#talend-esb" title="Permanent link">&para;</a></h2>
+<p>Talend ESB est une solution légère, robuste et modulaire pour la création de services<br />
+web sécurisés ainsi que pour l’intégration d’applications nouvelles ou existantes.<br />
+Talend participe au développement des composants ESB à travers la communauté<br />
+Apache. Il collabore avec un grand nombre de développeurs de la communauté Apache<br />
+et a fait plusieurs contributions aux projets Apache.<br />
+Talend fournit:</p>
+<ul>
+<li>Un courtier de messages à haute performance.</li>
+<li>Des options de déploiement flexibles</li>
+<li>Des outils de développement pour Eclipse</li>
+<li>Une interface utilisateur pour l’intégration et la médiation d’applications</li>
+<li>Support pour les services web SOAP et REST</li>
+<li>La médiation et le routage</li>
+<li>Support pour le failover, le monitoring et la sécurité</li>
+</ul>
+<p>L’environnement d’exécution standard de Talend ESB est un conteneur OSGi.<br />
+L’implémentation OSGi fournie avec Talend ESB est Apache Karaf, avec Eclipse Equinox<br />
+comme environnement d’exécution OSGi. Elle fournit un conteneur léger dans lequel les<br />
+différents composants et applications peuvent être déployées.</p>
+<h2 id="talend-open-studio-for-esb">Talend Open Studio for ESB<a class="headerlink" href="#talend-open-studio-for-esb" title="Permanent link">&para;</a></h2>
+<p>Talend Open Studio for ESB (TOS-ESB) fournit une interface graphique de<br />
+développement pour implémenter, compiler, tester et publier des services Web Java, des<br />
+applications REST, des services de données et des routes de messages.<br />
+Le déploiement d’applications avec TOS-ESB utilise principalement les trois blocs<br />
+représentés dans cette figure:</p>
+<p><img alt="Talend" src="../img/tp1/talend.png" /></p>
+<ul>
+<li>Le bloc bleu représente l’API Talend Studio, où il est possible d’intégrer des<br />
+données, des services ou des applications</li>
+<li>Les blocs rouges représentent un ou plusieurs environnements d’exécution Talend<br />
+déployés dans votre système d’information. Il vous permet de déployer et<br />
+d’exécuter les Jobs, les routes et les services créés dans Talend Studio. Il est<br />
+possible d’avoir plusieurs environnements d’exécution, entre lesquels vous pouvez<br />
+basculer grâce à Talend Service Locator.</li>
+<li>Le bloc orange est une base de données de monitoring, permettant de stocker les<br />
+informations d’exécution des processus et de l’activité des services.</li>
+</ul>
+<p>L’interface utilisateur de TOS-ESB se présente comme suit:</p>
+<p><img alt="TOS" src="../img/tp1/tos.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Fonctionnalité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="1" src="../img/tp1/1.png" /></td>
+<td>Le traditionnel <em>Repository</em> contenant vos Jobs, services, fichiers, routes…</td>
+</tr>
+<tr>
+<td><img alt="2" src="../img/tp1/2.png" /></td>
+<td>La fenêtre principale, représentant graphiquement la composition de vos jobs et routes</td>
+</tr>
+<tr>
+<td><img alt="3" src="../img/tp1/3.png" /></td>
+<td>La fenêtre contenant les propriétés, la console d’exécution…</td>
+</tr>
+<tr>
+<td><img alt="4" src="../img/tp1/4.png" /></td>
+<td>La palette des composants à utiliser</td>
+</tr>
+<tr>
+<td><img alt="5" src="../img/tp1/5.png" /></td>
+<td>Les onglets pour le choix de la perspective à utiliser</td>
+</tr>
+</tbody>
+</table>
+<h2 id="service-web-soap-helloworld">Service Web SOAP : Helloworld<a class="headerlink" href="#service-web-soap-helloworld" title="Permanent link">&para;</a></h2>
+<p>Nous ne pouvons pas configurer un ESB avant de savoir créer, déployer et exécuter des<br />
+services web avec les outils Talend ESB. Nous allons donc commencer avec le<br />
+traditionnel Hello World. Pour cela, il faut commencer par créer un projet de votre choix.<br />
+Dans toute cette partie, nous nous trouverons dans la perspective Integration.</p>
+<h3 id="creer-le-service-soap">Créer le service SOAP<a class="headerlink" href="#creer-le-service-soap" title="Permanent link">&para;</a></h3>
+<p>Pour créer un nouveau service de type SOAP:</p>
+<ul>
+<li>Clic-droit sur <em>Services</em> de votre Repository, et choisir <em>Create Service</em>. Appeler le<br />
+service <em>HelloWorldService</em>. Cliquer sur Suivant.</li>
+<li>On vous propose soit de créer un nouveau WSDL, soit de choisir un WSDL existant. Dans notre cas, nous créons un nouveau WSDL. Cliquer sur Terminer.</li>
+<li>Un service simple qui reçoit une chaîne de caractères et en produit une autre est<br />
+créé. Une vue graphique de son WSDL s’affiche.</li>
+</ul>
+<p><img alt="HelloWorld Service" src="../img/tp1/hw-soap.png" /></p>
+<h3 id="configurer-le-service-soap">Configurer le service SOAP<a class="headerlink" href="#configurer-le-service-soap" title="Permanent link">&para;</a></h3>
+<p>Pour pouvoir configurer votre service, il faut créer un Job. Mais d’abord:</p>
+<ul>
+<li>Importer le WSDL de votre service dans votre repository. Pour cela, clic droit sur<br />
+<em>HelloWorldService</em>, et choisir <em>Importer les schémas WSDL</em>. Vous retrouverez votre<br />
+WSDL dans la partie <em>Metadonnées -&gt; Fichier XML</em>.</li>
+<li>Créer un nouveau Job pour votre service. Pour cela, clic-droit sur l’opération <em>HelloWorldServiceOperation</em> (sous Services) et choisir <em>Assign Job</em>.</li>
+<li>Modifier votre Job pour qu’il ait l’allure suivante (Le <em>tLogRow</em> nous permettra<br />
+d’afficher le résultat du service exécuté sur la console avant de l’envoyer au<br />
+consommateur):</li>
+</ul>
+<p><img alt="HelloWorld Job" src="../img/tp1/hw-job.png" /></p>
+<ul>
+<li>
+<p>Configurer votre tXMLMap pour que le <em>in</em> de la requête soit transmise au <em>out</em> de la<br />
+réponse, en lui concaténant le célèbre "Hello". Pour cela:</p>
+<ul>
+<li>Double clic sur votre XML Map.</li>
+<li>Clic-droit sur <em>payload</em> de l’entrée, et cliquer sur <em>Import from Repository</em>.</li>
+<li>Choisir le <em>HelloWorldServiceOperationRequest</em> correspondant au fichier WSDL que vous avez généré.</li>
+<li>Refaire les mêmes étapes pour le payload de la sortie, en choisissant <em>HelloWorldServiceOperationResponse</em>.</li>
+<li>Relier le <em>in</em> de la requête avec le <em>out</em> de la réponse (créer l’entrée comme sous-élément de la réponse)</li>
+<li>Modifier l’expression du <em>out</em> en ajoutant la chaîne <strong>“Hello “</strong> avant la valeur <em>in</em> de l’entrée.</li>
+<li>Le résultat de la XMLMap devrait ressembler à ce qui suit:</li>
+</ul>
+<p><img alt="XML Map" src="../img/tp1/hw-xml-map.png" /></p>
+<ul>
+<li>Sauvegarder et quitter.</li>
+</ul>
+</li>
+<li>
+<p>Lancer votre Job (cela permettra de publier votre service web sur le port 8090).<br />
+Vérifier que votre fichier WSDL existe bien.</p>
+</li>
+</ul>
+<h3 id="tester-le-service-soap">Tester le service SOAP<a class="headerlink" href="#tester-le-service-soap" title="Permanent link">&para;</a></h3>
+<p>Il est possible de tester votre service de plusieurs manières. L'une d'elles est d'utiliser un outil léger de test appelé <em>SOAPUI</em>.</p>
+<ul>
+<li>Lancer SOAPUI</li>
+<li>Cliquer sur l'icône SOAP en haut de la fenêtre principale</li>
+<li>Donner un nom au projet (par exemple Helloworld) et entrer l'adresse du fichier WSDL du service, comme suit:</li>
+</ul>
+<p><img alt="SOAPUI SOAP Project" src="../img/tp1/soapui-soap-project.png" /></p>
+<ul>
+<li>Double cliquer sur la requête générée, et remplir le <em><in>?</in></em> par un nom de votre choix.</li>
+<li>Cliquer sur la flèche verte. Le résultat devra ressembler au suivant:</li>
+</ul>
+<p><img alt="SOAPUI request-response" src="../img/tp1/soapui-soap-req-resp.png" /></p>
+<h2 id="consommateur-du-webservice-soap">Consommateur du WebService SOAP<a class="headerlink" href="#consommateur-du-webservice-soap" title="Permanent link">&para;</a></h2>
+<p>Nous allons maintenant créer un consommateur pour notre service avec talend open studio. Pour cela:</p>
+<ul>
+<li>Créer un nouveau Job, que vous appellerez <em>HelloWorldServiceConsumer</em>.</li>
+<li>Concevez votre job de manière à ce qu’il ait l’allure suivante:</li>
+</ul>
+<p><img alt="Soap Consommateur Job" src="../img/tp1/hw-conso.png" /></p>
+<ul>
+<li>
+<p>Voici les rôles des éléments que vous avez ajouté :</p>
+<ul>
+<li><strong>tFixedFlowInput</strong> : définir les entrées à envoyer à votre service</li>
+<li><strong>tXMLMap</strong> : associer les entrées définies aux entrées du service</li>
+<li><strong>tESBConsumer</strong> : consommateur du service</li>
+<li><strong>tLogRow</strong>: afficher les réponses et/ou les fautes (s’il y’en a)</li>
+</ul>
+</li>
+<li>
+<p>Configurer votre composant <em>tFixedFlowInput</em>. Pour cela:</p>
+<ul>
+<li>Cliquer sur <em>Modifier le schéma</em> et ajouter une colonne appelée <em>Nom</em> de type <em>String</em>.</li>
+<li>Utiliser une <em>Inline Table</em> pour ajouter les trois chaînes en entrée: “Alice”, “Bob” et “Chuck”.</li>
+</ul>
+</li>
+<li>
+<p>Configurer votre <em>tESBConsumer</em> en lui donnant comme WSDL celui du service que<br />
+vous avez créé. Vérifiez bien que le Endpoint soit sur le port 8090.</p>
+</li>
+<li>Configurer votre <em>tXMLMap</em> pour que la variable <em>Nom</em> soit associée au <em>in</em> de votre<br />
+service.</li>
+<li>Exécuter le Job, et observez le résultat. Votre console devrait afficher le résultat suivant:</li>
+</ul>
+<p><img alt="Helloworld Résultat" src="../img/tp1/hw-result.png" /></p>
+<h2 id="service-web-rest-interrogation-dune-base-de-donnees">Service Web REST : Interrogation d'une base de données<a class="headerlink" href="#service-web-rest-interrogation-dune-base-de-donnees" title="Permanent link">&para;</a></h2>
+<p>Nous allons maintenant montrer comment exposer un service REST pour interroger une base de données.</p>
+<h3 id="creation-de-la-base-de-donnees">Création de la base de données<a class="headerlink" href="#creation-de-la-base-de-donnees" title="Permanent link">&para;</a></h3>
+<p>Nous allons commencer par créer une base de données (MySQL dans mon cas), appelée <em>eservices-tp1</em> avec une table, que nous appellerons <em>user</em>. Cette table contient les champs <em>id</em>, <em>firstname</em> et <em>lastname</em>. Remplir ensuite la base à votre guise, de manière à avoir au moins 4 entrées.</p>
+<p>Elle devra ressembler à ce qui suit:</p>
+<p><img alt="Base de données" src="../img/tp1/rest-db.png" /></p>
+<h3 id="ajout-de-la-connexion-a-la-base-avec-talend">Ajout de la connexion à la base avec Talend<a class="headerlink" href="#ajout-de-la-connexion-a-la-base-avec-talend" title="Permanent link">&para;</a></h3>
+<p>Pour configurer une connexion à cette base de données avec Talend, suivre les étapes suivantes:</p>
+<ul>
+<li>Dans les Métadonnées, sous <em>Connexions aux bases de données</em>, clic-droit, puis choisir: <em>Créer une connexion</em>.</li>
+<li>Configurer votre connexion. Voici un exemple:</li>
+</ul>
+<p><img alt="Configuration de la base de données" src="../img/tp1/rest-bd-config.png" /></p>
+<ul>
+<li>Une fois la connexion créée, importer son schéma. Pour cela, clic-droit sur Metadonnées -&gt; Connexions... -&gt; <strong><nom-connexion></strong> et choisir: <em>Récupérer le schéma</em>.</li>
+<li>Sélectionner la table <em>user</em>, et vérifier que les champs sont bien chargés dans la partie Schéma.</li>
+</ul>
+<h3 id="creation-du-service-rest">Création du service REST<a class="headerlink" href="#creation-du-service-rest" title="Permanent link">&para;</a></h3>
+<p>Nous allons maintenant créer le service REST. Pour cela, créer un nouveau job, qu'on appellera <em>DBService</em>, puis glisser les composants suivants:</p>
+<ul>
+<li><strong>tRestRequest</strong> : Pour définir la requête REST que le client doit appeler</li>
+<li><strong>user</strong> : Table de la base de données. Dans la nouvelle connexion à la base de données que vous avez créé, sous <em>Schémas des tables</em>, glisser la table <em>user</em> vers le Job, puis choisir tMySQLInput dans la fenêtre de choix qui apparaît.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Remarque</p>
+<p>Je choisis <em>tMySQLInput</em> car, dans mon cas, c'est une base de données MySQL, et je veux juste lire son contenu, je vais donc y accéder en entrée (d'où le <em>Input</em>).</p>
+</div>
+<ul>
+<li><strong>tFlowToIterate</strong> : Pour effectuer une itération sur les données d'entrée et génèrer des variables globales.</li>
+<li><strong>tXMLMap</strong> : Permet de router et transformer les flux entrants de la base de données vers le résultat de la requête.</li>
+<li><strong>tRestResponse</strong> : Pour définir la réponse à envoyer à l'utilisateur suite à sa requête.</li>
+<li><strong>tLogRow</strong> : Pour le log, bien sûr.</li>
+</ul>
+<p>Le job aura l'allure suivante:</p>
+<p><img alt="Service REST" src="../img/tp1/rest-service.png" /></p>
+<h3 id="configuration-du-service-rest">Configuration du service REST<a class="headerlink" href="#configuration-du-service-rest" title="Permanent link">&para;</a></h3>
+<p>Nous désirons configurer le service de manière à ce que, quand un consommateur appelle l'URI:<br />
+<code>http://localhost:8088/users?from=1&amp;to=3</code>, le service retourne une réponse contenant les utilisateurs (id, nom et prénom) de la base de données dont les ids figurent entre 1 et 3.</p>
+<h4 id="configuration-de-trestrequest">Configuration de tRestRequest<a class="headerlink" href="#configuration-de-trestrequest" title="Permanent link">&para;</a></h4>
+<p>tRestRequest devra être configuré comme suit:</p>
+<ul>
+<li>La valeur de <em>Endpoint URL</em> devra être: <code>&quot;http://localhost:8088/users&quot;</code></li>
+<li>Si vous avez connecté le tRestRequest avec le tFlowToIterate avec un lien appelé <em>getUsers</em>, vous devriez le retrouver dans la case <em>REST API Mapping</em>. Sinon, créez-le.</li>
+<li>Garder les informations par défaut de ce mapping (méthode GET, URI /, Produit XML ou JSON).</li>
+<li>En cliquant sur <em>getUsers</em>, un bouton avec trois petits points apparaît. Cliquez dessus.</li>
+<li>
+<p>Ajouter les deux colonnes <em>from</em> et <em>to</em> représentant les deux paramètres de la requête. Prenez soin à ce que:</p>
+<ul>
+<li>Leur type soit <em>int</em></li>
+<li>Leurs valeurs par défaut soient respectivement 1 et 3.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Remarque</p>
+<p>Ces valeurs seront utilisées dans le cas où le consommateur n'introduit pas de paramètres.</p>
+</div>
+<ul>
+<li>Leur commentaire ait la valeur: <em>query</em></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Remarque</p>
+<p>Cela indique que ces champs sont des paramètres de requête, pas définies dans le Path.</p>
+</div>
+</li>
+</ul>
+<h4 id="configuration-de-user">Configuration de user<a class="headerlink" href="#configuration-de-user" title="Permanent link">&para;</a></h4>
+<p>Puisque le composant <em>user</em> a été créé à partir de la connexion à votre base MySQL, il contient déjà les informations de connexion nécessaires.</p>
+<p>Il suffira dans notre cas de:</p>
+<ul>
+<li>Cliquer sur <em>Guess Schema</em>  pour charger le schéma de la base.</li>
+<li>Changer la requête pour qu'elle soit comme suit:</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="ss">&quot;SELECT * FROM `user` where id&gt;=&quot;</span><span class="o">+</span><span class="n">globalMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;getUsers.from&quot;</span><span class="p">)</span><span class="o">+</span>
+                      <span class="ss">&quot; and id&lt;=&quot;</span><span class="o">+</span><span class="n">globalMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;getUsers.to&quot;</span><span class="p">)</span>
+</pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Remarque</p>
+<p>globalMap est une variable globale permettant de stocker les informations de la requête, comme par exemple ses paramètres.</p>
+</div>
+<h4 id="configuration-de-txmlmap">Configuration de tXMLMap<a class="headerlink" href="#configuration-de-txmlmap" title="Permanent link">&para;</a></h4>
+<p>Cliquer deux fois sur la <em>tXMLMap</em> pour la configurer.</p>
+<ul>
+<li>Dans la colonne de droite, ajouter (si ce n'est déjà fait) une colonne intitulée <em>body</em> dont le type est <em>Document</em>.</li>
+<li>Cette colonne contient un élément <em>root</em>. Renommer cet élément pour <em>users</em>.</li>
+<li>Ajouter un sous-élément à <em>users</em> appelé <em>user</em>.</li>
+<li>Définir cet élément comme <em>loop Element</em>.</li>
+<li>Glisser-déplacer l'id de la colonne en entrée vers le <em>user</em>. Créez-le comme attribut du noeud cible.</li>
+<li>De même pour le <em>firstname</em> et <em>lastname</em>, qui seront, eux, des sous-éléments du noeud <em>user</em>.</li>
+<li>Dans la colonne de droite, cliquer sur la petite clef à molette (<img alt="" src="../img/tp1/clef-molette.png" />). Mettre la valeur de "All in one" à <em>true</em>. Cela permettra à toutes les données XML d'être écrites dans un seul flux.</li>
+</ul>
+<p>La configuration finale sera donc comme suit:</p>
+<p><img alt="tXMLMap du Service REST" src="../img/tp1/rest-txmlmap.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Indication</p>
+<p>La configuration précédente va générer une réponse de la forme suivante:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;users&gt;</span>
+  <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">1</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;firstname&gt;</span> flen <span class="nt">&lt;/firstname&gt;</span>
+    <span class="nt">&lt;lastname&gt;</span> fouleni <span class="nt">&lt;/lastname&gt;</span>
+  <span class="nt">&lt;/user&gt;</span>
+  <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">2</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;firstname&gt;</span> flena <span class="nt">&lt;/firstname&gt;</span>
+    <span class="nt">&lt;lastname&gt;</span> foulenia <span class="nt">&lt;/lastname&gt;</span>
+  <span class="nt">&lt;/user&gt;</span>
+<span class="nt">&lt;users&gt;</span>
+</pre></div>
+
+</div>
+<p>Les autres composants devront rester tels qu'ils sont par défaut. Il suffira maintenant de lancer le service, en cliquant sur <em>Exécuter</em>.</p>
+<h3 id="tester-le-service">Tester le Service<a class="headerlink" href="#tester-le-service" title="Permanent link">&para;</a></h3>
+<h4 id="dans-un-navigateur">Dans un navigateur<a class="headerlink" href="#dans-un-navigateur" title="Permanent link">&para;</a></h4>
+<p>Pour tester le service, il suffit d'ouvrir un navigateur, et de taper la requête de votre choix.</p>
+<p>Par exemple, la requête suivante : <code>http://localhost:8088/users?from=2&amp;to=4</code> donnera:</p>
+<p><div class="codehilite"><pre><span></span>  <span class="nt">&lt;users&gt;</span>
+      <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;firstname&gt;</span>Souad<span class="nt">&lt;/firstname&gt;</span>
+          <span class="nt">&lt;lastname&gt;</span>Mezghenni<span class="nt">&lt;/lastname&gt;</span>
+      <span class="nt">&lt;/user&gt;</span>
+      <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;firstname&gt;</span>Mourad<span class="nt">&lt;/firstname&gt;</span>
+          <span class="nt">&lt;lastname&gt;</span>Lahwel<span class="nt">&lt;/lastname&gt;</span>
+      <span class="nt">&lt;/user&gt;</span>
+      <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;firstname&gt;</span>Monia<span class="nt">&lt;/firstname&gt;</span>
+          <span class="nt">&lt;lastname&gt;</span>Landolsi<span class="nt">&lt;/lastname&gt;</span>
+      <span class="nt">&lt;/user&gt;</span>
+  <span class="nt">&lt;/users&gt;</span>
+</pre></div><br />
+Si aucun paramètre n'est indiqué: <code>http://localhost:8088/users</code> cela donnera:</p>
+<div class="codehilite"><pre><span></span>  <span class="nt">&lt;users&gt;</span>
+      <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;firstname&gt;</span>Ahmed<span class="nt">&lt;/firstname&gt;</span>
+          <span class="nt">&lt;lastname&gt;</span>Ramzi<span class="nt">&lt;/lastname&gt;</span>
+      <span class="nt">&lt;/user&gt;</span>
+      <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;firstname&gt;</span>Souad<span class="nt">&lt;/firstname&gt;</span>
+          <span class="nt">&lt;lastname&gt;</span>Mezghenni<span class="nt">&lt;/lastname&gt;</span>
+      <span class="nt">&lt;/user&gt;</span>
+      <span class="nt">&lt;user</span> <span class="na">id=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;firstname&gt;</span>Mourad<span class="nt">&lt;/firstname&gt;</span>
+          <span class="nt">&lt;lastname&gt;</span>Lahwel<span class="nt">&lt;/lastname&gt;</span>
+      <span class="nt">&lt;/user&gt;</span>
+  <span class="nt">&lt;/users&gt;</span>
+</pre></div>
+
+<h4 id="avec-soapui">Avec SOAPUI<a class="headerlink" href="#avec-soapui" title="Permanent link">&para;</a></h4>
+<h3 id="tester-le-service-soap_1">Tester le service SOAP<a class="headerlink" href="#tester-le-service-soap_1" title="Permanent link">&para;</a></h3>
+<p>Il est possible de tester votre service REST avec <em>SOAPUI</em>.</p>
+<ul>
+<li>Lancer SOAPUI</li>
+<li>Cliquer sur l'icône REST en haut de la fenêtre principale</li>
+<li>Entrer l'URI que vous désirez tester: <code>http://localhost:8088/users?from=2&amp;to=4</code></li>
+<li>La fenêtre suivante devrait apparaître:</li>
+</ul>
+<p><img alt="SOAPUI REST request" src="../img/tp1/soapui-rest-req.png" /></p>
+<ul>
+<li>Cliquer sur la flèche verte. Le résultat devra ressembler au suivant:</li>
+</ul>
+<p><img alt="SOAPUI REST request-response" src="../img/tp1/soapui-rest-req-resp.png" /></p>
+<h2 id="consommateur-du-webservice-rest">Consommateur du WebService REST<a class="headerlink" href="#consommateur-du-webservice-rest" title="Permanent link">&para;</a></h2>
+<p>Pour créer un consommateur pour le web service REST avec Talend, il suffit de créer le Job suivant:</p>
+<p><img alt="Consommateur REST" src="../img/tp1/rest-consumer.png" /></p>
+<p>Configurer le <em>tRestClient</em> comme suit:</p>
+<p><img alt="Configuration du consommateur REST" src="../img/tp1/rest-cons-config.png" /></p>
+<p>Exécuter. Le résultat devrait ressembler à ceci:</p>
+<p><img alt="Résultat du consommateur REST" src="../img/tp1/rest-cons-result.png" /></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="Travaux Pratiques eServices" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Travaux Pratiques eServices
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../tp2/" title="TP2" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                TP2
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2017 - 2018 Lilia Sfaxi
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://liliasfaxi.wix.com/liliasfaxi" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/liliasfaxi" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/lillitou" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/in/liliasfaxi/" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/raphael-min.js"></script>
+      <script src="../assets/javascripts/flowchart.js"></script>
+      <script src="../assets/javascripts/application-e3caa82af6.js"></script>
+      
+      
+      <script>app.initialize({url:{base:".."}})</script>
+      
+        <script src="../search/require.js"></script>
+      
+        <script src="../search/search.js"></script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>
