@@ -34,7 +34,7 @@ Pour installer l'environnement nécessaire à ce TP, il faut suivre les étapes 
 * Ouvrir la page d'accueil du serveur d'application dans votre navigateur préféré.
 * Lancer le Camunda Modeler.
 
-## Premier Projet Camunda BPN: Helloworld
+## Premier Projet Camunda BPMN: Helloworld
 
 ### Création du Projet et Dépendances
 
