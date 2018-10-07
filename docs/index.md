@@ -15,7 +15,7 @@
 
 ## Overview
 
-L'objectif de ce cours est d'initier les étudiants aux architectures à base de services en général. Le cours va concerner principalement les points suivants:
+Vous trouverez sur mon [site officiel](http://liliasfaxi.wixsite.com/liliasfaxi/eservices) le cours Big Data associé à ces TPs.L'objectif de ce cours est d'initier les étudiants aux architectures à base de services en général. Le cours va concerner principalement les points suivants:
 
 * L'architecture orientée services (SOA: Service-Oriented Architecture)
 * La composition de services: orchestration et chorégraphie
@@ -26,8 +26,8 @@ L'objectif de ce cours est d'initier les étudiants aux architectures à base de
 
 Ce cours comporte cinq séances de travaux pratiques:
 
-* TP1: Manipulation des services SOAP et REST avec Talend
-* TP2: Orchestration des services avec Camunda
-* TP3: Mise en place d'un ESB avec Talend ESB
-* TP4: Microservices avec Spring Boot et Spring Cloud
-* TP5: API Management avec Anypoint
+* [TP1](tp1/index.html): Manipulation des services SOAP et REST avec Talend
+* [TP2](tp2/index.html): Orchestration des services avec Camunda
+* [TP3](tp3/index.html): Mise en place d'un ESB avec Talend ESB
+* [TP4](tp4/index.html): Microservices avec Spring Boot et Spring Cloud
+* [TP5](tp5/index.html): API Management avec Anypoint
