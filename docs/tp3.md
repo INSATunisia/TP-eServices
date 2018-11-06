@@ -11,6 +11,7 @@
 
 ## Outils et Versions
 * [Talend Open Studio for ESB](https://www.talend.com/download_page_type/talend-open-studio/) Version: 6.3.0
+* [DB Visualizer](https://www.dbvis.com/download/) Version 10.0
 * [Java](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html) Version 1.8.0_121
 
 ## Configuration et Utilisation de l'ESB Talend
