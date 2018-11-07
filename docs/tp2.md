@@ -424,7 +424,7 @@ public class ProcessRequestDelegate implements JavaDelegate {
 ![Résultat](img/tp2/resultat-3.png)
 
 !!! faq "TAF"
-    Vous remarquerez que le service web REST que nous avons appelé rend la température en degré Farenheit. Chercher un service web qui fasse la conversion du ºF vers le ºC, puis appelez-le avant de faire l'affichage.
+    Vous remarquerez que le service web REST que nous avons appelé rend la température en degré Kelvin. Chercher un service web qui fasse la conversion du ºK vers le ºC, puis appelez-le avant de faire l'affichage.
 
 ## Homework
 Vous êtes manager d'une entreprise, dont vous choisirez le nom et le métier.Vous désirez réaliser une application pour faciliter son processus de recrutement. C'est à vous de choisir le degré de complexité et les spécificités métier du processus, à partir du moment qu'il respecte ces conditions:
