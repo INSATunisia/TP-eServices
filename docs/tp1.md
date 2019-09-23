@@ -9,10 +9,10 @@
 Création et consommation de web services SOAP et REST en utilisant l'outil Talend.
 
 ## Outils et Versions
-* [Talend Open Studio for ESB](https://www.talend.com/download_page_type/talend-open-studio/) Version: 6.3.0
-* [Java](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html) Version 1.8.0_121
-* [MySQL](https://dev.mysql.com/downloads/) Version 14.14 Distrib 5.6.34
-* [SOAPUI](https://www.soapui.org/downloads/soapui.html) Version 5.3.0
+* [Talend Open Studio for ESB](https://www.talend.com/download_page_type/talend-open-studio/) Version: 7.2
+* [Java](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html) Version 1.8
+* [MySQL](https://dev.mysql.com/downloads/) Version 5.7
+* [SOAPUI](https://www.soapui.org/downloads/soapui.html) Version 5.3
 
 ## Talend ESB
 Talend ESB est une solution légère, robuste et modulaire pour la création de services
