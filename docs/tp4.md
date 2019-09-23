@@ -344,7 +344,7 @@ Comme le fichier *application.properties* contient toutes les propriétés parta
   * Créer dans le répertoire *myConfig* un fichier *product-service.properties* pour le service *ProductService*.
 
 !!! warning "Attention"
-    Le nom du fichier doit correspondre à la propriété *spring.application.name* que vous avez saisi dans le fichier *application.properties* de votre microservices!
+    Le nom du fichier doit correspondre à la propriété *spring.application.name* que vous avez saisi dans le fichier *application.properties* de votre microservice!
 
   * Ajouter les propriétés de votre service, à savoir, par exemple:
 
@@ -488,7 +488,7 @@ Redémarrer les trois instances de services *ProductService* et actualiser la fe
 ![Services sur Eureka](img/tp4/eureka-services.png)
 
 ### Microservice **ProxyService**
-L'architecture microservice, en fournissant un ensemble de services indépendants et faiblement couplés, se trouve confrontée au challenge de fournir une interface unifiée pour les consommateurs, de manière à ce qu'ils ne voient pas la décomposition à faible granularité de vos services. C'est pour cela que l'utilisation d'un service proxy, responsable du routage des requêtes et de la répartition de charge, est important.
+L'architecture microservices, en fournissant un ensemble de services indépendants et faiblement couplés, se trouve confrontée au challenge de fournir une interface unifiée pour les consommateurs, de manière à ce qu'ils ne voient pas la décomposition à faible granularité de vos services. C'est pour cela que l'utilisation d'un service proxy, responsable du routage des requêtes et de la répartition de charge, est important.
 
 <center><img src="../img/tp4/archi-s5.png"></center>
 
@@ -497,7 +497,7 @@ Netflix offre le service [Zuul](https://github.com/Netflix/zuul) pour réaliser 
   * Aller à *Spring Initializr*.
   * Créer le projet *proxy-service* avec les dépendances suivantes: Zuul, Web, HATEOAS, Actuator, Config Client et Eureka Discovery.
   * Ouvrir le service avec IntelliJ IDEA.
-  * Ajouter à la classe *ProxyServiceApplication* l'annotation *@EnableZuulProxy*, ainsi que *@EnableDiscoveryClient* pour que le proxy soit également enregistré dans le service ce découverte.
+  * Ajouter à la classe *ProxyServiceApplication* l'annotation *@EnableZuulProxy*, ainsi que *@EnableDiscoveryClient* pour que le proxy soit également enregistré dans le service de découverte.
   * Ajouter les propriétés *spring.application.name*  et *spring.cloud.config.uri* dans le fichier *application.properties* du service proxy.
   * Créer le fichier *proxy-service.properties* dans le répertoire *myConfig* du service de configuration, dans lequel vous allez fixer le port du service proxy à 9999.
 
@@ -505,7 +505,7 @@ En lançant le service Proxy, vous remarquerez qu'il est rajouté dans Eureka.
 
 ![Service Proxy dans Eureka](img/tp4/proxy-eureka.png)
 
-Si vous exécutez la requête http://localhost:9999/product-service/messages plusieurs fois, vous remarquerez que l'affichage *c'est moi qui ait répondu!* s'affichera sur les consoles des trois instances respectivement, à tour de rôle.
+Si vous exécutez la requête http://localhost:9999/product-service/messages plusieurs fois, vous remarquerez que l'affichage *c'est moi qui ai répondu!* s'affichera sur les consoles des trois instances respectivement, à tour de rôle.
 
 ## Homework
 Le concept de microservices est très fortement lié à la culture DevOps, et à la conteneurisation. Grâce aux conteneurs, vous n’avez pas besoin de développer et de configurer entièrement un nouveau serveur physique, ni de mettre sur pied un nouvel environnement virtuel, ce qui requiert une émulation de processeur, un système d’exploitation et des logiciels installés. Le conteneur vous permet de faire tenir un environnement complet dans une seule image légère.

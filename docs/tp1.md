@@ -102,6 +102,10 @@ consommateur):
 
 ![HelloWorld Job](img/tp1/hw-job.png)
 
+!!! tip "Astuce"
+
+    Il est conseillé de relier d'abord les composants *tXMLMap* et *tESBProviderResponse_1*, puis d'insérer le *tLogRow*. On vous demandera en reliant les deux premiers composants : *Récupérer le schéma du composant cible?*. Cliquer sur *Oui*.
+
 * Configurer votre tXMLMap pour que le *in* de la requête soit transmise au *out* de la
 réponse, en lui concaténant le célèbre "Hello". Pour cela:
 
