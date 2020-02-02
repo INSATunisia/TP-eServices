@@ -1,10 +1,14 @@
 
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Les Travaux Pratiques du cours eServices">
       
@@ -15,9 +19,26 @@
         <meta name="author" content="Lilia Sfaxi">
       
       
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
       
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-1.7.1">
+        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
+      
+        <meta name="lang:search.language" content="fr">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Aucun document trouvé">
+      
+        <meta name="lang:search.result.one" content="1 document trouvé">
+      
+        <meta name="lang:search.result.other" content="# documents trouvés">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
@@ -25,93 +46,127 @@
       
     
     
-      <script src="../assets/javascripts/modernizr-1df76c4e58.js"></script>
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application-2421e7e627.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-8817cfa535.palette.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
-    
-    
       
         
         
-        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <meta name="theme-color" content="#e91e63">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
     
-
-    <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-    <link rel="stylesheet" href="../css/highlight.css">
-    <link rel="stylesheet" href="../css/codehilite.css">
-    <link rel="stylesheet" href="../css/tooltip.css">
-
-    <link rel="stylesheet" href="../css/customizations.css">
-    <link rel="stylesheet" href="../css/site-customizations.css">
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "None", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
   </head>
   
-  
-  
-  
-    <body data-md-color-primary="" data-md-color-accent="amber">
+    
+    
+    <body dir="ltr" data-md-color-primary="pink" data-md-color-accent="amber">
   
     <svg class="md-svg">
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#tp4-microservices-avec-spring-boot-et-spring-cloud" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-logo md-header-nav__button">
+        <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-header-nav__button md-logo">
+          
             <img src="../img/logo.png" width="24" height="24">
-          </a>
-        
+          
+        </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
+            <span class="md-header-nav__topic">
+              TP eServices
+            </span>
+            <span class="md-header-nav__topic">
               
-            
-            TP4 - Microservices avec Spring Boot et Spring Cloud
+                TP4 - Microservices avec Spring Boot et Spring Cloud
+              
+            </span>
           
-        </span>
+        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-<div class="md-search" data-md-component="search">
-  <label class="md-search__overlay" for="search"></label>
-  <div class="md-search__inner">
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
-      <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
-          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
-            Type to start searching
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Taper pour démarrer la recherche
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -121,39 +176,39 @@
 </div>
         
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
             
 
 
   
 
-
-  <a href="https://github.com/INSATunisia/TP-eServices/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      INSATunisia/TP-eServices
+<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
-          
+  
+  <div class="md-source__repository">
+    INSATunisia/TP-eServices
+  </div>
+</a>
+          </div>
         </div>
-      </div>
+      
     </div>
   </nav>
 </header>
     
     <div class="md-container">
       
+        
       
-      <main class="md-main">
+      
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -161,12 +216,12 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-logo md-nav__button">
-        <img src="../img/logo.png">
-      </i>
-    
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-nav__button md-logo">
+      
+        <img src="../img/logo.png" width="48" height="48">
+      
+    </a>
     TP eServices
   </label>
   
@@ -176,20 +231,18 @@
 
   
 
-
-  <a href="https://github.com/INSATunisia/TP-eServices/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      INSATunisia/TP-eServices
+<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    INSATunisia/TP-eServices
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -251,12 +304,12 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
+      <label class="md-nav__link md-nav__link--active" for="__toc">
         TP4 - Microservices avec Spring Boot et Spring Cloud
       </label>
     
@@ -271,39 +324,39 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">Table des matières</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#telecharger-pdf" title="Télécharger PDF" class="md-nav__link">
+  <a href="#telecharger-pdf" class="md-nav__link">
     Télécharger PDF
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectifs-du-tp" title="Objectifs du TP" class="md-nav__link">
+  <a href="#objectifs-du-tp" class="md-nav__link">
     Objectifs du TP
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#acknowledgement" title="Acknowledgement" class="md-nav__link">
+  <a href="#acknowledgement" class="md-nav__link">
     Acknowledgement
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#outils-et-versions" title="Outils et Versions" class="md-nav__link">
+  <a href="#outils-et-versions" class="md-nav__link">
     Outils et Versions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-microservices" title="Architecture Microservices" class="md-nav__link">
+  <a href="#architecture-microservices" class="md-nav__link">
     Architecture Microservices
   </a>
   
@@ -311,14 +364,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#presentation" title="Présentation" class="md-nav__link">
+  <a href="#presentation" class="md-nav__link">
     Présentation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#architecture-proposee" title="Architecture Proposée" class="md-nav__link">
+  <a href="#architecture-proposee" class="md-nav__link">
     Architecture Proposée
   </a>
   
@@ -330,7 +383,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-des-microservices" title="Création des Microservices" class="md-nav__link">
+  <a href="#creation-des-microservices" class="md-nav__link">
     Création des Microservices
   </a>
   
@@ -338,35 +391,35 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#microservice-productservice" title="Microservice ProductService" class="md-nav__link">
+  <a href="#microservice-productservice" class="md-nav__link">
     Microservice ProductService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#plusieurs-instances-du-microservice-productservice" title="Plusieurs Instances du Microservice ProductService" class="md-nav__link">
+  <a href="#plusieurs-instances-du-microservice-productservice" class="md-nav__link">
     Plusieurs Instances du Microservice ProductService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice-configservice" title="Microservice ConfigService" class="md-nav__link">
+  <a href="#microservice-configservice" class="md-nav__link">
     Microservice ConfigService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice-discoveryservice" title="Microservice DiscoveryService" class="md-nav__link">
+  <a href="#microservice-discoveryservice" class="md-nav__link">
     Microservice DiscoveryService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice-proxyservice" title="Microservice ProxyService" class="md-nav__link">
+  <a href="#microservice-proxyservice" class="md-nav__link">
     Microservice ProxyService
   </a>
   
@@ -377,12 +430,7 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#homework" title="Homework" class="md-nav__link">
-    Homework
-  </a>
-  
-</li>
+      
       
       
       
@@ -422,39 +470,39 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">Table des matières</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#telecharger-pdf" title="Télécharger PDF" class="md-nav__link">
+  <a href="#telecharger-pdf" class="md-nav__link">
     Télécharger PDF
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectifs-du-tp" title="Objectifs du TP" class="md-nav__link">
+  <a href="#objectifs-du-tp" class="md-nav__link">
     Objectifs du TP
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#acknowledgement" title="Acknowledgement" class="md-nav__link">
+  <a href="#acknowledgement" class="md-nav__link">
     Acknowledgement
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#outils-et-versions" title="Outils et Versions" class="md-nav__link">
+  <a href="#outils-et-versions" class="md-nav__link">
     Outils et Versions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-microservices" title="Architecture Microservices" class="md-nav__link">
+  <a href="#architecture-microservices" class="md-nav__link">
     Architecture Microservices
   </a>
   
@@ -462,14 +510,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#presentation" title="Présentation" class="md-nav__link">
+  <a href="#presentation" class="md-nav__link">
     Présentation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#architecture-proposee" title="Architecture Proposée" class="md-nav__link">
+  <a href="#architecture-proposee" class="md-nav__link">
     Architecture Proposée
   </a>
   
@@ -481,7 +529,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-des-microservices" title="Création des Microservices" class="md-nav__link">
+  <a href="#creation-des-microservices" class="md-nav__link">
     Création des Microservices
   </a>
   
@@ -489,35 +537,35 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#microservice-productservice" title="Microservice ProductService" class="md-nav__link">
+  <a href="#microservice-productservice" class="md-nav__link">
     Microservice ProductService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#plusieurs-instances-du-microservice-productservice" title="Plusieurs Instances du Microservice ProductService" class="md-nav__link">
+  <a href="#plusieurs-instances-du-microservice-productservice" class="md-nav__link">
     Plusieurs Instances du Microservice ProductService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice-configservice" title="Microservice ConfigService" class="md-nav__link">
+  <a href="#microservice-configservice" class="md-nav__link">
     Microservice ConfigService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice-discoveryservice" title="Microservice DiscoveryService" class="md-nav__link">
+  <a href="#microservice-discoveryservice" class="md-nav__link">
     Microservice DiscoveryService
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice-proxyservice" title="Microservice ProxyService" class="md-nav__link">
+  <a href="#microservice-proxyservice" class="md-nav__link">
     Microservice ProxyService
   </a>
   
@@ -528,12 +576,7 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#homework" title="Homework" class="md-nav__link">
-    Homework
-  </a>
-  
-</li>
+      
       
       
       
@@ -549,21 +592,21 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp4.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp4.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="tp4-microservices-avec-spring-boot-et-spring-cloud">TP4 - Microservices avec Spring Boot et Spring Cloud<a class="headerlink" href="#tp4-microservices-avec-spring-boot-et-spring-cloud" title="Permanent link">&para;</a></h1>
+                <h1 id="tp4-microservices-avec-spring-boot-et-spring-cloud">TP4 - Microservices avec Spring Boot et Spring Cloud</h1>
 <p><img alt="Microservices" src="../img/microservices.png" /></p>
-<h2 id="telecharger-pdf">Télécharger PDF<a class="headerlink" href="#telecharger-pdf" title="Permanent link">&para;</a></h2>
+<h2 id="telecharger-pdf">Télécharger PDF</h2>
 <p><a href="../tp4.pdf"><img alt="Download TP4" src="../img/pdf.png" /></a></p>
-<h2 id="objectifs-du-tp">Objectifs du TP<a class="headerlink" href="#objectifs-du-tp" title="Permanent link">&para;</a></h2>
+<h2 id="objectifs-du-tp">Objectifs du TP</h2>
 <ol>
 <li>Création de microservices avec Spring Boot et Spring Cloud</li>
 <li>Déploiement d'un microservices sur plusieurs instances</li>
 </ol>
-<h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permanent link">&para;</a></h2>
+<h2 id="acknowledgement">Acknowledgement</h2>
 <p>Ce TP a été largement inspiré du travail d'un binôme d'étudiants en Génie Logiciel à l'INSAT, promotion 2017 (Houssem Ben Braiek et Hadhemi Jabnoun), que je tiens à féliciter et remercier.</p>
-<h2 id="outils-et-versions">Outils et Versions<a class="headerlink" href="#outils-et-versions" title="Permanent link">&para;</a></h2>
+<h2 id="outils-et-versions">Outils et Versions</h2>
 <ul>
 <li><a href="https://projects.spring.io/spring-boot/">Spring Boot</a> Version: 1.5.8</li>
 <li><a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a> Version 1.2.4</li>
@@ -571,10 +614,10 @@
 <li><a href="https://maven.apache.org/">Maven</a> Version 3.5.2</li>
 <li><a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a> Version Ultimate 2016.1 (ou tout autre IDE de votre choix)</li>
 </ul>
-<h2 id="architecture-microservices">Architecture Microservices<a class="headerlink" href="#architecture-microservices" title="Permanent link">&para;</a></h2>
-<h3 id="presentation">Présentation<a class="headerlink" href="#presentation" title="Permanent link">&para;</a></h3>
+<h2 id="architecture-microservices">Architecture Microservices</h2>
+<h3 id="presentation">Présentation</h3>
 <p>Une architecture <a href="https://martinfowler.com/articles/microservices.html">Microservices</a> représente un moyen de concevoir les applications comme ensemble de services indépendamment déployables. Ces services doivent de préférence être organisés autours des compétences métier, de déploiement automatique, d'extrémités intelligentes et de contrôle décentralisé des technologies et des données.</p>
-<h3 id="architecture-proposee">Architecture Proposée<a class="headerlink" href="#architecture-proposee" title="Permanent link">&para;</a></h3>
+<h3 id="architecture-proposee">Architecture Proposée</h3>
 <p>L'objectif de ce travail est de montrer comment créer plusieurs services indépendamment déployables qui communiquent entre eux, en utilisant les facilités offertes par Spring Cloud et Spring Boot. <a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a> fournit des outils pour les développeurs pour construire rapidement et facilement des patrons communs de systèmes répartis (tel que des services de configuration, de découverte ou de routage intelligent). <a href="https://projects.spring.io/spring-boot/">Spring Boot</a> permet de son côté de construire des applications Spring rapidement aussi rapidement que possible, en minimisant au maximum le temps de configuration, d'habitude pénible, des applications Spring.</p>
 <p>Nous allons donc créer les microservices suivants:</p>
 <ol>
@@ -585,8 +628,8 @@
 </ol>
 <p>L'architecture résultante aura l'allure suivante:</p>
 <p><center><img src="../img/tp4/archi.png"></center></p>
-<h2 id="creation-des-microservices">Création des Microservices<a class="headerlink" href="#creation-des-microservices" title="Permanent link">&para;</a></h2>
-<h3 id="microservice-productservice">Microservice <strong>ProductService</strong><a class="headerlink" href="#microservice-productservice" title="Permanent link">&para;</a></h3>
+<h2 id="creation-des-microservices">Création des Microservices</h2>
+<h3 id="microservice-productservice">Microservice <strong>ProductService</strong></h3>
 <p>Nous commençons par créer le service principal: <em>Product Service</em>.</p>
 <p><center><img src="../img/tp4/archi-s1.png"></center></p>
 <p>Chaque microservice sera sous forme d'un projet Spring. Pour créer rapidement et facilement un projet Spring avec toutes les dépendances nécessaires, Spring Boot fournit <em>Spring Initializr</em>.</p>
@@ -611,7 +654,7 @@
 <li>Ouvrir le projet téléchargé avec IntelliJ IDEA.</li>
 <li>Sous le répertoire <em>src/main/java</em> et dans le package <em>tn.insat.tpmicro.productservice</em>, créer la classe <em>Product</em> suivante:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.productservice</span><span class="o">;</span>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
@@ -624,28 +667,28 @@
     <span class="nd">@GeneratedValue</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">Product</span><span class="o">(){</span>
+    <span class="kd">public</span> <span class="n">Product</span><span class="o">(){</span>
     <span class="o">}</span>
-    <span class="kd">public</span> <span class="nf">Product</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Product</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
     <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">getId</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
     <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
     <span class="o">}</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">getName</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
     <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 <p>Cette classe est annotée avec JPA, pour stocker ensuite les objets <em>Product</em> dans la base de données H2 grâce à Spring Data. Pour cela, créer l'interface <em>ProductRepository</em> dans le même package:</p>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.productservice</span><span class="o">;</span>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
 
@@ -654,7 +697,7 @@
 </pre></div>
 
 <p>Pour insérer les objets dans la base, nous utiliserons l'objet <em>Stream</em>. Pour cela, nous allons créer la classe <em>DummyDataCLR</em> :</p>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.productservice</span><span class="o">;</span>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.boot.CommandLineRunner</span><span class="o">;</span>
@@ -666,7 +709,7 @@
 <span class="kd">class</span> <span class="nc">DummyDataCLR</span> <span class="kd">implements</span> <span class="n">CommandLineRunner</span> <span class="o">{</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">strings</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">run</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">strings</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
         <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;Pencil&quot;</span><span class="o">,</span> <span class="s">&quot;Book&quot;</span><span class="o">,</span> <span class="s">&quot;Eraser&quot;</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">productRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="k">new</span> <span class="n">Product</span><span class="o">(</span><span class="n">s</span><span class="o">)));</span>
         <span class="n">productRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getName</span><span class="o">()));</span>
     <span class="o">}</span>
@@ -705,7 +748,7 @@
 <p><img alt="Liste Produits" src="../img/tp4/products.png" /></p>
 <p>Pour voir les informations relatives à un seul produit, il suffit de connaître son ID: <a href="http://localhost:8080/products/1">http://localhost:8080/products/1</a>, par exemple.</p>
 <p>Pour rajouter une fonctionnalité de recherche par nom, par exemple, modifier l'interface <em>ProductRepository</em>, comme suit:</p>
-<p><div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.productservice</span><span class="o">;</span>
+<p><div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.data.domain.Page</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.data.domain.Pageable</span><span class="o">;</span>
@@ -718,7 +761,7 @@
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProductRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Product</span> <span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
 
     <span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;select p from Product p where p.name like :name&quot;</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="nf">productByName</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">mc</span>
+    <span class="kd">public</span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="n">productByName</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">mc</span>
             <span class="o">,</span> <span class="n">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div><br />
@@ -726,15 +769,15 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <p>Le résultat obtenu sera le suivant:</p>
 <p><img alt="Résultat de la recherche par nom" src="../img/tp4/search.png" /></p>
 <p>La dépendance <em>Actuator</em> qui a été rajoutée au projet permet d'afficher des informations sur votre API REST sans avoir à implémenter explicitement la fonctionnalité. Par exemple, si vous allez vers <a href="http://localhost:8080/metrics">http://localhost:8080/metrics</a>, vous pourrez avoir plusieurs informations sur le microservice, tel que le nombre de threads, la capacité mémoire, la classe chargée en mémoire, etc. Mais d'abord, rajouter les deux lignes suivantes au fichier <em>src/main/resources/application.properties</em> pour (1) afficher des informations plus détaillées sur l'état du service et (2) désactiver les contraintes de sécurité par défaut:</p>
-<div class="codehilite"><pre><span></span><span class="na">  endpoints.health.sensitive</span> <span class="o">=</span> <span class="s">false</span>
-<span class="na">  management.security.enabled</span> <span class="o">=</span> <span class="s">false</span>
+<div class="codehilite"><pre>  <span class="na">endpoints.health.sensitive</span> <span class="o">=</span> <span class="s">false</span>
+  <span class="na">management.security.enabled</span> <span class="o">=</span> <span class="s">false</span>
 </pre></div>
 
 <p>Relancer le projet. Le résultat obtenu en exécutant <a href="http://localhost:8080/metrics">http://localhost:8080/metrics</a> sera comme suit:</p>
 <p><img alt="Metrics" src="../img/tp4/metrics.png" /></p>
 <p>Les informations sur l'état du service sont affichées grâce à <a href="http://localhost:8080/health">http://localhost:8080/health</a></p>
 <p><img alt="Health" src="../img/tp4/health.png" /></p>
-<h3 id="plusieurs-instances-du-microservice-productservice">Plusieurs Instances du Microservice <strong>ProductService</strong><a class="headerlink" href="#plusieurs-instances-du-microservice-productservice" title="Permanent link">&para;</a></h3>
+<h3 id="plusieurs-instances-du-microservice-productservice">Plusieurs Instances du Microservice <strong>ProductService</strong></h3>
 <p>Nous allons maintenant créer d'autres instances du même service et les déployer sur des ports différents.</p>
 <p><center><img src="../img/tp4/archi-s2.png"></center></p>
 <p>Pour lancer plusieurs instances du service <em>ProductService</em>, nous allons définir plusieurs configurations avec des numéros de port différents. Pour cela:</p>
@@ -743,7 +786,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <li>Changer son nom: <em>ProductServiceApplication:8081</em></li>
 <li>Ajouter dans la case <em>Program Arguments</em> l'argument suivant:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="na">--server.port</span><span class="o">=</span><span class="s">8081</span>
+<div class="codehilite"><pre><span class="na">--server.port</span><span class="o">=</span><span class="s">8081</span>
 </pre></div>
 
 <ul>
@@ -760,7 +803,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <ul>
 <li>Refaire les mêmes étapes pour créer une instance du service tourant sur le port 8082.</li>
 </ul>
-<h3 id="microservice-configservice">Microservice <strong>ConfigService</strong><a class="headerlink" href="#microservice-configservice" title="Permanent link">&para;</a></h3>
+<h3 id="microservice-configservice">Microservice <strong>ConfigService</strong></h3>
 <p>Dans une architecture microservices, plusieurs services s'exécutent en même temps, sur des processus différents, avec chacun sa propre configuration et ses propres paramètres. Spring Cloud Config fournit un support côté serveur et côté client pour externaliser les configurations dans un système distribué. Grâce au service de configuration, il est possible d'avoir un endroit centralisé pour gérer les propriétés de chacun de ces services.</p>
 <p><center><img src="../img/tp4/archi-s3.png"></center></p>
 <p>Pour cela:</p>
@@ -772,7 +815,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <li>Ouvrir le projet dans une autre instance d'IntelliJ IDEA.</li>
 <li>Pour exposer un service de configuration, utiliser l'annotation <em>@EnableConfigServer</em> pour la classe <em>ConfigServiceApplication</em>, comme suit:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.configservice</span><span class="o">;</span>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">configservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
@@ -792,8 +835,8 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <ul>
 <li>Pour paramétrer ce service de configuration, ajouter dans son fichier <em>application.properties</em> les valeurs suivantes:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="na">  server.port</span><span class="o">=</span><span class="s">8888</span>
-<span class="na">  spring.cloud.config.server.git.uri</span><span class="o">=</span><span class="s">file:./src/main/resources/myConfig</span>
+<div class="codehilite"><pre>  <span class="na">server.port</span><span class="o">=</span><span class="s">8888</span>
+  <span class="na">spring.cloud.config.server.git.uri</span><span class="o">=</span><span class="s">file:./src/main/resources/myConfig</span>
 </pre></div>
 
 <p>Ceci indique que le service de configuration sera lancé sur le port 8888 et que le répertoire contenant les fichiers de configuration se trouve dans le répertoire <em>src/main/resources/myConfig</em>. Il suffit maintenant de créer ce répertoire.</p>
@@ -805,27 +848,27 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <li>Créer le répertoire <em>myConfig</em> à l'arborescence <em>src/main/resources</em></li>
 <li>Créer dans ce répertoire le fichier <em>application.properties</em> dans lequel vous insérez l'instruction suivante:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="na">global</span><span class="o">=</span><span class="s">xxxxx</span>
+<div class="codehilite"><pre><span class="na">global</span><span class="o">=</span><span class="s">xxxxx</span>
 </pre></div>
 
 <p>Ce fichier sera partagé entre tous les microservices utilisant ce service de configuration.</p>
 <ul>
 <li>Le répertoire de configuration doit être un répertoire git. Pour cela:<ul>
 <li>Ouvrir le terminal avec IntelliJ et naviguer vers ce répertoire.</li>
-<li>Initialiser votre répertoire: <code>git init</code></li>
-<li>Créer une entrée racine dans le repository: <code>git add .</code></li>
-<li>Faire un commit: <code>git commit -m &quot;add .&quot;</code></li>
+<li>Initialiser votre répertoire: <code class="codehilite"><span class="n">git</span> <span class="n">init</span></code></li>
+<li>Créer une entrée racine dans le repository: <code class="codehilite"><span class="n">git</span> <span class="n">add</span> <span class="p">.</span></code></li>
+<li>Faire un commit: <code class="codehilite"><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;add .&quot;</span></code></li>
 </ul>
 </li>
 </ul>
 <p>Revenir vers le projet <em>ProductService</em> et ajouter dans le fichier de configuration <em>application.properties</em>:</p>
-<div class="codehilite"><pre><span></span><span class="na">spring.application.name</span> <span class="o">=</span> <span class="s">product-service</span>
+<div class="codehilite"><pre><span class="na">spring.application.name</span> <span class="o">=</span> <span class="s">product-service</span>
 <span class="na">spring.cloud.config.uri</span> <span class="o">=</span> <span class="s">http://localhost:8888</span>
 </pre></div>
 
 <p>Redémarrer vos services. Pour consulter le service de configuration, aller à <a href="http://localhost:8888/product-service/master">http://localhost:8888/product-service/master</a>.</p>
 <p>Vous verrez le fichier JSON suivant:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="codehilite"><pre><span class="p">{</span>
   <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;product-service&quot;</span><span class="p">,</span>
   <span class="nx">profiles</span><span class="o">:</span> <span class="p">[</span>
     <span class="s2">&quot;master&quot;</span>
@@ -855,11 +898,11 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <ul>
 <li>Ajouter les propriétés de votre service, à savoir, par exemple:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="na">  me</span><span class="o">=</span><span class="s">lilia.sfaxi@insat.rnu.tn</span>
+<div class="codehilite"><pre>  <span class="na">me</span><span class="o">=</span><span class="s">lilia.sfaxi@insat.rnu.tn</span>
 </pre></div>
 
 <p>Relancer le microservice de configuration. En consultant l'url <a href="http://localhost:8888/product-service/master">http://localhost:8888/product-service/master</a>, nous remarquons l'ajout de la nouvelle propriété.</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="codehilite"><pre><span class="p">{</span>
   <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;product-service&quot;</span><span class="p">,</span>
   <span class="nx">profiles</span><span class="o">:</span> <span class="p">[</span>
     <span class="s2">&quot;master&quot;</span>
@@ -888,7 +931,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <ul>
 <li>Créer la classe <em>ProductRestService</em> dans le projet <em>product-service</em>. Son code ressemblera à ce qui suit:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.productservice</span><span class="o">;</span>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
@@ -901,7 +944,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
   <span class="kd">private</span> <span class="n">String</span> <span class="n">me</span><span class="o">;</span>
 
   <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&quot;/messages&quot;</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="n">String</span> <span class="nf">tellMe</span><span class="o">(){</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="n">tellMe</span><span class="o">(){</span>
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;c&#39;est moi qui ai répondu!&quot;</span><span class="o">);</span>
       <span class="k">return</span> <span class="n">me</span><span class="o">;</span>
   <span class="o">}</span>
@@ -916,7 +959,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <li>Consulter votre Spring Dashboard, vous verrez le message suivant dans la console de l'instance du service lancée sur le port 8080:</li>
 </ul>
 <p><img alt="Service REST" src="../img/tp4/rest-console.png" /></p>
-<h3 id="microservice-discoveryservice">Microservice <strong>DiscoveryService</strong><a class="headerlink" href="#microservice-discoveryservice" title="Permanent link">&para;</a></h3>
+<h3 id="microservice-discoveryservice">Microservice <strong>DiscoveryService</strong></h3>
 <p>Pour éviter un couplage fort entre microservices, il est fortement recommandé d'utiliser un service de découverte qui permet d'enregistrer les propriétés des différents services et d'éviter ainsi d'avoir à appeler un service directement. Au lieu de cela, le service de découverte fournira dynamiquement les informations nécessaires, ce qui permet d'assurer l'élasticité et la dynamicité propres à une architecture microservices.</p>
 <p><center><img src="../img/tp4/archi-s4.png"></center></p>
 <p>Pour réaliser cela, Netflix offre le service <a href="https://spring.io/guides/gs/service-registration-and-discovery/">Eureka Service Registration and Discovery</a>, que nous allons utiliser dans notre application.</p>
@@ -925,7 +968,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <li>Lancer le projet avec IntelliJ.</li>
 <li>Dans la classe <em>DiscoveryServiceApplication</em>, ajouter l'annotation <em>EnableEurekaServer</em>.</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.discoveryservice</span><span class="o">;</span>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">discoveryservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
@@ -944,7 +987,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <ul>
 <li>Ajouter les propriétés suivantes dans son fichier <em>application.properties</em>.</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="na">spring.application.name</span><span class="o">=</span><span class="s">discovery-service</span>
+<div class="codehilite"><pre><span class="na">spring.application.name</span><span class="o">=</span><span class="s">discovery-service</span>
 <span class="na">spring.cloud.config.uri</span><span class="o">=</span><span class="s">http://localhost:8888</span>
 </pre></div>
 
@@ -952,7 +995,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <li>Dans le projet <em>config-service</em>, créer un fichier <em>discovery-service.properties</em> sous le répertoire <em>myConfig</em>.</li>
 <li>Ajouter les propriétés suivantes pour (1) définir le port par défaut du service de découverte et (2) empêcher un auto-enregistrement du service Eureka.</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="na">server.port</span> <span class="o">=</span> <span class="s">8761</span>
+<div class="codehilite"><pre><span class="na">server.port</span> <span class="o">=</span> <span class="s">8761</span>
 <span class="na">eureka.client.fetch-registry</span> <span class="o">=</span> <span class="s">false</span>
 <span class="na">eureka.client.register-with-eureka</span> <span class="o">=</span> <span class="s">false</span>
 </pre></div>
@@ -960,7 +1003,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <p>Pour consulter le service Eureka, aller à <a href="http://localhost:8761">http://localhost:8761</a>, l'interface suivante s'affiche:</p>
 <p><img alt="Console Eureka" src="../img/tp4/eureka-console.png" /></p>
 <p>Nous remarquons qu'aucune instance n'est inscrite dans le serveur de découverte. Nous allons donc modifier le code de la classe <em>ProductServiceApplication</em> pour que le microservice <em>ProductService</em> s'enregistre:</p>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">tn.insat.tpmicro.productservice</span><span class="o">;</span>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
@@ -978,7 +1021,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 
 <p>Redémarrer les trois instances de services <em>ProductService</em> et actualiser la fenêtre de <em>Eureka</em>, vous verrez qu'un seul service est déclaré, avec trois adresses différentes.</p>
 <p><img alt="Services sur Eureka" src="../img/tp4/eureka-services.png" /></p>
-<h3 id="microservice-proxyservice">Microservice <strong>ProxyService</strong><a class="headerlink" href="#microservice-proxyservice" title="Permanent link">&para;</a></h3>
+<h3 id="microservice-proxyservice">Microservice <strong>ProxyService</strong></h3>
 <p>L'architecture microservices, en fournissant un ensemble de services indépendants et faiblement couplés, se trouve confrontée au challenge de fournir une interface unifiée pour les consommateurs, de manière à ce qu'ils ne voient pas la décomposition à faible granularité de vos services. C'est pour cela que l'utilisation d'un service proxy, responsable du routage des requêtes et de la répartition de charge, est important.</p>
 <p><center><img src="../img/tp4/archi-s5.png"></center></p>
 <p>Netflix offre le service <a href="https://github.com/Netflix/zuul">Zuul</a> pour réaliser cela. Pour créer votre microservice Proxy:</p>
@@ -993,16 +1036,15 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
 <p>En lançant le service Proxy, vous remarquerez qu'il est rajouté dans Eureka.</p>
 <p><img alt="Service Proxy dans Eureka" src="../img/tp4/proxy-eureka.png" /></p>
 <p>Si vous exécutez la requête <a href="http://localhost:9999/product-service/messages">http://localhost:9999/product-service/messages</a> plusieurs fois, vous remarquerez que l'affichage <em>c'est moi qui ai répondu!</em> s'affichera sur les consoles des trois instances respectivement, à tour de rôle.</p>
-<h2 id="homework">Homework<a class="headerlink" href="#homework" title="Permanent link">&para;</a></h2>
-<p>Le concept de microservices est très fortement lié à la culture DevOps, et à la conteneurisation. Grâce aux conteneurs, vous n’avez pas besoin de développer et de configurer entièrement un nouveau serveur physique, ni de mettre sur pied un nouvel environnement virtuel, ce qui requiert une émulation de processeur, un système d’exploitation et des logiciels installés. Le conteneur vous permet de faire tenir un environnement complet dans une seule image légère.</p>
-<p>C'est pour cela que votre tâche pour la séance prochaine sera de <em>dockeriser</em> les différents microservices que nous venons de créer, au lieu de les lancer sur notre machine physique (localhost). Les trois instances du service ProductService, ainsi que les trois autres services (Discovery, Config et Proxy) doivent tourner indépendamment, chacun dans soon propre contenaire.</p>
-<p>Vous devez fournir chacun un lien vers un projet <strong>Github</strong> contenant vos projets, ainsi qu'un <strong>Readme</strong> en bonne et due forme (respecter la norme Markdown svp) montrant les étapes de conteneurisation des services. Chaque binôme devra fournir son lien dans le fichier excel intitulé <em>Homework</em> que vous trouverez dans <a href="https://piazza.com/class/j3k0yr6cyex4n8">Piazza</a>.</p>
                 
                   
                 
+                
               
               
                 
+
+
               
             </article>
           </div>
@@ -1022,7 +1064,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  Précédent
                 </span>
                 TP3 - Mise en Place d’un ESB avec Talend ESB
               </span>
@@ -1034,7 +1076,7 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  Suivant
                 </span>
                 TP5 - API Management avec Atom et Anypoint
               </span>
@@ -1056,16 +1098,14 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
           </div>
         
         powered by
-        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        <a href="https://www.mkdocs.org">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+        <a href="https://squidfunk.github.io/mkdocs-material/">
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
       <a href="http://liliasfaxi.wix.com/liliasfaxi" class="md-footer-social__link fa fa-globe"></a>
     
@@ -1077,28 +1117,30 @@ Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://lo
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/raphael-min.js"></script>
-      <script src="../assets/javascripts/flowchart.js"></script>
-      <script src="../assets/javascripts/application-e3caa82af6.js"></script>
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
       
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.fr.js"></script>
+              
+            
+          
+          
+        
       
-      <script>app.initialize({url:{base:".."}})</script>
-      
-        <script src="../search/require.js"></script>
-      
-        <script src="../search/search.js"></script>
-      
-    
-    
-      
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
     
   </body>
