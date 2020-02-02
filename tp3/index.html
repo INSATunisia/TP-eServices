@@ -1,10 +1,14 @@
 
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+
+
+
+<!doctype html>
+<html lang="fr" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Les Travaux Pratiques du cours eServices">
       
@@ -15,9 +19,26 @@
         <meta name="author" content="Lilia Sfaxi">
       
       
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
       
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-1.7.1">
+        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
+      
+        <meta name="lang:search.language" content="fr">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Aucun document trouvé">
+      
+        <meta name="lang:search.result.one" content="1 document trouvé">
+      
+        <meta name="lang:search.result.other" content="# documents trouvés">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
@@ -25,93 +46,127 @@
       
     
     
-      <script src="../assets/javascripts/modernizr-1df76c4e58.js"></script>
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application-2421e7e627.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-8817cfa535.palette.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
-    
-    
       
         
         
-        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <meta name="theme-color" content="#e91e63">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
     
-
-    <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-    <link rel="stylesheet" href="../css/highlight.css">
-    <link rel="stylesheet" href="../css/codehilite.css">
-    <link rel="stylesheet" href="../css/tooltip.css">
-
-    <link rel="stylesheet" href="../css/customizations.css">
-    <link rel="stylesheet" href="../css/site-customizations.css">
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "None", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
   </head>
   
-  
-  
-  
-    <body data-md-color-primary="" data-md-color-accent="amber">
+    
+    
+    <body dir="ltr" data-md-color-primary="pink" data-md-color-accent="amber">
   
     <svg class="md-svg">
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#tp3-mise-en-place-dun-esb-avec-talend-esb" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-logo md-header-nav__button">
+        <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-header-nav__button md-logo">
+          
             <img src="../img/logo.png" width="24" height="24">
-          </a>
-        
+          
+        </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
+            <span class="md-header-nav__topic">
+              TP eServices
+            </span>
+            <span class="md-header-nav__topic">
               
-            
-            TP3 - Mise en Place d’un ESB avec Talend ESB
+                TP3 - Mise en Place d’un ESB avec Talend ESB
+              
+            </span>
           
-        </span>
+        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-<div class="md-search" data-md-component="search">
-  <label class="md-search__overlay" for="search"></label>
-  <div class="md-search__inner">
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
-      <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
-          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
-            Type to start searching
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Taper pour démarrer la recherche
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -121,39 +176,39 @@
 </div>
         
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
             
 
 
   
 
-
-  <a href="https://github.com/INSATunisia/TP-eServices/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      INSATunisia/TP-eServices
+<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
-          
+  
+  <div class="md-source__repository">
+    INSATunisia/TP-eServices
+  </div>
+</a>
+          </div>
         </div>
-      </div>
+      
     </div>
   </nav>
 </header>
     
     <div class="md-container">
       
+        
       
-      <main class="md-main">
+      
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -161,12 +216,12 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-logo md-nav__button">
-        <img src="../img/logo.png">
-      </i>
-    
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-nav__button md-logo">
+      
+        <img src="../img/logo.png" width="48" height="48">
+      
+    </a>
     TP eServices
   </label>
   
@@ -176,20 +231,18 @@
 
   
 
-
-  <a href="https://github.com/INSATunisia/TP-eServices/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      INSATunisia/TP-eServices
+<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    INSATunisia/TP-eServices
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -239,12 +292,12 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
+      <label class="md-nav__link md-nav__link--active" for="__toc">
         TP3 - Mise en Place d’un ESB avec Talend ESB
       </label>
     
@@ -259,32 +312,32 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">Table des matières</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#telecharger-pdf" title="Télécharger PDF" class="md-nav__link">
+  <a href="#telecharger-pdf" class="md-nav__link">
     Télécharger PDF
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectifs-du-tp" title="Objectifs du TP" class="md-nav__link">
+  <a href="#objectifs-du-tp" class="md-nav__link">
     Objectifs du TP
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#outils-et-versions" title="Outils et Versions" class="md-nav__link">
+  <a href="#outils-et-versions" class="md-nav__link">
     Outils et Versions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-et-utilisation-de-lesb-talend" title="Configuration et Utilisation de l'ESB Talend" class="md-nav__link">
+  <a href="#configuration-et-utilisation-de-lesb-talend" class="md-nav__link">
     Configuration et Utilisation de l'ESB Talend
   </a>
   
@@ -292,14 +345,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lancement-de-deux-instances-de-lesb-talend" title="Lancement de deux instances de l'ESB Talend" class="md-nav__link">
+  <a href="#lancement-de-deux-instances-de-lesb-talend" class="md-nav__link">
     Lancement de deux instances de l'ESB Talend
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#publier-votre-service-dans-lesb-et-le-tester" title="Publier votre Service dans l'ESB et le Tester" class="md-nav__link">
+  <a href="#publier-votre-service-dans-lesb-et-le-tester" class="md-nav__link">
     Publier votre Service dans l'ESB et le Tester
   </a>
   
@@ -311,7 +364,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-des-routes" title="Création des Routes" class="md-nav__link">
+  <a href="#creation-des-routes" class="md-nav__link">
     Création des Routes
   </a>
   
@@ -319,21 +372,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#premiere-route-filtrage-des-messages" title="Première Route: Filtrage des Messages" class="md-nav__link">
+  <a href="#premiere-route-filtrage-des-messages" class="md-nav__link">
     Première Route: Filtrage des Messages
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deploiement-des-routes-sur-lesb" title="Déploiement des Routes sur l'ESB" class="md-nav__link">
+  <a href="#deploiement-des-routes-sur-lesb" class="md-nav__link">
     Déploiement des Routes sur l'ESB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deuxieme-route-filtrage-et-modification-de-messages" title="Deuxième Route : Filtrage et Modification de Messages" class="md-nav__link">
+  <a href="#deuxieme-route-filtrage-et-modification-de-messages" class="md-nav__link">
     Deuxième Route : Filtrage et Modification de Messages
   </a>
   
@@ -345,7 +398,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fonctionnalites-supplementaires-de-lesb" title="Fonctionnalités Supplémentaires de l'ESB" class="md-nav__link">
+  <a href="#fonctionnalites-supplementaires-de-lesb" class="md-nav__link">
     Fonctionnalités Supplémentaires de l'ESB
   </a>
   
@@ -353,7 +406,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#failover-et-repartition-de-charge" title="Failover et Répartition de Charge" class="md-nav__link">
+  <a href="#failover-et-repartition-de-charge" class="md-nav__link">
     Failover et Répartition de Charge
   </a>
   
@@ -361,14 +414,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#service-locator" title="Service Locator" class="md-nav__link">
+  <a href="#service-locator" class="md-nav__link">
     Service Locator
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration-du-service-locator" title="Configuration du Service Locator" class="md-nav__link">
+  <a href="#configuration-du-service-locator" class="md-nav__link">
     Configuration du Service Locator
   </a>
   
@@ -376,21 +429,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-deploiement-du-sl-dans-le-contenaire" title="1. Déploiement du SL dans le contenaire" class="md-nav__link">
+  <a href="#1-deploiement-du-sl-dans-le-contenaire" class="md-nav__link">
     1. Déploiement du SL dans le contenaire
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-activer-sl-dans-le-service" title="2. Activer SL dans le service" class="md-nav__link">
+  <a href="#2-activer-sl-dans-le-service" class="md-nav__link">
     2. Activer SL dans le service
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-activer-sl-dans-le-consommateur" title="3. Activer SL dans le consommateur" class="md-nav__link">
+  <a href="#3-activer-sl-dans-le-consommateur" class="md-nav__link">
     3. Activer SL dans le consommateur
   </a>
   
@@ -402,7 +455,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#test-du-service-locator" title="Test du Service Locator" class="md-nav__link">
+  <a href="#test-du-service-locator" class="md-nav__link">
     Test du Service Locator
   </a>
   
@@ -414,14 +467,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#service-monitoring" title="Service Monitoring" class="md-nav__link">
+  <a href="#service-monitoring" class="md-nav__link">
     Service Monitoring
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#authentification" title="Authentification" class="md-nav__link">
+  <a href="#authentification" class="md-nav__link">
     Authentification
   </a>
   
@@ -429,14 +482,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-token-service-sts-implementation-du-ws-trust" title="Security Token Service (STS) : Implémentation du WS-Trust" class="md-nav__link">
+  <a href="#security-token-service-sts-implementation-du-ws-trust" class="md-nav__link">
     Security Token Service (STS) : Implémentation du WS-Trust
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration-des-parametres-de-securite" title="Configuration des Paramètres de Sécurité" class="md-nav__link">
+  <a href="#configuration-des-parametres-de-securite" class="md-nav__link">
     Configuration des Paramètres de Sécurité
   </a>
   
@@ -444,28 +497,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-deployer-sts-dans-le-conteneur-dexecution" title="1. Déployer STS dans le conteneur d’exécution" class="md-nav__link">
+  <a href="#1-deployer-sts-dans-le-conteneur-dexecution" class="md-nav__link">
     1. Déployer STS dans le conteneur d’exécution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configurer-les-parametres-de-securite-de-votre-conteneur" title="2. Configurer les paramètres de sécurité de votre conteneur" class="md-nav__link">
+  <a href="#2-configurer-les-parametres-de-securite-de-votre-conteneur" class="md-nav__link">
     2. Configurer les paramètres de sécurité de votre conteneur
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-activer-sts-dans-votre-service" title="3. Activer STS dans votre service" class="md-nav__link">
+  <a href="#3-activer-sts-dans-votre-service" class="md-nav__link">
     3. Activer STS dans votre service
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-configurer-le-client" title="4. Configurer le client" class="md-nav__link">
+  <a href="#4-configurer-le-client" class="md-nav__link">
     4. Configurer le client
   </a>
   
@@ -486,12 +539,7 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#homework" title="Homework" class="md-nav__link">
-    Homework
-  </a>
-  
-</li>
+      
       
       
       
@@ -543,32 +591,32 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">Table des matières</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#telecharger-pdf" title="Télécharger PDF" class="md-nav__link">
+  <a href="#telecharger-pdf" class="md-nav__link">
     Télécharger PDF
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectifs-du-tp" title="Objectifs du TP" class="md-nav__link">
+  <a href="#objectifs-du-tp" class="md-nav__link">
     Objectifs du TP
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#outils-et-versions" title="Outils et Versions" class="md-nav__link">
+  <a href="#outils-et-versions" class="md-nav__link">
     Outils et Versions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-et-utilisation-de-lesb-talend" title="Configuration et Utilisation de l'ESB Talend" class="md-nav__link">
+  <a href="#configuration-et-utilisation-de-lesb-talend" class="md-nav__link">
     Configuration et Utilisation de l'ESB Talend
   </a>
   
@@ -576,14 +624,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lancement-de-deux-instances-de-lesb-talend" title="Lancement de deux instances de l'ESB Talend" class="md-nav__link">
+  <a href="#lancement-de-deux-instances-de-lesb-talend" class="md-nav__link">
     Lancement de deux instances de l'ESB Talend
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#publier-votre-service-dans-lesb-et-le-tester" title="Publier votre Service dans l'ESB et le Tester" class="md-nav__link">
+  <a href="#publier-votre-service-dans-lesb-et-le-tester" class="md-nav__link">
     Publier votre Service dans l'ESB et le Tester
   </a>
   
@@ -595,7 +643,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creation-des-routes" title="Création des Routes" class="md-nav__link">
+  <a href="#creation-des-routes" class="md-nav__link">
     Création des Routes
   </a>
   
@@ -603,21 +651,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#premiere-route-filtrage-des-messages" title="Première Route: Filtrage des Messages" class="md-nav__link">
+  <a href="#premiere-route-filtrage-des-messages" class="md-nav__link">
     Première Route: Filtrage des Messages
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deploiement-des-routes-sur-lesb" title="Déploiement des Routes sur l'ESB" class="md-nav__link">
+  <a href="#deploiement-des-routes-sur-lesb" class="md-nav__link">
     Déploiement des Routes sur l'ESB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deuxieme-route-filtrage-et-modification-de-messages" title="Deuxième Route : Filtrage et Modification de Messages" class="md-nav__link">
+  <a href="#deuxieme-route-filtrage-et-modification-de-messages" class="md-nav__link">
     Deuxième Route : Filtrage et Modification de Messages
   </a>
   
@@ -629,7 +677,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fonctionnalites-supplementaires-de-lesb" title="Fonctionnalités Supplémentaires de l'ESB" class="md-nav__link">
+  <a href="#fonctionnalites-supplementaires-de-lesb" class="md-nav__link">
     Fonctionnalités Supplémentaires de l'ESB
   </a>
   
@@ -637,7 +685,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#failover-et-repartition-de-charge" title="Failover et Répartition de Charge" class="md-nav__link">
+  <a href="#failover-et-repartition-de-charge" class="md-nav__link">
     Failover et Répartition de Charge
   </a>
   
@@ -645,14 +693,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#service-locator" title="Service Locator" class="md-nav__link">
+  <a href="#service-locator" class="md-nav__link">
     Service Locator
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration-du-service-locator" title="Configuration du Service Locator" class="md-nav__link">
+  <a href="#configuration-du-service-locator" class="md-nav__link">
     Configuration du Service Locator
   </a>
   
@@ -660,21 +708,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-deploiement-du-sl-dans-le-contenaire" title="1. Déploiement du SL dans le contenaire" class="md-nav__link">
+  <a href="#1-deploiement-du-sl-dans-le-contenaire" class="md-nav__link">
     1. Déploiement du SL dans le contenaire
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-activer-sl-dans-le-service" title="2. Activer SL dans le service" class="md-nav__link">
+  <a href="#2-activer-sl-dans-le-service" class="md-nav__link">
     2. Activer SL dans le service
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-activer-sl-dans-le-consommateur" title="3. Activer SL dans le consommateur" class="md-nav__link">
+  <a href="#3-activer-sl-dans-le-consommateur" class="md-nav__link">
     3. Activer SL dans le consommateur
   </a>
   
@@ -686,7 +734,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#test-du-service-locator" title="Test du Service Locator" class="md-nav__link">
+  <a href="#test-du-service-locator" class="md-nav__link">
     Test du Service Locator
   </a>
   
@@ -698,14 +746,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#service-monitoring" title="Service Monitoring" class="md-nav__link">
+  <a href="#service-monitoring" class="md-nav__link">
     Service Monitoring
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#authentification" title="Authentification" class="md-nav__link">
+  <a href="#authentification" class="md-nav__link">
     Authentification
   </a>
   
@@ -713,14 +761,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#security-token-service-sts-implementation-du-ws-trust" title="Security Token Service (STS) : Implémentation du WS-Trust" class="md-nav__link">
+  <a href="#security-token-service-sts-implementation-du-ws-trust" class="md-nav__link">
     Security Token Service (STS) : Implémentation du WS-Trust
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration-des-parametres-de-securite" title="Configuration des Paramètres de Sécurité" class="md-nav__link">
+  <a href="#configuration-des-parametres-de-securite" class="md-nav__link">
     Configuration des Paramètres de Sécurité
   </a>
   
@@ -728,28 +776,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-deployer-sts-dans-le-conteneur-dexecution" title="1. Déployer STS dans le conteneur d’exécution" class="md-nav__link">
+  <a href="#1-deployer-sts-dans-le-conteneur-dexecution" class="md-nav__link">
     1. Déployer STS dans le conteneur d’exécution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configurer-les-parametres-de-securite-de-votre-conteneur" title="2. Configurer les paramètres de sécurité de votre conteneur" class="md-nav__link">
+  <a href="#2-configurer-les-parametres-de-securite-de-votre-conteneur" class="md-nav__link">
     2. Configurer les paramètres de sécurité de votre conteneur
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-activer-sts-dans-votre-service" title="3. Activer STS dans votre service" class="md-nav__link">
+  <a href="#3-activer-sts-dans-votre-service" class="md-nav__link">
     3. Activer STS dans votre service
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-configurer-le-client" title="4. Configurer le client" class="md-nav__link">
+  <a href="#4-configurer-le-client" class="md-nav__link">
     4. Configurer le client
   </a>
   
@@ -770,12 +818,7 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#homework" title="Homework" class="md-nav__link">
-    Homework
-  </a>
-  
-</li>
+      
       
       
       
@@ -791,26 +834,26 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp3.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp3.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="tp3-mise-en-place-dun-esb-avec-talend-esb">TP3 - Mise en Place d’un ESB avec Talend ESB<a class="headerlink" href="#tp3-mise-en-place-dun-esb-avec-talend-esb" title="Permanent link">&para;</a></h1>
+                <h1 id="tp3-mise-en-place-dun-esb-avec-talend-esb">TP3 - Mise en Place d’un ESB avec Talend ESB</h1>
 <p><img alt="ESB" src="../img/esb.png" /></p>
-<h2 id="telecharger-pdf">Télécharger PDF<a class="headerlink" href="#telecharger-pdf" title="Permanent link">&para;</a></h2>
+<h2 id="telecharger-pdf">Télécharger PDF</h2>
 <p><a href="../tp3.pdf"><img alt="Download TP3" src="../img/pdf.png" /></a></p>
-<h2 id="objectifs-du-tp">Objectifs du TP<a class="headerlink" href="#objectifs-du-tp" title="Permanent link">&para;</a></h2>
+<h2 id="objectifs-du-tp">Objectifs du TP</h2>
 <ol>
 <li>Routage, médiation et transformation avec Talend ESB.</li>
 <li>Gestion du failover et répartition de charges, monitoring et authentification avec Talend ESB.</li>
 </ol>
-<h2 id="outils-et-versions">Outils et Versions<a class="headerlink" href="#outils-et-versions" title="Permanent link">&para;</a></h2>
+<h2 id="outils-et-versions">Outils et Versions</h2>
 <ul>
 <li><a href="https://www.talend.com/download_page_type/talend-open-studio/">Talend Open Studio for ESB</a> Version: 6.3.0</li>
 <li><a href="https://www.dbvis.com/download/">DB Visualizer</a> Version 10.0</li>
 <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">Java</a> Version 1.8.0_121</li>
 </ul>
-<h2 id="configuration-et-utilisation-de-lesb-talend">Configuration et Utilisation de l'ESB Talend<a class="headerlink" href="#configuration-et-utilisation-de-lesb-talend" title="Permanent link">&para;</a></h2>
-<h3 id="lancement-de-deux-instances-de-lesb-talend">Lancement de deux instances de l'ESB Talend<a class="headerlink" href="#lancement-de-deux-instances-de-lesb-talend" title="Permanent link">&para;</a></h3>
+<h2 id="configuration-et-utilisation-de-lesb-talend">Configuration et Utilisation de l'ESB Talend</h2>
+<h3 id="lancement-de-deux-instances-de-lesb-talend">Lancement de deux instances de l'ESB Talend</h3>
 <p>Pour les besoins de notre TP, nous allons lancer deux instances de l’ESB Talend. Pour cela, l’environnement nous fournit une manière très simple de le faire:</p>
 <ul>
 <li>Aller dans le répertoire <em>&lt;rep_install_talend>/Runtime_ESBSE</em></li>
@@ -828,7 +871,7 @@
 <ul>
 <li><strong>Configurer l'ESB</strong> : dans l’invite de commande affichée, taper:</li>
 </ul>
-<div class="codehilite"><pre><span></span>  <span class="nb">source</span> scripts/configureC1.sh
+<div class="codehilite"><pre>  <span class="nb">source </span>scripts/configureC1.sh
 </pre></div>
 
 <ul>
@@ -840,7 +883,7 @@
 <li>Arrêtez votre ESB, en cliquant sur ctrl-d, et relancez-le de nouveau.</li>
 <li>Lancez dans un autre terminal l’instance de l’ESB se trouvant sous le répertoire d’origine container. Il est inutile de la configurer, elle se lancera par défaut sur le port 8040.</li>
 </ul>
-<h3 id="publier-votre-service-dans-lesb-et-le-tester">Publier votre Service dans l'ESB et le Tester<a class="headerlink" href="#publier-votre-service-dans-lesb-et-le-tester" title="Permanent link">&para;</a></h3>
+<h3 id="publier-votre-service-dans-lesb-et-le-tester">Publier votre Service dans l'ESB et le Tester</h3>
 <p>Revenir au service web SOAP <a href="../tp1/#service-web-soap-helloworld">HelloWorldService</a> que vous avez créé dans le TP1, et le publier sur l'ESB. Pour cela, ouvrir l'éditeur <em>Talend Open Studio</em> sur le projet <em>Helloworld</em>, et suivre les étapes suivantes:</p>
 <ul>
 <li>Faire un clic-droit sur le service <em>HelloWorldService</em> et choisir <em>Exporter le service</em>. Choisir comme répertoire de destination le dossier <em>deploy</em> se trouvant dans le conteneur où vous désirez déployer le service. Un fichier archive de type kar sera alors créé sous ce répertoire, permettant ainsi son déploiement à chaud (pas besoin de redémarrer l’ESB).</li>
@@ -858,9 +901,9 @@
 </ul>
 <p>Vérifier que votre service s’exécute bien sur l’ESB principal, en consultant le terminal où il est démarré. Vous devriez trouver un affichage semblable à celui-ci:</p>
 <p><center><img src="../img/tp3/service-exec.png"></center></p>
-<h2 id="creation-des-routes">Création des Routes<a class="headerlink" href="#creation-des-routes" title="Permanent link">&para;</a></h2>
+<h2 id="creation-des-routes">Création des Routes</h2>
 <p>Les routes permettent de définir le comportement que doit prendre le message selon son contenu. Dans notre exemple, nous allons définir deux types de routes: une route permettant de filtrer les messages par contenu, en envoyant les messages contenant le nom “Alice” vers un ESB, et le reste vers l’autre ESB. Une deuxième route permettra de modifier le contenu de certains messages avant de les faire parvenir à leurs destinataires.</p>
-<h3 id="premiere-route-filtrage-des-messages">Première Route: Filtrage des Messages<a class="headerlink" href="#premiere-route-filtrage-des-messages" title="Permanent link">&para;</a></h3>
+<h3 id="premiere-route-filtrage-des-messages">Première Route: Filtrage des Messages</h3>
 <ul>
 <li>Créer une nouvelle route en cliquant-droit sur <em>Routes -&gt; Créer une Route</em>. Nous allons l’appeler FiltrageRoute.</li>
 <li>Définir votre route de manière à ce qu’elle ressemble à ce qui suit:</li>
@@ -878,7 +921,7 @@
 <p>Configurer la condition <em>when</em>, en précisant que c’est une condition de type simple, dont le texte est :</p>
 </li>
 </ul>
-<p><div class="codehilite"><pre><span></span>    <span class="s2">&quot;</span><span class="si">${</span><span class="nv">bodyAs</span><span class="p">(String)</span><span class="si">}</span><span class="s2"> contains &#39;Alice&#39;&quot;</span>
+<p><div class="codehilite"><pre>    <span class="s2">&quot;${bodyAs(String)} contains &#39;Alice&#39;&quot;</span>
 </pre></div><br />
   Cela veut dire que, si le corps du message contient <em>Alice</em>, la requête sera routée vers le composant <em>cCXF_2</em>.</p>
 <ul>
@@ -899,7 +942,7 @@
 <li>Lancer la route pour la tester. La console devra afficher <em>connected</em>.</li>
 </ul>
 <p>Pour utiliser cette route, vous devez reconfigurer votre consommateur pour qu’il lance sa requête sur le port 8042. Exécutez-le et observez le résultat sur les terminaux des deux instances d’ESB démarrées. Que constatez-vous?</p>
-<h3 id="deploiement-des-routes-sur-lesb">Déploiement des Routes sur l'ESB<a class="headerlink" href="#deploiement-des-routes-sur-lesb" title="Permanent link">&para;</a></h3>
+<h3 id="deploiement-des-routes-sur-lesb">Déploiement des Routes sur l'ESB</h3>
 <p>Dans leur état actuel, vos routes doivent être lancées manuellement pour être prises en considération. Pour les déployer sur votre ESB et les garder ainsi toujours actives, suivre les étapes suivantes:</p>
 <ul>
 <li>Faites un clic-droit sur votre route et sélectionner: <em>Build Route</em> (veillez à ce que le job FiltrageRoute soit bien arrêté).</li>
@@ -910,7 +953,7 @@
 <p class="admonition-title">Attention</p>
 <p>Vous ne devez en aucun cas déployer votre route sur deux contenaires, sinon, il y'aura un conflit, car deux services façades seront exposés, ayant la même adresse.</p>
 </div>
-<h3 id="deuxieme-route-filtrage-et-modification-de-messages">Deuxième Route : Filtrage et Modification de Messages<a class="headerlink" href="#deuxieme-route-filtrage-et-modification-de-messages" title="Permanent link">&para;</a></h3>
+<h3 id="deuxieme-route-filtrage-et-modification-de-messages">Deuxième Route : Filtrage et Modification de Messages</h3>
 <p>Dans cette nouvelle partie, nous allons modifier le corps du message après l’avoir filtré. Pour cela:</p>
 <ul>
 <li>Dans Talend Studio, dupliquer votre route <em>FiltrageRoute</em> et la nommer <em>ModificationRoute</em>.</li>
@@ -920,23 +963,23 @@
 <ul>
 <li>Insérer le code suivant (de type Xpath) dans le <em>cSetBody</em> :</li>
 </ul>
-<div class="codehilite"><pre><span></span>  &quot;tns:HelloWorldServiceOperationRequest/in&quot;
+<div class="codehilite"><pre>  <span class="s">&quot;tns:HelloWorldServiceOperationRequest/in&quot;</span>
 </pre></div>
 
 <p>Ceci permet de saisir le contenu de la balise <em>in</em> de la requête SOAP envoyée par le consommateur. Il ne faut pas oublier de définir le Namespace <em>tns</em> (<a href="http://www.talend.org/service/">http://www.talend.org/service/</a>).</p>
 <ul>
 <li>Insérer le code suivant dans le processeur:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">exchange</span><span class="o">.</span><span class="na">getIn</span><span class="o">().</span><span class="na">getBody</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-<span class="n">String</span> <span class="n">surname</span><span class="o">;</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;Bob&quot;</span><span class="o">)){</span>
-  <span class="n">surname</span> <span class="o">=</span> <span class="s">&quot;Bobby&quot;</span><span class="o">;</span>
-<span class="o">}</span><span class="k">else</span><span class="o">{</span>
-  <span class="n">surname</span> <span class="o">=</span> <span class="s">&quot;Chucky&quot;</span><span class="o">;</span>
-<span class="o">}</span>
-<span class="n">exchange</span><span class="o">.</span><span class="na">getIn</span><span class="o">().</span><span class="na">setBody</span><span class="o">(</span><span class="s">&quot;&lt;tns:HelloWorldServiceOperationRequest &quot;</span><span class="o">+</span>
-    <span class="s">&quot;xmlns:tns=\&quot;http://www.talend.org/service/\&quot;&gt;&lt;in&gt;&quot;</span>
-    <span class="o">+</span><span class="n">surname</span><span class="o">+</span><span class="s">&quot;&lt;/in&gt; &lt;/tns:HelloWorldServiceOperationRequest&gt;&quot;</span><span class="o">);</span>
+<div class="codehilite"><pre>String name = exchange.getIn().getBody(String.class);
+String surname;
+if (name.contains(&quot;Bob&quot;)){
+  surname = &quot;Bobby&quot;;
+}else{
+  surname = &quot;Chucky&quot;;
+}
+exchange.getIn().setBody(&quot;<span class="nt">&lt;tns:HelloWorldServiceOperationRequest</span> <span class="err">&quot;+</span>
+    <span class="err">&quot;</span><span class="na">xmlns:tns=</span><span class="s">\&quot;http://www.talend.org/service/\&quot;</span><span class="nt">&gt;&lt;in&gt;</span>&quot;
+    +surname+&quot;<span class="nt">&lt;/in&gt;</span> <span class="nt">&lt;/tns:HelloWorldServiceOperationRequest&gt;</span>&quot;);
 </pre></div>
 
 <p>Ce code permet de modifier le corps du message entrant en remplaçant le nom par un surnom.</p>
@@ -944,25 +987,25 @@
 <li>Modifier l'adresse du composant <em>cCXF_1</em> pour qu'il se lance sur le port 8043.</li>
 <li>Sauvegarder et exporter votre route dans l’ESB. Lancer le consommateur de nouveau et observez le résultat.</li>
 </ul>
-<h2 id="fonctionnalites-supplementaires-de-lesb">Fonctionnalités Supplémentaires de l'ESB<a class="headerlink" href="#fonctionnalites-supplementaires-de-lesb" title="Permanent link">&para;</a></h2>
-<h3 id="failover-et-repartition-de-charge">Failover et Répartition de Charge<a class="headerlink" href="#failover-et-repartition-de-charge" title="Permanent link">&para;</a></h3>
-<h4 id="service-locator">Service Locator<a class="headerlink" href="#service-locator" title="Permanent link">&para;</a></h4>
+<h2 id="fonctionnalites-supplementaires-de-lesb">Fonctionnalités Supplémentaires de l'ESB</h2>
+<h3 id="failover-et-repartition-de-charge">Failover et Répartition de Charge</h3>
+<h4 id="service-locator">Service Locator</h4>
 <p>Via le Service Locator, l'ESB de Talend fournit des fonctionnalités de gestion de failover automatique et transparente ainsi que de répartition de charge via le lookup et l'enregistrement d'endpoints dynamiques dans Apache Zookeeper. Le Service Locator maintient la disponibilité du service afin de répondre aux demandes et aux Service Level Agreements (SLAs).</p>
-<h4 id="configuration-du-service-locator">Configuration du Service Locator<a class="headerlink" href="#configuration-du-service-locator" title="Permanent link">&para;</a></h4>
+<h4 id="configuration-du-service-locator">Configuration du Service Locator</h4>
 <p>Pour activer le service locator (SL), il faut:</p>
 <ol>
 <li>Déployer SL au niveau des conteneurs d’exécution Talend</li>
 <li>Activer la prise en compte du SL au niveau du service cible</li>
 <li>Configurer le consommateur du service pour prendre en compte le SL</li>
 </ol>
-<h5 id="1-deploiement-du-sl-dans-le-contenaire">1. Déploiement du SL dans le contenaire<a class="headerlink" href="#1-deploiement-du-sl-dans-le-contenaire" title="Permanent link">&para;</a></h5>
+<h5 id="1-deploiement-du-sl-dans-le-contenaire">1. Déploiement du SL dans le contenaire</h5>
 <p>Pour tester sa capacité à gérer le failover et la répartition des charges, le SL doit être déployé dans les différents conteneurs de services où sera déployé votre service. Pour cela, taper dans l’invite de commande de chaque conteneur ESB:</p>
-<div class="codehilite"><pre><span></span><span class="na">  tesb</span><span class="o">:</span><span class="s">start-locator</span>
+<div class="codehilite"><pre>  <span class="na">tesb</span><span class="o">:</span><span class="s">start-locator</span>
 </pre></div>
 
 <p>Il est possible de visualiser votre SL dans la liste des services déployés sur le conteneur en tapant list sur votre terminal. Vous devriez trouver les lignes suivantes:</p>
 <p><center><img src="../img/tp3/activ-locator.png"></center></p>
-<h5 id="2-activer-sl-dans-le-service">2. Activer SL dans le service<a class="headerlink" href="#2-activer-sl-dans-le-service" title="Permanent link">&para;</a></h5>
+<h5 id="2-activer-sl-dans-le-service">2. Activer SL dans le service</h5>
 <p>Pour activer la prise en compte de SL au niveau de notre service utilisateur dans Talend Studio:</p>
 <ul>
 <li>Clic-droit sur le service</li>
@@ -970,18 +1013,18 @@
 <li>Cocher la case <em>"Utiliser le Service Locator"</em></li>
 </ul>
 <p>Il faut veiller à re-déployer votre service dans les deux conteneurs après l’activation de la fonctionnalité.</p>
-<h5 id="3-activer-sl-dans-le-consommateur">3. Activer SL dans le consommateur<a class="headerlink" href="#3-activer-sl-dans-le-consommateur" title="Permanent link">&para;</a></h5>
+<h5 id="3-activer-sl-dans-le-consommateur">3. Activer SL dans le consommateur</h5>
 <p>Au niveau du consommateur du service, dans les propriétés du composant tESB, cocher la case <em>Use Service Locator</em>.</p>
-<h4 id="test-du-service-locator">Test du Service Locator<a class="headerlink" href="#test-du-service-locator" title="Permanent link">&para;</a></h4>
+<h4 id="test-du-service-locator">Test du Service Locator</h4>
 <p><em>Pour tester la répartition de charges</em> : Lancer le consommateur plusieurs fois sur le port 8040 et observez le résultat.</p>
 <p><em>Pour tester la gestion du failover</em> : Arrêter le service sur le contenaire principal (8040). Pour cela, dans l'invite de commande du contenaire principal, taper <em>list</em>, puis chercher l'identifiant du service <em>HelloWorldService</em>. Taper ensuite : <em>stop &lt;id_service></em>. Lancer le consommateur sur le endpoint 8040, et observez le résultat.</p>
-<h3 id="service-monitoring">Service Monitoring<a class="headerlink" href="#service-monitoring" title="Permanent link">&para;</a></h3>
+<h3 id="service-monitoring">Service Monitoring</h3>
 <p>Le composant SAM permet le logging et la surveillance des appels de service, réalisés avec le framework Apache CXF. Il peut être utilisé pour collecter, par exemple, les statistiques d’usage et le monitoring des fautes.</p>
 <p>Pour configurer le Service Activity Monitoring:</p>
 <ol>
 <li>
 <p>Déployer SAM au niveau du conteneur d’exécution Talend. Pour cela, taper :<br />
-<div class="codehilite"><pre><span></span><span class="na">tesb</span><span class="o">:</span><span class="s">start-sam</span>
+<div class="codehilite"><pre><span class="na">tesb</span><span class="o">:</span><span class="s">start-sam</span>
 </pre></div><br />
   Vous remarquerez qu’une base de données Derby sera également déployée sur le conteneur: elle permet de stocker les informations sur l’activité des services.</p>
 </li>
@@ -1002,8 +1045,8 @@
 <li><em>DB password</em>: test</li>
 </ul>
 <p>Exécuter votre service plusieurs fois, et observer le résultat.</p>
-<h3 id="authentification">Authentification<a class="headerlink" href="#authentification" title="Permanent link">&para;</a></h3>
-<h4 id="security-token-service-sts-implementation-du-ws-trust">Security Token Service (STS) : Implémentation du WS-Trust<a class="headerlink" href="#security-token-service-sts-implementation-du-ws-trust" title="Permanent link">&para;</a></h4>
+<h3 id="authentification">Authentification</h3>
+<h4 id="security-token-service-sts-implementation-du-ws-trust">Security Token Service (STS) : Implémentation du WS-Trust</h4>
 <p>Dans un environnement hétérogène, les services web doivent authentifier les services clients pour contrôler leur accès, grâce à la norme WS-Security, et en implémentant le WS-Trust. <em>"Trust"</em> veut dire <em>"Confiance"</em>: le but ici est donc d’établir un lien de confiance entre le consommateur et le fournisseur.</p>
 <p>Pour cela, un courtier d’authentification est utilisé, fournissant un contrôle d’accès pour les applications. Ce courtier délivre des jetons de sécurité utilisés par les clients pour s’authentifier au service.</p>
 <p>Le STS (<em>Security Token Service</em>) est un service web qui fournit un tel courtier d’authentification. Ses jetons respectent le standard WS-Trust. Il offre les fonctionnalités suivantes:</p>
@@ -1015,7 +1058,7 @@
 <li>Transformer un jeton de sécurité donné en un autre de type différent.</li>
 </ul>
 <p>L’utilisation d’un STS simplifie grandement la gestion de la sécurité pour le service et le client, car ils n’ont qu’à faire appel à ce STS, qui va gérer la logique de sécurité, au lieu de la traiter eux-mêmes.</p>
-<h4 id="configuration-des-parametres-de-securite">Configuration des Paramètres de Sécurité<a class="headerlink" href="#configuration-des-parametres-de-securite" title="Permanent link">&para;</a></h4>
+<h4 id="configuration-des-parametres-de-securite">Configuration des Paramètres de Sécurité</h4>
 <p>Pour associer des paramètres de confidentialité à un service, il faut suivre les étapes suivantes:</p>
 <ol>
 <li>Déployer STS dans le conteneur d’exécution Talend</li>
@@ -1023,28 +1066,29 @@
 <li>Activer la prise en compte de STS dans votre service</li>
 <li>Configurer votre client pour saisir les paramètres d’authentification.</li>
 </ol>
-<h5 id="1-deployer-sts-dans-le-conteneur-dexecution">1. Déployer STS dans le conteneur d’exécution<a class="headerlink" href="#1-deployer-sts-dans-le-conteneur-dexecution" title="Permanent link">&para;</a></h5>
+<h5 id="1-deployer-sts-dans-le-conteneur-dexecution">1. Déployer STS dans le conteneur d’exécution</h5>
 <p>Pour installer le service STS dans votre conteneur, démarrer ce dernier, et taper l’instruction suivante dans le terminal:<br />
-<div class="codehilite"><pre><span></span><span class="na">    feature</span><span class="o">:</span><span class="s">install tesb-sts</span>
+<div class="codehilite"><pre>    <span class="na">feature</span><span class="o">:</span><span class="s">install tesb-sts</span>
 </pre></div></p>
 <p>Si le service a bien été installé, vous pouvez vérifier qu’il est bien démarré en exécutant la commande : <em>list</em>. Vous devriez trouver les lignes suivantes:</p>
 <p><center><img src="../img/tp3/activ-sts.png"></center></p>
-<h5 id="2-configurer-les-parametres-de-securite-de-votre-conteneur">2. Configurer les paramètres de sécurité de votre conteneur<a class="headerlink" href="#2-configurer-les-parametres-de-securite-de-votre-conteneur" title="Permanent link">&para;</a></h5>
+<h5 id="2-configurer-les-parametres-de-securite-de-votre-conteneur">2. Configurer les paramètres de sécurité de votre conteneur</h5>
 <p>Comme c’est le STS qui prend en charge le contrôle d’accès, les paramètres d’authentification (le login/mdp par exemple) ne sont pas configurés au niveau du service fournisseur, mais au niveau du conteneur lui-même.</p>
 <p>Pour visualiser l’ensemble des utilisateurs autorisés sur votre conteneur, voir leurs mots de passes et rôles, et éventuellement en ajouter de nouveaux, ouvrir le fichier: <em>&lt;conteneur>/etc/users.properties</em>.</p>
 <p>Dans ce fichier, les informations d'authentification sont sous la forme: <em>user=password,group</em>. Ajouter une nouvelle ligne avec votre nom comme user et un mot de passe de votre choix, et choisir le groupe <em>admin</em>.</p>
-<h5 id="3-activer-sts-dans-votre-service">3. Activer STS dans votre service<a class="headerlink" href="#3-activer-sts-dans-votre-service" title="Permanent link">&para;</a></h5>
+<h5 id="3-activer-sts-dans-votre-service">3. Activer STS dans votre service</h5>
 <p>Pour activer la prise en compte de STS au niveau de notre service utilisateur dans Talend Studio, dans <em>ESB Runtime Options</em>, cocher le type d’authentification désiré (dans notre cas, <em>Identifiant/Mot de passe</em>)</p>
-<h5 id="4-configurer-le-client">4. Configurer le client<a class="headerlink" href="#4-configurer-le-client" title="Permanent link">&para;</a></h5>
+<h5 id="4-configurer-le-client">4. Configurer le client</h5>
 <p>Pour insérer le login/mdp dans votre application cliente, modifier les paramètres d’authentification de votre composant tESBConsumer dans votre job consommateur.</p>
-<h2 id="homework">Homework<a class="headerlink" href="#homework" title="Permanent link">&para;</a></h2>
-<p>Reprendre l'application que vous avez créé dans le Homework précédent (celle du processus de recrutement), en déployant cette fois votre service (REST ou SOAP) sur deux conteneurs ESB, en définissant au moins une route, et en activant les différentes fonctionnalités supplémentaires (SL, SAM et STS).</p>
                 
                   
                 
+                
               
               
                 
+
+
               
             </article>
           </div>
@@ -1064,7 +1108,7 @@
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  Précédent
                 </span>
                 TP2 - Orchestration de Services avec Camunda
               </span>
@@ -1076,7 +1120,7 @@
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  Suivant
                 </span>
                 TP4 - Microservices avec Spring Boot et Spring Cloud
               </span>
@@ -1098,16 +1142,14 @@
           </div>
         
         powered by
-        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        <a href="https://www.mkdocs.org">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+        <a href="https://squidfunk.github.io/mkdocs-material/">
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
       <a href="http://liliasfaxi.wix.com/liliasfaxi" class="md-footer-social__link fa fa-globe"></a>
     
@@ -1119,28 +1161,30 @@
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/raphael-min.js"></script>
-      <script src="../assets/javascripts/flowchart.js"></script>
-      <script src="../assets/javascripts/application-e3caa82af6.js"></script>
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
       
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.fr.js"></script>
+              
+            
+          
+          
+        
       
-      <script>app.initialize({url:{base:".."}})</script>
-      
-        <script src="../search/require.js"></script>
-      
-        <script src="../search/search.js"></script>
-      
-    
-    
-      
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
     
   </body>

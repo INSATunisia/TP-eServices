@@ -1,52 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
-     <loc>http://INSATunisia.github.io/TP-eServices//</loc>
-     <lastmod>2019-10-25</lastmod>
+     <loc>http://INSATunisia.github.io/TP-eServices/</loc>
+     <lastmod>2020-02-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>http://INSATunisia.github.io/TP-eServices//tp1/</loc>
-     <lastmod>2019-10-25</lastmod>
+     <loc>http://INSATunisia.github.io/TP-eServices/tp1/</loc>
+     <lastmod>2020-02-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>http://INSATunisia.github.io/TP-eServices//tp2/</loc>
-     <lastmod>2019-10-25</lastmod>
+     <loc>http://INSATunisia.github.io/TP-eServices/tp2/</loc>
+     <lastmod>2020-02-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>http://INSATunisia.github.io/TP-eServices//tp3/</loc>
-     <lastmod>2019-10-25</lastmod>
+     <loc>http://INSATunisia.github.io/TP-eServices/tp3/</loc>
+     <lastmod>2020-02-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>http://INSATunisia.github.io/TP-eServices//tp4/</loc>
-     <lastmod>2019-10-25</lastmod>
+     <loc>http://INSATunisia.github.io/TP-eServices/tp4/</loc>
+     <lastmod>2020-02-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>http://INSATunisia.github.io/TP-eServices//tp5/</loc>
-     <lastmod>2019-10-25</lastmod>
+     <loc>http://INSATunisia.github.io/TP-eServices/tp5/</loc>
+     <lastmod>2020-02-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
 </urlset>
