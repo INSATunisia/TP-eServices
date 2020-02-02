@@ -425,13 +425,3 @@ public class ProcessRequestDelegate implements JavaDelegate {
 
 !!! faq "TAF"
     Vous remarquerez que le service web REST que nous avons appelé rend la température en degré Kelvin. Chercher un service web qui fasse la conversion du ºK vers le ºC, puis appelez-le avant de faire l'affichage.
-
-## Homework
-Vous êtes manager d'une entreprise, dont vous choisirez le nom et le métier.Vous désirez réaliser une application pour faciliter son processus de recrutement. C'est à vous de choisir le degré de complexité et les spécificités métier du processus, à partir du moment qu'il respecte ces conditions:
-
-* Vous devez définir au moins trois types d'acteurs.
-* Vous devez implémenter votre processus avec Camunda.
-* Vous devez utiliser un service web REST ou SOAP implémenté avec Talend.
-* Vous devez utiliser une base de données.
-
-Pour la séance de TP prochaine, vous devez me présenter un processus **qui marche**, en m'expliquant son fonctionnement et les choix métier que vous avez fait.

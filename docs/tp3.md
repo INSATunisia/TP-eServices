@@ -269,6 +269,3 @@ Pour activer la prise en compte de STS au niveau de notre service utilisateur da
 
 #####4. Configurer le client
 Pour insérer le login/mdp dans votre application cliente, modifier les paramètres d’authentification de votre composant tESBConsumer dans votre job consommateur.
-
-## Homework
-Reprendre l'application que vous avez créé dans le Homework précédent (celle du processus de recrutement), en déployant cette fois votre service (REST ou SOAP) sur deux conteneurs ESB, en définissant au moins une route, et en activant les différentes fonctionnalités supplémentaires (SL, SAM et STS).

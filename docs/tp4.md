@@ -506,10 +506,3 @@ En lançant le service Proxy, vous remarquerez qu'il est rajouté dans Eureka.
 ![Service Proxy dans Eureka](img/tp4/proxy-eureka.png)
 
 Si vous exécutez la requête http://localhost:9999/product-service/messages plusieurs fois, vous remarquerez que l'affichage *c'est moi qui ai répondu!* s'affichera sur les consoles des trois instances respectivement, à tour de rôle.
-
-## Homework
-Le concept de microservices est très fortement lié à la culture DevOps, et à la conteneurisation. Grâce aux conteneurs, vous n’avez pas besoin de développer et de configurer entièrement un nouveau serveur physique, ni de mettre sur pied un nouvel environnement virtuel, ce qui requiert une émulation de processeur, un système d’exploitation et des logiciels installés. Le conteneur vous permet de faire tenir un environnement complet dans une seule image légère.
-
-C'est pour cela que votre tâche pour la séance prochaine sera de *dockeriser* les différents microservices que nous venons de créer, au lieu de les lancer sur notre machine physique (localhost). Les trois instances du service ProductService, ainsi que les trois autres services (Discovery, Config et Proxy) doivent tourner indépendamment, chacun dans soon propre contenaire.
-
-Vous devez fournir chacun un lien vers un projet **Github** contenant vos projets, ainsi qu'un **Readme** en bonne et due forme (respecter la norme Markdown svp) montrant les étapes de conteneurisation des services. Chaque binôme devra fournir son lien dans le fichier excel intitulé *Homework* que vous trouverez dans [Piazza](https://piazza.com/class/j3k0yr6cyex4n8).

@@ -13,7 +13,18 @@ copyright: 'Copyright &copy; 2017 - 2018 Lilia Sfaxi'
 # Theme directory
 theme_dir: material
 
-site_favicon: 'img/favicon.ico'
+theme:
+  name: 'material'
+  feature:
+    tabs: false
+  palette:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+    accent: Amber
+    primary: Pink
+  logo: 'img/logo.png'
+  favicon: 'img/favicon.ico'
+  language: 'fr'
 
 
 # Options
@@ -39,13 +50,13 @@ extra:
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
-  - markdown.extensions.codehilite(guess_lang=false)
+  - markdown.extensions.codehilite
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
-  - markdown.extensions.toc(permalink=true)
+  - markdown.extensions.toc
   - pymdownx.arithmatex
-  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.betterem
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.emoji:
@@ -55,7 +66,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist
   - pymdownx.tilde
   - abbr
   - admonition
