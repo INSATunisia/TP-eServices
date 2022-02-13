@@ -1,1384 +1,189 @@
-
-
-
-
-<!doctype html>
-<html lang="fr" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="Les Travaux Pratiques du cours eServices">
-      
-      
-        <link rel="canonical" href="http://INSATunisia.github.io/TP-eServices/tp5/">
-      
-      
-        <meta name="author" content="Lilia Sfaxi">
-      
-      
-        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
-      
-        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
-      
-        <meta name="lang:search.language" content="fr">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Aucun document trouvé">
-      
-        <meta name="lang:search.result.one" content="1 document trouvé">
-      
-        <meta name="lang:search.result.other" content="# documents trouvés">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
-    
-    
-      
-        <title>TP5 - API Management avec Atom et Anypoint - TP eServices</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#e91e63">
-      
-    
-    
-      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
-    
-    
-    
-      
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "None", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="pink" data-md-color-accent="amber">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#tp5-api-management-avec-atom-et-anypoint" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-header-nav__button md-logo">
-          
-            <img src="../img/logo.png" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              TP eServices
-            </span>
-            <span class="md-header-nav__topic">
-              
-                TP5 - API Management avec Atom et Anypoint
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Taper pour démarrer la recherche
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    INSATunisia/TP-eServices
-  </div>
-</a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
-</header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-nav__button md-logo">
-      
-        <img src="../img/logo.png" width="48" height="48">
-      
-    </a>
-    TP eServices
-  </label>
-  
-    <div class="md-nav__source">
-      
-
-
-  
-
-<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    INSATunisia/TP-eServices
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href=".." title="Travaux Pratiques eServices" class="md-nav__link">
-      Travaux Pratiques eServices
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp1/" title="TP1 - Services Web REST et SOAP avec Talend" class="md-nav__link">
-      TP1 - Services Web REST et SOAP avec Talend
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp2/" title="TP2 - Orchestration de Services avec Camunda" class="md-nav__link">
-      TP2 - Orchestration de Services avec Camunda
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp3/" title="TP3 - Mise en Place d’un ESB avec Talend ESB" class="md-nav__link">
-      TP3 - Mise en Place d’un ESB avec Talend ESB
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp4/" title="TP4 - Microservices avec Spring Boot et Spring Cloud" class="md-nav__link">
-      TP4 - Microservices avec Spring Boot et Spring Cloud
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        TP5 - API Management avec Atom et Anypoint
-      </label>
-    
-    <a href="./" title="TP5 - API Management avec Atom et Anypoint" class="md-nav__link md-nav__link--active">
-      TP5 - API Management avec Atom et Anypoint
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table des matières</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-pdf" class="md-nav__link">
-    Télécharger PDF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs-du-tp" class="md-nav__link">
-    Objectifs du TP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outils-et-versions" class="md-nav__link">
-    Outils et Versions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generation-dapi-avec-raml" class="md-nav__link">
-    Génération d'API avec RAML
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#raml" class="md-nav__link">
-    RAML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-workbench" class="md-nav__link">
-    API Workbench
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creation-dun-document-raml" class="md-nav__link">
-    Création d’un document RAML
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creation-dune-api-raml" class="md-nav__link">
-    Création d’une API RAML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-de-ressources-et-methodes" class="md-nav__link">
-    Ajout de Ressources et Méthodes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remplir-les-corps-et-reponses-des-methodes" class="md-nav__link">
-    Remplir les corps et réponses des méthodes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajouter-des-sous-ressources" class="md-nav__link">
-    Ajouter des sous-ressources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#definir-des-types" class="md-nav__link">
-    Définir des types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extraction-dun-type-de-ressources" class="md-nav__link">
-    Extraction d’un type de ressources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-de-parametres-au-type-de-ressource" class="md-nav__link">
-    Ajout de paramètres au type de ressource
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-dun-exemple" class="md-nav__link">
-    Ajout d’un exemple
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#definir-des-parametres-pour-les-methodes" class="md-nav__link">
-    Définir des paramètres pour les méthodes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extraction-de-la-librairie" class="md-nav__link">
-    Extraction de la librairie
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-management-avec-anypoint-studio" class="md-nav__link">
-    API Management avec Anypoint Studio
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#anypoint-platform" class="md-nav__link">
-    Anypoint Platform
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#premiere-application" class="md-nav__link">
-    Première Application
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gestion-des-apis-avec-apikit" class="md-nav__link">
-    Gestion des APIs avec APIKit
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creation-dun-fichier-raml-pour-le-microservice" class="md-nav__link">
-    Création d'un fichier RAML pour le microservice
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nouveau-projet-de-api-management" class="md-nav__link">
-    Nouveau Projet de API Management
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-du-flux-principal" class="md-nav__link">
-    Configuration du flux principal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mapping-de-lapi-avec-votre-microservice-productservice" class="md-nav__link">
-    Mapping de l'API avec votre microservice ProductService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transformation-du-resultat-du-microservice-productservice" class="md-nav__link">
-    Transformation du résultat du microservice ProductService
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table des matières</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-pdf" class="md-nav__link">
-    Télécharger PDF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs-du-tp" class="md-nav__link">
-    Objectifs du TP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outils-et-versions" class="md-nav__link">
-    Outils et Versions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generation-dapi-avec-raml" class="md-nav__link">
-    Génération d'API avec RAML
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#raml" class="md-nav__link">
-    RAML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-workbench" class="md-nav__link">
-    API Workbench
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creation-dun-document-raml" class="md-nav__link">
-    Création d’un document RAML
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creation-dune-api-raml" class="md-nav__link">
-    Création d’une API RAML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-de-ressources-et-methodes" class="md-nav__link">
-    Ajout de Ressources et Méthodes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remplir-les-corps-et-reponses-des-methodes" class="md-nav__link">
-    Remplir les corps et réponses des méthodes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajouter-des-sous-ressources" class="md-nav__link">
-    Ajouter des sous-ressources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#definir-des-types" class="md-nav__link">
-    Définir des types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extraction-dun-type-de-ressources" class="md-nav__link">
-    Extraction d’un type de ressources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-de-parametres-au-type-de-ressource" class="md-nav__link">
-    Ajout de paramètres au type de ressource
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-dun-exemple" class="md-nav__link">
-    Ajout d’un exemple
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#definir-des-parametres-pour-les-methodes" class="md-nav__link">
-    Définir des paramètres pour les méthodes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extraction-de-la-librairie" class="md-nav__link">
-    Extraction de la librairie
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-management-avec-anypoint-studio" class="md-nav__link">
-    API Management avec Anypoint Studio
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#anypoint-platform" class="md-nav__link">
-    Anypoint Platform
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#premiere-application" class="md-nav__link">
-    Première Application
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gestion-des-apis-avec-apikit" class="md-nav__link">
-    Gestion des APIs avec APIKit
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creation-dun-fichier-raml-pour-le-microservice" class="md-nav__link">
-    Création d'un fichier RAML pour le microservice
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nouveau-projet-de-api-management" class="md-nav__link">
-    Nouveau Projet de API Management
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-du-flux-principal" class="md-nav__link">
-    Configuration du flux principal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mapping-de-lapi-avec-votre-microservice-productservice" class="md-nav__link">
-    Mapping de l'API avec votre microservice ProductService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transformation-du-resultat-du-microservice-productservice" class="md-nav__link">
-    Transformation du résultat du microservice ProductService
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp5.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
-                
-                
-                <h1 id="tp5-api-management-avec-atom-et-anypoint">TP5 - API Management avec Atom et Anypoint</h1>
-<p><img alt="API" src="../img/api.png" /></p>
-<h2 id="telecharger-pdf">Télécharger PDF</h2>
-<p><a href="../tp5.pdf"><img alt="Download TP5" src="../img/pdf.png" /></a></p>
-<h2 id="objectifs-du-tp">Objectifs du TP</h2>
-<ol>
-<li>Génération d’API avec Atom et le langage RAML</li>
-<li>Gestion des APIs avec Anypoint Studio et le API Gateway de Mulesoft</li>
-</ol>
-<h2 id="outils-et-versions">Outils et Versions</h2>
-<ul>
-<li><a href="https://atom.io/">Atom</a> Version: 1.22.1</li>
-<li><a href="http://apiworkbench.com/">API Workbench</a>: Plugin Atom. Version: 0.8.47</li>
-<li><a href="https://www.mulesoft.com/platform/studio">Anypoint Studio</a> Version: 6.4.1</li>
-<li><a href="https://dev.mysql.com/downloads/mysql/">MySQL</a> Version 5.7.20 (ou tout autre SGBD de votre choix)</li>
-</ul>
-<h2 id="generation-dapi-avec-raml">Génération d'API avec RAML</h2>
-<h3 id="raml">RAML</h3>
-<p><a href="http://docs.raml.org/">RAML</a> (RESTful API Modeling Language) est un langage pour la définition d’API HTTP qui satisfont les exigences de l'architecture REST. La spécification RAML est une application de la spécification YAML, qui fournit des mécanismes pour la définition d’APIs RESTful.</p>
-<p>RAML est développé et supporté par un groupe de leaders en nouvelles  technologie, provenant de plusieurs entreprises éminentes (Mulesoft, Airware, Akana, VMware, CISCO…). Leur but est de construire une spécification ouverte, simple et succincte pour la description d’APIs. Ce groupe de travail contribue à la fois à la spécification RAML, ainsi qu’à un écosystème croissant d’outils autours de ce langage.</p>
-<h3 id="api-workbench">API Workbench</h3>
-<p>Pour écrire un document RAML de manière simple et intuitive, un outil de travail est fourni, sous la forme d’un plugin pour <a href="https://atom.io/">Atom</a>, l'éditeur de texte open source, appelé <a href="http://apiworkbench.com/">API Workbench</a>.</p>
-<p>Pour l’installer:</p>
-<ul>
-<li>Télécharger et installer Atom: <a href="https://atom.io/">https://atom.io/</a></li>
-<li>Dans le menu Préférences, choisir l’option <em>Packages</em>, et taper dans la barre de recherche:  <em>api-workbench</em>.</li>
-<li>Une fois le package installé, on devrait trouver dans le menu Packages, un nouvel élément <em>API Workbench</em>.</li>
-</ul>
-<h3 id="creation-dun-document-raml">Création d’un document RAML</h3>
-<p>Dans ce qui suit, nous vous indiquons les étapes nécessaires pour créer un simple fichier RAML décrivant une API REST répondant aux recommandations décrites dans le cours.</p>
-<h4 id="creation-dune-api-raml">Création d’une API RAML</h4>
-<p>Pour créer un nouveau projet RAML, aller vers <em>Packages -&gt; API Workbench -&gt; Create RAML Project</em> . Indiquer :</p>
-<ul>
-<li>Le répertoire de travail</li>
-<li>Le titre de l’API : Par exemple Pet Shop</li>
-<li>La version : v1</li>
-<li>L’URI de base l’API : /petshop</li>
-<li>Cocher uniquement Use RAML 1.0</li>
-</ul>
-<p>Le projet obtenu aura l’allure suivante:</p>
-<p><img alt="Workspace" src="../img/tp5/workspace.png" /></p>
-<h4 id="ajout-de-ressources-et-methodes">Ajout de Ressources et Méthodes</h4>
-<ul>
-<li>Sous l’onglet Palette de la rubrique Détails, cliquer sur <em>Add new ressource</em> pour ajouter une nouvelle ressource.</li>
-<li>Appeler la ressource <em>/pets</em></li>
-<li>Sélectionner les méthodes <em>get</em> et <em>post</em></li>
-</ul>
-<p>La ressource est désormais créée avec deux méthodes vides.</p>
-<h4 id="remplir-les-corps-et-reponses-des-methodes">Remplir les corps et réponses des méthodes</h4>
-<ul>
-<li>Mettre le focus sur la méthode <em>get:</em></li>
-<li>Dans la Palette, cliquer sur <em>Create new response</em></li>
-<li>Garder le code 200 pour la réponse et cliquer sur OK</li>
-<li>Une fois le code de la réponse généré, mettre le focus sur <em>200:</em></li>
-<li>Cliquer sur <em>Create new Response Body</em>, puis dans la fenêtre qui apparait cliquer sur OK, pour générer une réponse de type par défaut <em>application/json</em></li>
-<li>Pour la méthode post, générer directement un corps, en cliquant sur <em>Create new body</em>.</li>
-</ul>
-<p>Le résultat apparaît comme suit:</p>
-<p><img alt="Nouvelle API" src="../img/tp5/new-api.png" /></p>
-<h4 id="ajouter-des-sous-ressources">Ajouter des sous-ressources</h4>
-<p>Pour définir le reste des méthodes (put et delete), destinées à agir sur un élément unique de la ressource pets, et les associer à une sous-ressource:</p>
-<ul>
-<li>Mettre le focus sur <em>/pets</em></li>
-<li>Cliquer sur <em>Add new resource</em></li>
-<li>Taper <em>/{id}</em> comme ressource URL, et sélectionner les méthodes put et delete.</li>
-<li>Ajouter un body à put de type application/json</li>
-<li>Ajouter une réponse à delete de type 204</li>
-</ul>
-<h4 id="definir-des-types">Définir des types</h4>
-<p>Pour définir le contenu des messages JSON manipulés, définir un type comme suit:</p>
-<ul>
-<li>Dans une nouvelle ligne au dessus de <em>/pets</em>, taper <em>ty</em>, puis cliquer sur entrée</li>
-<li>Appeler le type <em>Pet</em>, puis définir les propriétés name, kind et price, comme suit:</li>
-</ul>
-<div class="codehilite"><pre><span class="na">types</span><span class="o">:</span>
-  <span class="na">Pet</span><span class="o">:</span>
-    <span class="na">properties</span><span class="o">:</span>
-      <span class="na">name</span><span class="o">:</span> <span class="s">string</span>
-      <span class="na">kind</span><span class="o">:</span> <span class="s">string</span>
-      <span class="na">price</span><span class="o">:</span> <span class="s">number</span>
-</pre></div>
-
-<ul>
-<li>Définir <em>Pet</em> comme type pour le corps de la méthode <em>post</em>, en écrivant: <em>type: Pet</em> au dessous de <em>application/json</em> de la méthode post</li>
-<li>Ajouter de même <em>Pet</em> comme type pour la méthode put, et <em>Pet[]</em> pour la méthode get.</li>
-</ul>
-<h4 id="extraction-dun-type-de-ressources">Extraction d’un type de ressources</h4>
-<p>Pour générer un type de ressources à partir d’une ressource existante:</p>
-<ul>
-<li>Mettre le focus sur la ressource <em>/pets</em></li>
-<li>Cliquer sur <em>Extract Resource Type</em> (si vous ne la trouvez pas, appuyer sur <em>entrée</em>)</li>
-<li>Taper <em>Collection</em> comme nom de type de ressource et déplacer les méthodes get et post de la fenêtre de gauche vers celle de droite</li>
-<li>Un nouveau <em>resourceType</em>, appelé <em>Collection</em>, est créé, contenant les méthodes get et post comme elles ont été définies sous la ressource <em>/pets</em>. De plus, <em>/pets</em> est désormais de type <em>Collection</em>.</li>
-<li>Répéter la procédure pour la ressource /{id}. On appellera le type <em>Member</em>.</li>
-</ul>
-<p>Le résultat devra ressembler à ce qui suit:</p>
-<p><center><img src="../img/tp5/resource-type.png" width="50%"></center></p>
-<h4 id="ajout-de-parametres-au-type-de-ressource">Ajout de paramètres au type de ressource</h4>
-<p>Pour rendre le type de ressource créé générique, il serait plus intéressant de paramétrer le type de réponse. Pour cela:</p>
-<ul>
-<li>Remplacer le terme <em>Pet</em> dans <em>Collection</em> et <em>Member</em> par <code class="codehilite"><span class="err">&lt;</span><span class="nt">&lt;item&gt;</span>&gt;</code>.</li>
-<li>Corriger les erreurs qui s’affichent dans les ressources <em>Collection</em> et <em>Member</em> respectivement par <code class="codehilite"><span class="p">{</span> <span class="n">Collection</span><span class="o">:</span> <span class="p">{</span><span class="n">item</span> <span class="o">:</span> <span class="n">Pet</span><span class="p">}</span> <span class="p">}</span></code> et <code class="codehilite"><span class="p">{</span> <span class="n">Member</span><span class="o">:</span> <span class="p">{</span><span class="n">item</span> <span class="o">:</span> <span class="n">Pet</span><span class="p">}</span> <span class="p">}</span></code></li>
-</ul>
-<h4 id="ajout-dun-exemple">Ajout d’un exemple</h4>
-<p>Pour ajouter un exemple d’animal, modifier le type <em>Pet</em> pour qu’il soit comme suit:</p>
-<div class="codehilite"><pre><span class="na">types</span><span class="o">:</span>
-  <span class="na">Pet</span><span class="o">:</span>
-    <span class="na">properties</span><span class="o">:</span>
-      <span class="na">name</span><span class="o">:</span> <span class="s">string</span>
-      <span class="na">kind</span><span class="o">:</span> <span class="s">string</span>
-      <span class="na">price</span><span class="o">:</span> <span class="s">number</span>
-    <span class="na">example</span><span class="o">:</span>
-      <span class="na">name</span><span class="o">:</span> <span class="s">Snoopy</span>
-      <span class="na">kind</span><span class="o">:</span> <span class="s">Dog</span>
-      <span class="na">price</span><span class="o">:</span> <span class="s">1000</span>
-</pre></div>
-
-<h4 id="definir-des-parametres-pour-les-methodes">Définir des paramètres pour les méthodes</h4>
-<p>Nous nous proposons d’ajouter une autre méthode de type <em>get</em>, qui définit plusieurs paramètres.</p>
-<ul>
-<li>Sous (et au même niveau que) <em>type</em> de <em>/pets</em>, taper: <em>get:</em></li>
-<li>Mettre le focus sur le <em>get</em> nouvellement créé</li>
-<li>Cliquer sur <em>Create new query parameter</em></li>
-<li>Créer trois paramètres:<ul>
-<li><em>priceLessThan</em> de type <em>number</em></li>
-<li><em>priceMoreThan</em> de type <em>number</em></li>
-<li><em>petKind</em>, de type <em>enum;[bird, dog]</em></li>
-</ul>
-</li>
-</ul>
-<p>Cela devra ressembler à ce qui suit:<br />
-<div class="codehilite"><pre><span class="na">get</span><span class="o">:</span>
-    <span class="na">queryParameters</span><span class="o">:</span>
-      <span class="na">priceLessThan</span><span class="o">:</span> <span class="s">number</span>
-      <span class="na">priceMoreThan</span><span class="o">:</span> <span class="s">number</span>
-      <span class="na">petKind</span><span class="o">:</span>
-        <span class="na">enum</span><span class="o">:</span>
-          <span class="err">-</span> <span class="err">bird</span>
-          <span class="err">-</span> <span class="err">dog</span>
-</pre></div></p>
-<p>Il est possible d’extraire certains des paramètres comme <em>Trait</em>, c’est à dire un critère de filtrage. Pour cela:</p>
-<ul>
-<li>Mettre le focus sur le <em>get</em></li>
-<li>Cliquer sur <em>Extract trait</em></li>
-<li>Nommer le trait <em>FiltrableByPrice</em>, et déplacer les méthodes <em>priceLessThan</em> et <em>priceMoreThan</em> vers la droite.</li>
-</ul>
-<p>Vous remarquerez que les deux paramètres choisis ont été enlevés de la méthode <em>get</em>, et remplacés par <em>is: [FilterableByPrice]</em>.</p>
-<p>Voici donc le résultat final du fichier RAML:<br />
-<div class="codehilite"><pre><span class="c">#%RAML 1.0</span>
-<span class="na">traits</span><span class="o">:</span>
-  <span class="na">FiltrableByPrice</span><span class="o">:</span>
-    <span class="na">queryParameters</span><span class="o">:</span>
-      <span class="na">priceLessThan</span><span class="o">:</span> <span class="s">number</span>
-      <span class="na">priceMoreThan</span><span class="o">:</span> <span class="s">number</span>
-<span class="na">resourceTypes</span><span class="o">:</span>
-  <span class="na">Collection</span><span class="o">:</span>
-    <span class="na">get</span><span class="o">:</span>
-      <span class="na">responses</span><span class="o">:</span>
-        <span class="na">200</span><span class="o">:</span>
-          <span class="na">body</span><span class="o">:</span>
-            <span class="na">application/json</span><span class="o">:</span>
-              <span class="na">type</span><span class="o">:</span> <span class="s">&lt;&lt;item&gt;&gt;</span>
-    <span class="na">post</span><span class="o">:</span>
-      <span class="na">body</span><span class="o">:</span>
-        <span class="na">application/json</span><span class="o">:</span>
-          <span class="na">type</span><span class="o">:</span> <span class="s">&lt;&lt;item&gt;&gt;</span>
-  <span class="na">Member</span><span class="o">:</span>
-    <span class="na">delete</span><span class="o">:</span>
-      <span class="na">responses</span><span class="o">:</span>
-        <span class="na">204</span><span class="o">:</span>
-    <span class="na">put</span><span class="o">:</span>
-      <span class="na">body</span><span class="o">:</span>
-        <span class="na">application/json</span><span class="o">:</span>
-          <span class="na">type</span><span class="o">:</span> <span class="s">&lt;&lt;item&gt;&gt;</span>
-<span class="na">title</span><span class="o">:</span> <span class="s">Pet Shop</span>
-<span class="na">version</span><span class="o">:</span> <span class="s">v1</span>
-<span class="na">baseUri</span><span class="o">:</span> <span class="s">/petshop</span>
-<span class="na">types</span><span class="o">:</span>
-  <span class="na">Pet</span><span class="o">:</span>
-    <span class="na">properties</span><span class="o">:</span>
-      <span class="na">name</span><span class="o">:</span> <span class="s">string</span>
-      <span class="na">kind</span><span class="o">:</span> <span class="s">string</span>
-      <span class="na">price</span><span class="o">:</span> <span class="s">number</span>
-    <span class="na">example</span><span class="o">:</span>
-      <span class="na">name</span><span class="o">:</span> <span class="s">Snoopy</span>
-      <span class="na">kind</span><span class="o">:</span> <span class="s">Dog</span>
-      <span class="na">price</span><span class="o">:</span> <span class="s">1000</span>
-<span class="na">/pets</span><span class="o">:</span>
-  <span class="na">type</span><span class="o">:</span> <span class="s">{ Collection: {item : Pet} }</span>
-  <span class="na">get</span><span class="o">:</span>
-    <span class="na">queryParameters</span><span class="o">:</span>
-      <span class="na">petKind</span><span class="o">:</span>
-        <span class="na">enum</span><span class="o">:</span>
-          <span class="err">-</span> <span class="err">bird</span>
-          <span class="err">-</span> <span class="err">dog</span>
-    <span class="na">is</span><span class="o">:</span> <span class="s">[FiltrableByPrice]</span>
-  <span class="na">/{id}</span><span class="o">:</span>
-    <span class="na">type</span><span class="o">:</span> <span class="s">{ Member: {item : Pet} }</span>
-</pre></div></p>
-<h4 id="extraction-de-la-librairie">Extraction de la librairie</h4>
-<p>Pour extraire les types définis et les représenter dans une entité réutilisable:</p>
-<ul>
-<li>Mettre le focus en dehors de toutes les structures, par exemple sur <em>title</em></li>
-<li>Cliquer sur <em>Extract Library</em></li>
-<li>Appeler la librarie <em>PetTypes</em></li>
-<li>Déplacer <em>Pet</em>, <em>Collection</em> et <em>Member</em> vers le panel de droite</li>
-<li>Cliquer sur <em>Extract</em></li>
-</ul>
-<p>Un nouveau fichier contenant les trois types sélectionnés a été créé, puis inclus comme référence dans notre fichier principal.</p>
-<h3 id="api-management-avec-anypoint-studio">API Management avec Anypoint Studio</h3>
-<h4 id="anypoint-platform">Anypoint Platform</h4>
-<p><a href="https://www.mulesoft.com/platform/enterprise-integration">Anypoint</a> est une plateforme développée par l’entreprise Mulesoft qui offre les outils nécessaires pour la gestion d’APIs. Anypoint est classée par Gartner dans son Magic Quadrant dans la rubrique “Application Services Governance” d’Avril 2015 parmi les leaders du marché du API Management.</p>
-<p><img alt="Magic Quadrant: Application Services Governance" src="../img/tp5/gartner.png" /></p>
-<h4 id="premiere-application">Première Application</h4>
-<p>Une fois Anypoint Studio téléchargé et installé, créer un nouveau projet, qu’on appellera <em>PremiereApplication</em>, et choisir Mule Server comme <em>Runtime Environment</em>.<br />
-La fenêtre obtenue a l’allure suivante:</p>
-<p><img alt="Workspace Mulesoft Studio" src="../img/tp5/workspace-mule.png" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Attention</p>
-<p>Anypoint Studio version 6.4.1 ne fonctionne qu'avec au plus JDK 1.8.0_151!</p>
-</div>
-<p>Nous allons commencer par créer une simple application qui affiche un message dans un navigateur.</p>
-<ul>
-<li>À partir de la palette, glisser-déplacer les éléments graphiques suivants dans le canevas:<ul>
-<li><strong>HTTP</strong>: permet de se connecter aux ressources web via HTTP ou HTTPS.</li>
-<li><strong>Set Payload</strong>: modifie le message affiché (payload) en "Hello World!".</li>
-</ul>
-</li>
-</ul>
-<p>Votre flux aura l’allure suivante:</p>
-<p><center><img src="../img/tp5/hello-app.png" width="30%"></center></p>
-<p>Configurer votre composant HTTP :</p>
-<ul>
-<li>Ajouter une nouvelle <em>Connector Configuration</em></li>
-<li>Garder les options par défaut. Votre hôte se lancera à l’URL 0.0.0.0:8081</li>
-</ul>
-<p>Configurer le composant Set Payload:</p>
-<ul>
-<li>Remplacer la valeur de l’élément <em>Value</em> par <em>Hello World!</em></li>
-<li>Lancer votre application : Run -&gt; Run As -&gt; Mule Application. La console devrait afficher un message comme suit:</li>
-</ul>
-<p><img alt="Console Helloworld" src="../img/tp5/hello-console.png" /></p>
-<p>Dans un navigateur, taper l'adresse: 0.0.0.0:8081. Le message suivant devra s'afficher:</p>
-<p><center><img src="../img/tp5/hello-nav.png" width="30%"></center></p>
-<h4 id="gestion-des-apis-avec-apikit">Gestion des APIs avec APIKit</h4>
-<p>APIKit est un toolkit open source spécialement créé pour faciliter l’implémentation d’APIs REST, en renforçant les bonnes pratiques de création d’APIs.</p>
-<p>Nous allons pour cela exposer l'API REST que nous avons créé dans le <a href="../tp4/">TP précédent</a>, grâce aux microservices Spring.</p>
-<h5 id="creation-dun-fichier-raml-pour-le-microservice"><em>Création d'un fichier RAML pour le microservice</em></h5>
-<p>Pour représenter le microservice "ProductService", créer le fichier <em>api.raml</em> suivant avec Atom:</p>
-<div class="codehilite"><pre><span class="c">#%RAML 1.0</span>
-<span class="na">title</span><span class="o">:</span> <span class="s">Micro-API</span>
-<span class="na">version</span><span class="o">:</span> <span class="s">v1</span>
-<span class="na">baseUri</span><span class="o">:</span> <span class="s">http://products.tn</span>
-<span class="na">/products</span><span class="o">:</span>
-  <span class="na">get</span><span class="o">:</span>
-    <span class="na">description</span><span class="o">:</span> <span class="s">List of all the products</span>
-    <span class="na">responses</span><span class="o">:</span>
-      <span class="na">200</span><span class="o">:</span>
-        <span class="na">body</span><span class="o">:</span>
-          <span class="na">application/json</span><span class="o">:</span>
-            <span class="na">example</span><span class="o">:</span> <span class="s">!include products-example.json</span>
-</pre></div>
-
-<p>Rajouter également (dans le même répertoire) un fichier <em>products-example.json</em>, où vous allez trouver un exemple de produits, tel qu'ils sont représentés par votre service sur <code class="codehilite"><span class="nl">http:</span><span class="c1">//localhost:9999/product-service/products</span></code>. Cela devrait ressembler à ce qui suit:</p>
-<div class="codehilite"><pre><span class="p">{</span>
-  <span class="s">&quot;_embedded&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s">&quot;products&quot;</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Sample Product&quot;</span><span class="p">,</span>
-        <span class="s">&quot;_links&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s">&quot;self&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/1&quot;</span>
-          <span class="p">},</span>
-          <span class="s">&quot;product&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/1&quot;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s">&quot;_links&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s">&quot;self&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products{?page,size,sort}&quot;</span><span class="p">,</span>
-      <span class="s">&quot;templated&quot;</span><span class="o">:</span> <span class="nb">true</span>
-    <span class="p">},</span>
-    <span class="s">&quot;profile&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/profile/products&quot;</span>
-    <span class="p">},</span>
-    <span class="s">&quot;search&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/search&quot;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="s">&quot;page&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s">&quot;size&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s">&quot;totalElements&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s">&quot;totalPages&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">&quot;number&quot;</span><span class="o">:</span> <span class="mi">0</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<h5 id="nouveau-projet-de-api-management"><em>Nouveau Projet de API Management</em></h5>
-<p>Créer un nouveau projet qu’on appellera <em>API_Project</em>:</p>
-<ul>
-<li>Choisir comme environnement d’exécution Mule Server.</li>
-<li>Cocher la case <em>Add APIKit components</em> et entrer votre fichier api.raml.</li>
-</ul>
-<p>Un nouveau projet sera créé avec les fichiers <em>api.raml</em> et <em>products-example.json</em> ajouté sous le répertoire <em>src/main/api</em>, ainsi que des flux de gestion des différentes méthodes ajoutées par défaut dans le canevas. Vous retrouverez notamment:</p>
-<table>
-<thead>
-<tr>
-<th>Flux</th>
-<th>Description</th>
-<th>Figure</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>api-main</td>
-<td>Flux principal, définissant un point d’accès HTTP, un routeur APIKit et une référence à une stratégie d'exception</td>
-<td><img alt="api-main" src="../img/tp5/api-main.png" /></td>
-</tr>
-<tr>
-<td>action:/ressource:api-config</td>
-<td>Un Backend flow pour chaque paire de ressource/action dans le fichier RAML. Par exemple, get:/products:api-config représente l’action get de la ressource products</td>
-<td><img alt="get-products" src="../img/tp5/get-products.png" /></td>
-</tr>
-<tr>
-<td>Exception Strategy Mapping</td>
-<td>Flux fournis par Studio pour configurer les messages d’erreur dans un format HTTP-status-code-friendly</td>
-<td><img alt="errors" src="../img/tp5/error-mapping.png" /></td>
-</tr>
-</tbody>
-</table>
-<h5 id="configuration-du-flux-principal"><em>Configuration du flux principal</em></h5>
-<ul>
-<li>Dans les propriétés du composant HTTP, définir le Path par: /prod-services/*.</li>
-<li>Dans le <em>Connector Configuration</em>, cliquer sur l'icône <img alt="config" src="../img/tp5/config.png" />, puis cliquer sur <em>OK</em> pour valider le host (0.0.0.0) et le port (8081)</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Remarque</p>
-<p>Vous pouvez changer ici le port défini par défaut, pour éviter les conflits avec vos microservices.</p>
-</div>
-<p>Lancer le projet comme <em>Mule Project</em>. Une <em>APIKit Console</em> s'affiche comme suit:</p>
-<p><img alt="ApiKit Console" src="../img/tp5/api-console.png" /></p>
-<p>Pour tester votre API, cliquer par exemple sur le bouton <em>GET</em> devant la ressource <em>/products</em>. la Console affichera alors la réponse (le produit <em>Sample Product</em>), qui a été définie comme exemple dans le fichier RAML de départ.</p>
-<p><img alt="Get Products" src="../img/tp5/products-response.png" /></p>
-<p>Pour visualiser le résultat sur le navigateur, taper le chemin de la requête comme suit:</p>
-<div class="codehilite"><pre><span class="nl">http:</span><span class="c1">//localhost:8081/prod-services/products</span>
-</pre></div>
-
-<p>Vous obtiendrez le résultat suivant:</p>
-<p><center><img src="../img/tp5/get-prod-response.png" width="75%"></center></p>
-<h4 id="mapping-de-lapi-avec-votre-microservice-productservice">Mapping de l'API avec votre microservice ProductService</h4>
-<p>Pour relier votre API créée avec le microservice Proxy (créé dans le TP précédent), et qui est déployé à l'adresse suivante:</p>
-<div class="codehilite"><pre><span class="nl">http:</span><span class="c1">//localhost:9999/product-service/products</span>
-</pre></div>
-
-<ul>
-<li>Supprimer le <em>Set Payload</em> du flow : <em>get:/products:api-config</em></li>
-<li>Ajouter un connecteur HTTP dans la partie <em>Source</em></li>
-<li>Le configurer comme suit:<ul>
-<li>Path: /prod-services</li>
-<li>Cliquer sur <img alt="config" src="../img/tp5/config.png" /> puis sur OK pour valider le hôte et port.</li>
-</ul>
-</li>
-<li>Ajouter un connecteur HTTP dans la partie <em>Process</em></li>
-<li>Le configurer comme suit:<ul>
-<li>Devant <em>Connector Configuration</em>, cliquer sur <img alt="add" src="../img/tp5/add.png" /> pour ajouter une nouvelle configuration.</li>
-<li>Cela représente les informations du service auquel on va accéder. Définir le Host par <em>localhost</em>, le port par <em>9999</em>, et le base path par <em>/product-service</em></li>
-<li>Cliquer sur OK pour valider</li>
-</ul>
-</li>
-<li>Dans la partie <em>URL Settings</em>, définir :<ul>
-<li>Path: /products</li>
-<li>Method: Get</li>
-</ul>
-</li>
-<li>Sauvegarder, et lancer le service.</li>
-</ul>
-<p>Tester le service sur le navigateur avec l'URL:<br />
-<code class="codehilite"><span class="nl">http:</span><span class="c1">//localhost:8081/prod-services</span></code>. Vous obtiendrez la liste complète des produits, tels que retournés par le service <em>ProductService</em> initial, comme suit:</p>
-<div class="codehilite"><pre><span class="p">{</span>
-  <span class="s">&quot;_embedded&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s">&quot;products&quot;</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Pencil&quot;</span><span class="p">,</span>
-        <span class="s">&quot;_links&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s">&quot;self&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/1&quot;</span>
-          <span class="p">},</span>
-          <span class="s">&quot;product&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/1&quot;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Book&quot;</span><span class="p">,</span>
-        <span class="s">&quot;_links&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s">&quot;self&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/2&quot;</span>
-          <span class="p">},</span>
-          <span class="s">&quot;product&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/2&quot;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Eraser&quot;</span><span class="p">,</span>
-        <span class="s">&quot;_links&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s">&quot;self&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/3&quot;</span>
-          <span class="p">},</span>
-          <span class="s">&quot;product&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/3&quot;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s">&quot;_links&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s">&quot;self&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products{?page,size,sort}&quot;</span><span class="p">,</span>
-      <span class="s">&quot;templated&quot;</span><span class="o">:</span> <span class="nb">true</span>
-    <span class="p">},</span>
-    <span class="s">&quot;profile&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/profile/products&quot;</span>
-    <span class="p">},</span>
-    <span class="s">&quot;search&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s">&quot;href&quot;</span><span class="o">:</span> <span class="s">&quot;http://localhost:9999/product-service/products/search&quot;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="s">&quot;page&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s">&quot;size&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s">&quot;totalElements&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s">&quot;totalPages&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">&quot;number&quot;</span><span class="o">:</span> <span class="mi">0</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<h4 id="transformation-du-resultat-du-microservice-productservice">Transformation du résultat du microservice ProductService</h4>
-<p>Si vous désirez retourner un résultat différent du Microservice initial, en ne laissant par exemple que les noms des produits, sans tous les autres éléments et liens supplémentaires, utiliser un objet <em>Transform Message</em></p>
-<ul>
-<li>Copier le flow get:/products pour créer un autre flow identique</li>
-<li>Modifier le Path du connecteur HTTP source, pour  <em>/prod-services/names</em></li>
-<li>Rajouter un objet <em>Transform Message</em> juste après le connecteur HTTP de droite (celui de la partie Process). Le flow devra ressembler à ce qui suit:</li>
-</ul>
-<p><center><img src="../img/tp5/flow-transform.png" width="50%"></center></p>
-<ul>
-<li>
-<p>Configurer l'objet <em>Transform Message</em>:</p>
-<ul>
-<li>L'interface suivante représente les mappings à faire entre les entrées du service et sa sortie.</li>
-</ul>
-<p><center><img src="../img/tp5/transform-mapping.png" width="100%"></center></p>
-<ul>
-<li>Cliquer sur <em>Define Metadata</em> du payload en entrée (à gauche) gauche)</li>
-<li>Cliquer sur <em>Add</em></li>
-<li>Entrer le nom du type en entrée, par exemple <em>products</em></li>
-<li>Indiquer comme type <em>JSON</em></li>
-<li>Indiquer dans la liste déroulante suivante que le fichier donné est un <em>Example</em>, puis choisir le fichier <em>products-example.json</em> que vous aviez créé.</li>
-<li>Cliquer sur Select. Le schéma du fichier donné est chargé dans la partie <em>Input</em> de <em>Transform Message</em>.</li>
-<li>Pour représenter le format de sortie désiré, créer un fichier appelé <em>names.json</em> à l'endroit de votre préférence sur votre ordinateur.</li>
-<li>Saisir le contenu suivant dans <em>names.json</em>:<br />
-<div class="codehilite"><pre>  <span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;prod&quot;</span><span class="p">}</span>
-</pre></div></li>
-<li>Cliquer sur <em>Define Metadata</em> de sortie (à droite).</li>
-<li>Ajouter un nouveau type que vous appellerez <em>names</em></li>
-<li>Définir comme type <em>Json</em> et charger le fichier <em>names.json</em> que vous venez de créer.</li>
-<li>Valider.</li>
-<li>Maintenant que les deux schémas (entrée et sortie) sont définis, créer les associations de votre choix. Dans notre cas, nous allons associer le champ <em>_embedded.products.name</em> en entrée au champ <em>name</em> en sortie, comme suit:<br />
-<img alt="Mapping" src="../img/tp5/names-mapping.png" /></li>
-<li>Sauvegarder, et lancer le service.</li>
-</ul>
-</li>
-</ul>
-<p>Pour tester le service, lancer dans un navigateur: <code class="codehilite"><span class="nl">http:</span><span class="c1">//localhost:8081/prod-services/names</span></code>. Vous obtiendrez le résultat suivant:</p>
-<div class="codehilite"><pre><span class="p">{</span>
-  <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="s">&quot;Pencil&quot;</span><span class="p">,</span>
-    <span class="s">&quot;Book&quot;</span><span class="p">,</span>
-    <span class="s">&quot;Eraser&quot;</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-                
-                  
-                
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../tp4/" title="TP4 - Microservices avec Spring Boot et Spring Cloud" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Précédent
-                </span>
-                TP4 - Microservices avec Spring Boot et Spring Cloud
-              </span>
-            </div>
-          </a>
-        
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 - 2018 Lilia Sfaxi
-          </div>
-        
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
-    
-      <a href="http://liliasfaxi.wix.com/liliasfaxi" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/liliasfaxi" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/lillitou" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://www.linkedin.com/in/liliasfaxi/" class="md-footer-social__link fa fa-linkedin"></a>
-    
-  </div>
-
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    
-      <script src="../assets/javascripts/application.808e90bb.js"></script>
-      
-        
-        
-          
-          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.fr.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-  </body>
-</html>
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Les Travaux Pratiques du cours eServices"><meta name=author content="Lilia Sfaxi"><link href=http://INSATunisia.github.io/TP-eServices/tp5/ rel=canonical><link rel=icon href=../img/favicon.ico><meta name=generator content="mkdocs-1.2.3, mkdocs-material-8.1.10"><title>TP5 - API Management avec Atom et Anypoint - TP eServices</title><link rel=stylesheet href=../assets/stylesheets/main.d6be258b.min.css><link rel=stylesheet href=../assets/stylesheets/palette.e6a45f82.min.css><meta name=theme-color content=#e92063><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../css/timeago.css><link rel=stylesheet href=../stylesheets/extra.css><link rel=stylesheet href=../stylesheets/links.css><script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme data-md-color-primary=pink data-md-color-accent=amber> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#tp5-api-management-avec-atom-et-anypoint class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title="TP eServices" class="md-header__button md-logo" aria-label="TP eServices" data-md-component=logo> <img src=../img/logo.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> TP eServices </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> TP5 - API Management avec Atom et Anypoint </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/INSATunisia/TP-eServices/ title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> INSATunisia/TP-eServices </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="TP eServices" class="md-nav__button md-logo" aria-label="TP eServices" data-md-component=logo> <img src=../img/logo.png alt=logo> </a> TP eServices </label> <div class=md-nav__source> <a href=https://github.com/INSATunisia/TP-eServices/ title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> INSATunisia/TP-eServices </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Travaux Pratiques eServices </a> </li> <li class=md-nav__item> <a href=../tp1/ class=md-nav__link> TP1 - Services Web REST et SOAP avec Talend </a> </li> <li class=md-nav__item> <a href=../tp2/ class=md-nav__link> TP2 - Orchestration de Services avec Camunda </a> </li> <li class=md-nav__item> <a href=../tp3/ class=md-nav__link> TP3 - Mise en Place d’un ESB avec Talend ESB </a> </li> <li class=md-nav__item> <a href=../tp4/ class=md-nav__link> TP4 - Microservices avec Spring Boot et Spring Cloud </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> TP5 - API Management avec Atom et Anypoint <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> TP5 - API Management avec Atom et Anypoint </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#tp5-api-management-avec-atom-et-anypoint class=md-nav__link> TP5 - API Management avec Atom et Anypoint </a> <nav class=md-nav aria-label="TP5 - API Management avec Atom et Anypoint"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#telecharger-pdf class=md-nav__link> Télécharger PDF </a> </li> <li class=md-nav__item> <a href=#objectifs-du-tp class=md-nav__link> Objectifs du TP </a> </li> <li class=md-nav__item> <a href=#outils-et-versions class=md-nav__link> Outils et Versions </a> </li> <li class=md-nav__item> <a href=#generation-dapi-avec-raml class=md-nav__link> Génération d'API avec RAML </a> <nav class=md-nav aria-label="Génération d'API avec RAML"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#raml class=md-nav__link> RAML </a> </li> <li class=md-nav__item> <a href=#api-workbench class=md-nav__link> API Workbench </a> </li> <li class=md-nav__item> <a href=#creation-dun-document-raml class=md-nav__link> Création d’un document RAML </a> <nav class=md-nav aria-label="Création d’un document RAML"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#creation-dune-api-raml class=md-nav__link> Création d’une API RAML </a> </li> <li class=md-nav__item> <a href=#ajout-de-ressources-et-methodes class=md-nav__link> Ajout de Ressources et Méthodes </a> </li> <li class=md-nav__item> <a href=#remplir-les-corps-et-reponses-des-methodes class=md-nav__link> Remplir les corps et réponses des méthodes </a> </li> <li class=md-nav__item> <a href=#ajouter-des-sous-ressources class=md-nav__link> Ajouter des sous-ressources </a> </li> <li class=md-nav__item> <a href=#definir-des-types class=md-nav__link> Définir des types </a> </li> <li class=md-nav__item> <a href=#extraction-dun-type-de-ressources class=md-nav__link> Extraction d’un type de ressources </a> </li> <li class=md-nav__item> <a href=#ajout-de-parametres-au-type-de-ressource class=md-nav__link> Ajout de paramètres au type de ressource </a> </li> <li class=md-nav__item> <a href=#ajout-dun-exemple class=md-nav__link> Ajout d’un exemple </a> </li> <li class=md-nav__item> <a href=#definir-des-parametres-pour-les-methodes class=md-nav__link> Définir des paramètres pour les méthodes </a> </li> <li class=md-nav__item> <a href=#extraction-de-la-librairie class=md-nav__link> Extraction de la librairie </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#api-management-avec-anypoint-studio class=md-nav__link> API Management avec Anypoint Studio </a> <nav class=md-nav aria-label="API Management avec Anypoint Studio"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#anypoint-platform class=md-nav__link> Anypoint Platform </a> </li> <li class=md-nav__item> <a href=#premiere-application class=md-nav__link> Première Application </a> </li> <li class=md-nav__item> <a href=#gestion-des-apis-avec-apikit class=md-nav__link> Gestion des APIs avec APIKit </a> <nav class=md-nav aria-label="Gestion des APIs avec APIKit"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#creation-dun-fichier-raml-pour-le-microservice class=md-nav__link> Création d'un fichier RAML pour le microservice </a> </li> <li class=md-nav__item> <a href=#nouveau-projet-de-api-management class=md-nav__link> Nouveau Projet de API Management </a> </li> <li class=md-nav__item> <a href=#configuration-du-flux-principal class=md-nav__link> Configuration du flux principal </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#mapping-de-lapi-avec-votre-microservice-productservice class=md-nav__link> Mapping de l'API avec votre microservice ProductService </a> </li> <li class=md-nav__item> <a href=#transformation-du-resultat-du-microservice-productservice class=md-nav__link> Transformation du résultat du microservice ProductService </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#tp5-api-management-avec-atom-et-anypoint class=md-nav__link> TP5 - API Management avec Atom et Anypoint </a> <nav class=md-nav aria-label="TP5 - API Management avec Atom et Anypoint"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#telecharger-pdf class=md-nav__link> Télécharger PDF </a> </li> <li class=md-nav__item> <a href=#objectifs-du-tp class=md-nav__link> Objectifs du TP </a> </li> <li class=md-nav__item> <a href=#outils-et-versions class=md-nav__link> Outils et Versions </a> </li> <li class=md-nav__item> <a href=#generation-dapi-avec-raml class=md-nav__link> Génération d'API avec RAML </a> <nav class=md-nav aria-label="Génération d'API avec RAML"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#raml class=md-nav__link> RAML </a> </li> <li class=md-nav__item> <a href=#api-workbench class=md-nav__link> API Workbench </a> </li> <li class=md-nav__item> <a href=#creation-dun-document-raml class=md-nav__link> Création d’un document RAML </a> <nav class=md-nav aria-label="Création d’un document RAML"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#creation-dune-api-raml class=md-nav__link> Création d’une API RAML </a> </li> <li class=md-nav__item> <a href=#ajout-de-ressources-et-methodes class=md-nav__link> Ajout de Ressources et Méthodes </a> </li> <li class=md-nav__item> <a href=#remplir-les-corps-et-reponses-des-methodes class=md-nav__link> Remplir les corps et réponses des méthodes </a> </li> <li class=md-nav__item> <a href=#ajouter-des-sous-ressources class=md-nav__link> Ajouter des sous-ressources </a> </li> <li class=md-nav__item> <a href=#definir-des-types class=md-nav__link> Définir des types </a> </li> <li class=md-nav__item> <a href=#extraction-dun-type-de-ressources class=md-nav__link> Extraction d’un type de ressources </a> </li> <li class=md-nav__item> <a href=#ajout-de-parametres-au-type-de-ressource class=md-nav__link> Ajout de paramètres au type de ressource </a> </li> <li class=md-nav__item> <a href=#ajout-dun-exemple class=md-nav__link> Ajout d’un exemple </a> </li> <li class=md-nav__item> <a href=#definir-des-parametres-pour-les-methodes class=md-nav__link> Définir des paramètres pour les méthodes </a> </li> <li class=md-nav__item> <a href=#extraction-de-la-librairie class=md-nav__link> Extraction de la librairie </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#api-management-avec-anypoint-studio class=md-nav__link> API Management avec Anypoint Studio </a> <nav class=md-nav aria-label="API Management avec Anypoint Studio"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#anypoint-platform class=md-nav__link> Anypoint Platform </a> </li> <li class=md-nav__item> <a href=#premiere-application class=md-nav__link> Première Application </a> </li> <li class=md-nav__item> <a href=#gestion-des-apis-avec-apikit class=md-nav__link> Gestion des APIs avec APIKit </a> <nav class=md-nav aria-label="Gestion des APIs avec APIKit"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#creation-dun-fichier-raml-pour-le-microservice class=md-nav__link> Création d'un fichier RAML pour le microservice </a> </li> <li class=md-nav__item> <a href=#nouveau-projet-de-api-management class=md-nav__link> Nouveau Projet de API Management </a> </li> <li class=md-nav__item> <a href=#configuration-du-flux-principal class=md-nav__link> Configuration du flux principal </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#mapping-de-lapi-avec-votre-microservice-productservice class=md-nav__link> Mapping de l'API avec votre microservice ProductService </a> </li> <li class=md-nav__item> <a href=#transformation-du-resultat-du-microservice-productservice class=md-nav__link> Transformation du résultat du microservice ProductService </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <a href=https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp5.md title="Edit this page" class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg> </a> <h1>TP5 - API Management avec Atom et Anypoint</h1> <h2 id=tp5-api-management-avec-atom-et-anypoint>TP5 - API Management avec Atom et Anypoint<a class=headerlink href=#tp5-api-management-avec-atom-et-anypoint title="Permanent link">&para;</a></h2> <p><img alt=API src=../img/api.png></p> <h3 id=telecharger-pdf>Télécharger PDF<a class=headerlink href=#telecharger-pdf title="Permanent link">&para;</a></h3> <p><a href=../tp5.pdf><img alt="Download TP5" src=../img/pdf.png></a></p> <h3 id=objectifs-du-tp>Objectifs du TP<a class=headerlink href=#objectifs-du-tp title="Permanent link">&para;</a></h3> <ol> <li>Génération d’API avec Atom et le langage RAML</li> <li>Gestion des APIs avec Anypoint Studio et le API Gateway de Mulesoft</li> </ol> <h3 id=outils-et-versions>Outils et Versions<a class=headerlink href=#outils-et-versions title="Permanent link">&para;</a></h3> <ul> <li><a href=https://atom.io/ >Atom</a> Version: 1.22.1</li> <li><a href=http://apiworkbench.com/ >API Workbench</a>: Plugin Atom. Version: 0.8.47</li> <li><a href=https://www.mulesoft.com/platform/studio>Anypoint Studio</a> Version: 6.4.1</li> <li><a href=https://dev.mysql.com/downloads/mysql/ >MySQL</a> Version 5.7.20 (ou tout autre SGBD de votre choix)</li> </ul> <h3 id=generation-dapi-avec-raml>Génération d'API avec RAML<a class=headerlink href=#generation-dapi-avec-raml title="Permanent link">&para;</a></h3> <h4 id=raml>RAML<a class=headerlink href=#raml title="Permanent link">&para;</a></h4> <p><a href=http://docs.raml.org/ >RAML</a> (RESTful API Modeling Language) est un langage pour la définition d’API HTTP qui satisfont les exigences de l'architecture REST. La spécification RAML est une application de la spécification YAML, qui fournit des mécanismes pour la définition d’APIs RESTful.</p> <p>RAML est développé et supporté par un groupe de leaders en nouvelles technologie, provenant de plusieurs entreprises éminentes (Mulesoft, Airware, Akana, VMware, CISCO…). Leur but est de construire une spécification ouverte, simple et succincte pour la description d’APIs. Ce groupe de travail contribue à la fois à la spécification RAML, ainsi qu’à un écosystème croissant d’outils autours de ce langage.</p> <h4 id=api-workbench>API Workbench<a class=headerlink href=#api-workbench title="Permanent link">&para;</a></h4> <p>Pour écrire un document RAML de manière simple et intuitive, un outil de travail est fourni, sous la forme d’un plugin pour <a href=https://atom.io/ >Atom</a>, l'éditeur de texte open source, appelé <a href=http://apiworkbench.com/ >API Workbench</a>.</p> <p>Pour l’installer:</p> <ul> <li>Télécharger et installer Atom: <a href=https://atom.io/ >https://atom.io/</a></li> <li>Dans le menu Préférences, choisir l’option <em>Packages</em>, et taper dans la barre de recherche: <em>api-workbench</em>.</li> <li>Une fois le package installé, on devrait trouver dans le menu Packages, un nouvel élément <em>API Workbench</em>.</li> </ul> <h4 id=creation-dun-document-raml>Création d’un document RAML<a class=headerlink href=#creation-dun-document-raml title="Permanent link">&para;</a></h4> <p>Dans ce qui suit, nous vous indiquons les étapes nécessaires pour créer un simple fichier RAML décrivant une API REST répondant aux recommandations décrites dans le cours.</p> <h5 id=creation-dune-api-raml>Création d’une API RAML<a class=headerlink href=#creation-dune-api-raml title="Permanent link">&para;</a></h5> <p>Pour créer un nouveau projet RAML, aller vers <em>Packages -&gt; API Workbench -&gt; Create RAML Project</em> . Indiquer :</p> <ul> <li>Le répertoire de travail</li> <li>Le titre de l’API : Par exemple Pet Shop</li> <li>La version : v1</li> <li>L’URI de base l’API : /petshop</li> <li>Cocher uniquement Use RAML 1.0</li> </ul> <p>Le projet obtenu aura l’allure suivante:</p> <p><img alt=Workspace src=../img/tp5/workspace.png></p> <h5 id=ajout-de-ressources-et-methodes>Ajout de Ressources et Méthodes<a class=headerlink href=#ajout-de-ressources-et-methodes title="Permanent link">&para;</a></h5> <ul> <li>Sous l’onglet Palette de la rubrique Détails, cliquer sur <em>Add new ressource</em> pour ajouter une nouvelle ressource.</li> <li>Appeler la ressource <em>/pets</em></li> <li>Sélectionner les méthodes <em>get</em> et <em>post</em></li> </ul> <p>La ressource est désormais créée avec deux méthodes vides.</p> <h5 id=remplir-les-corps-et-reponses-des-methodes>Remplir les corps et réponses des méthodes<a class=headerlink href=#remplir-les-corps-et-reponses-des-methodes title="Permanent link">&para;</a></h5> <ul> <li>Mettre le focus sur la méthode <em>get:</em></li> <li>Dans la Palette, cliquer sur <em>Create new response</em></li> <li>Garder le code 200 pour la réponse et cliquer sur OK</li> <li>Une fois le code de la réponse généré, mettre le focus sur <em>200:</em></li> <li>Cliquer sur <em>Create new Response Body</em>, puis dans la fenêtre qui apparait cliquer sur OK, pour générer une réponse de type par défaut <em>application/json</em></li> <li>Pour la méthode post, générer directement un corps, en cliquant sur <em>Create new body</em>.</li> </ul> <p>Le résultat apparaît comme suit:</p> <p><img alt="Nouvelle API" src=../img/tp5/new-api.png></p> <h5 id=ajouter-des-sous-ressources>Ajouter des sous-ressources<a class=headerlink href=#ajouter-des-sous-ressources title="Permanent link">&para;</a></h5> <p>Pour définir le reste des méthodes (put et delete), destinées à agir sur un élément unique de la ressource pets, et les associer à une sous-ressource:</p> <ul> <li>Mettre le focus sur <em>/pets</em></li> <li>Cliquer sur <em>Add new resource</em></li> <li>Taper <em>/{id}</em> comme ressource URL, et sélectionner les méthodes put et delete.</li> <li>Ajouter un body à put de type application/json</li> <li>Ajouter une réponse à delete de type 204</li> </ul> <h5 id=definir-des-types>Définir des types<a class=headerlink href=#definir-des-types title="Permanent link">&para;</a></h5> <p>Pour définir le contenu des messages JSON manipulés, définir un type comme suit:</p> <ul> <li>Dans une nouvelle ligne au dessus de <em>/pets</em>, taper <em>ty</em>, puis cliquer sur entrée</li> <li>Appeler le type <em>Pet</em>, puis définir les propriétés name, kind et price, comme suit:</li> </ul> <div class=highlight><pre><span></span><code><span class=na>types</span><span class=o>:</span><span class=w></span>
+<span class=na>  Pet</span><span class=o>:</span><span class=w></span>
+<span class=na>    properties</span><span class=o>:</span><span class=w></span>
+<span class=na>      name</span><span class=o>:</span><span class=w> </span><span class=s>string</span><span class=w></span>
+<span class=na>      kind</span><span class=o>:</span><span class=w> </span><span class=s>string</span><span class=w></span>
+<span class=na>      price</span><span class=o>:</span><span class=w> </span><span class=s>number</span><span class=w></span>
+</code></pre></div> <ul> <li>Définir <em>Pet</em> comme type pour le corps de la méthode <em>post</em>, en écrivant: <em>type: Pet</em> au dessous de <em>application/json</em> de la méthode post</li> <li>Ajouter de même <em>Pet</em> comme type pour la méthode put, et <em>Pet[]</em> pour la méthode get.</li> </ul> <h5 id=extraction-dun-type-de-ressources>Extraction d’un type de ressources<a class=headerlink href=#extraction-dun-type-de-ressources title="Permanent link">&para;</a></h5> <p>Pour générer un type de ressources à partir d’une ressource existante:</p> <ul> <li>Mettre le focus sur la ressource <em>/pets</em></li> <li>Cliquer sur <em>Extract Resource Type</em> (si vous ne la trouvez pas, appuyer sur <em>entrée</em>)</li> <li>Taper <em>Collection</em> comme nom de type de ressource et déplacer les méthodes get et post de la fenêtre de gauche vers celle de droite</li> <li>Un nouveau <em>resourceType</em>, appelé <em>Collection</em>, est créé, contenant les méthodes get et post comme elles ont été définies sous la ressource <em>/pets</em>. De plus, <em>/pets</em> est désormais de type <em>Collection</em>.</li> <li>Répéter la procédure pour la ressource /{id}. On appellera le type <em>Member</em>.</li> </ul> <p>Le résultat devra ressembler à ce qui suit:</p> <p><center><img src=../img/tp5/resource-type.png width=50%></center></p> <h5 id=ajout-de-parametres-au-type-de-ressource>Ajout de paramètres au type de ressource<a class=headerlink href=#ajout-de-parametres-au-type-de-ressource title="Permanent link">&para;</a></h5> <p>Pour rendre le type de ressource créé générique, il serait plus intéressant de paramétrer le type de réponse. Pour cela:</p> <ul> <li>Remplacer le terme <em>Pet</em> dans <em>Collection</em> et <em>Member</em> par <code>&lt;&lt;item&gt;&gt;</code>.</li> <li>Corriger les erreurs qui s’affichent dans les ressources <em>Collection</em> et <em>Member</em> respectivement par <code>{ Collection: {item : Pet} }</code> et <code>{ Member: {item : Pet} }</code></li> </ul> <h5 id=ajout-dun-exemple>Ajout d’un exemple<a class=headerlink href=#ajout-dun-exemple title="Permanent link">&para;</a></h5> <p>Pour ajouter un exemple d’animal, modifier le type <em>Pet</em> pour qu’il soit comme suit:</p> <div class=highlight><pre><span></span><code><span class=na>types</span><span class=o>:</span><span class=w></span>
+<span class=na>  Pet</span><span class=o>:</span><span class=w></span>
+<span class=na>    properties</span><span class=o>:</span><span class=w></span>
+<span class=na>      name</span><span class=o>:</span><span class=w> </span><span class=s>string</span><span class=w></span>
+<span class=na>      kind</span><span class=o>:</span><span class=w> </span><span class=s>string</span><span class=w></span>
+<span class=na>      price</span><span class=o>:</span><span class=w> </span><span class=s>number</span><span class=w></span>
+<span class=na>    example</span><span class=o>:</span><span class=w></span>
+<span class=na>      name</span><span class=o>:</span><span class=w> </span><span class=s>Snoopy</span><span class=w></span>
+<span class=na>      kind</span><span class=o>:</span><span class=w> </span><span class=s>Dog</span><span class=w></span>
+<span class=na>      price</span><span class=o>:</span><span class=w> </span><span class=s>1000</span><span class=w></span>
+</code></pre></div> <h5 id=definir-des-parametres-pour-les-methodes>Définir des paramètres pour les méthodes<a class=headerlink href=#definir-des-parametres-pour-les-methodes title="Permanent link">&para;</a></h5> <p>Nous nous proposons d’ajouter une autre méthode de type <em>get</em>, qui définit plusieurs paramètres.</p> <ul> <li>Sous (et au même niveau que) <em>type</em> de <em>/pets</em>, taper: <em>get:</em></li> <li>Mettre le focus sur le <em>get</em> nouvellement créé</li> <li>Cliquer sur <em>Create new query parameter</em></li> <li>Créer trois paramètres:<ul> <li><em>priceLessThan</em> de type <em>number</em></li> <li><em>priceMoreThan</em> de type <em>number</em></li> <li><em>petKind</em>, de type <em>enum;[bird, dog]</em></li> </ul> </li> </ul> <p>Cela devra ressembler à ce qui suit: <div class=highlight><pre><span></span><code><span class=na>get</span><span class=o>:</span><span class=w></span>
+<span class=na>    queryParameters</span><span class=o>:</span><span class=w></span>
+<span class=na>      priceLessThan</span><span class=o>:</span><span class=w> </span><span class=s>number</span><span class=w></span>
+<span class=na>      priceMoreThan</span><span class=o>:</span><span class=w> </span><span class=s>number</span><span class=w></span>
+<span class=na>      petKind</span><span class=o>:</span><span class=w></span>
+<span class=na>        enum</span><span class=o>:</span><span class=w></span>
+<span class=w>          </span><span class=err>-</span><span class=w> </span><span class=err>bird</span><span class=w></span>
+<span class=w>          </span><span class=err>-</span><span class=w> </span><span class=err>dog</span><span class=w></span>
+</code></pre></div></p> <p>Il est possible d’extraire certains des paramètres comme <em>Trait</em>, c’est à dire un critère de filtrage. Pour cela:</p> <ul> <li>Mettre le focus sur le <em>get</em></li> <li>Cliquer sur <em>Extract trait</em></li> <li>Nommer le trait <em>FiltrableByPrice</em>, et déplacer les méthodes <em>priceLessThan</em> et <em>priceMoreThan</em> vers la droite.</li> </ul> <p>Vous remarquerez que les deux paramètres choisis ont été enlevés de la méthode <em>get</em>, et remplacés par <em>is: [FilterableByPrice]</em>.</p> <p>Voici donc le résultat final du fichier RAML: <div class=highlight><pre><span></span><code><span class=c>#%RAML 1.0</span><span class=w></span>
+<span class=na>traits</span><span class=o>:</span><span class=w></span>
+<span class=na>  FiltrableByPrice</span><span class=o>:</span><span class=w></span>
+<span class=na>    queryParameters</span><span class=o>:</span><span class=w></span>
+<span class=na>      priceLessThan</span><span class=o>:</span><span class=w> </span><span class=s>number</span><span class=w></span>
+<span class=na>      priceMoreThan</span><span class=o>:</span><span class=w> </span><span class=s>number</span><span class=w></span>
+<span class=na>resourceTypes</span><span class=o>:</span><span class=w></span>
+<span class=na>  Collection</span><span class=o>:</span><span class=w></span>
+<span class=na>    get</span><span class=o>:</span><span class=w></span>
+<span class=na>      responses</span><span class=o>:</span><span class=w></span>
+<span class=na>        200</span><span class=o>:</span><span class=w></span>
+<span class=na>          body</span><span class=o>:</span><span class=w></span>
+<span class=na>            application/json</span><span class=o>:</span><span class=w></span>
+<span class=na>              type</span><span class=o>:</span><span class=w> </span><span class=s>&lt;&lt;item&gt;&gt;</span><span class=w></span>
+<span class=na>    post</span><span class=o>:</span><span class=w></span>
+<span class=na>      body</span><span class=o>:</span><span class=w></span>
+<span class=na>        application/json</span><span class=o>:</span><span class=w></span>
+<span class=na>          type</span><span class=o>:</span><span class=w> </span><span class=s>&lt;&lt;item&gt;&gt;</span><span class=w></span>
+<span class=na>  Member</span><span class=o>:</span><span class=w></span>
+<span class=na>    delete</span><span class=o>:</span><span class=w></span>
+<span class=na>      responses</span><span class=o>:</span><span class=w></span>
+<span class=na>        204</span><span class=o>:</span><span class=w></span>
+<span class=na>    put</span><span class=o>:</span><span class=w></span>
+<span class=na>      body</span><span class=o>:</span><span class=w></span>
+<span class=na>        application/json</span><span class=o>:</span><span class=w></span>
+<span class=na>          type</span><span class=o>:</span><span class=w> </span><span class=s>&lt;&lt;item&gt;&gt;</span><span class=w></span>
+<span class=na>title</span><span class=o>:</span><span class=w> </span><span class=s>Pet Shop</span><span class=w></span>
+<span class=na>version</span><span class=o>:</span><span class=w> </span><span class=s>v1</span><span class=w></span>
+<span class=na>baseUri</span><span class=o>:</span><span class=w> </span><span class=s>/petshop</span><span class=w></span>
+<span class=na>types</span><span class=o>:</span><span class=w></span>
+<span class=na>  Pet</span><span class=o>:</span><span class=w></span>
+<span class=na>    properties</span><span class=o>:</span><span class=w></span>
+<span class=na>      name</span><span class=o>:</span><span class=w> </span><span class=s>string</span><span class=w></span>
+<span class=na>      kind</span><span class=o>:</span><span class=w> </span><span class=s>string</span><span class=w></span>
+<span class=na>      price</span><span class=o>:</span><span class=w> </span><span class=s>number</span><span class=w></span>
+<span class=na>    example</span><span class=o>:</span><span class=w></span>
+<span class=na>      name</span><span class=o>:</span><span class=w> </span><span class=s>Snoopy</span><span class=w></span>
+<span class=na>      kind</span><span class=o>:</span><span class=w> </span><span class=s>Dog</span><span class=w></span>
+<span class=na>      price</span><span class=o>:</span><span class=w> </span><span class=s>1000</span><span class=w></span>
+<span class=na>/pets</span><span class=o>:</span><span class=w></span>
+<span class=na>  type</span><span class=o>:</span><span class=w> </span><span class=s>{ Collection: {item : Pet} }</span><span class=w></span>
+<span class=na>  get</span><span class=o>:</span><span class=w></span>
+<span class=na>    queryParameters</span><span class=o>:</span><span class=w></span>
+<span class=na>      petKind</span><span class=o>:</span><span class=w></span>
+<span class=na>        enum</span><span class=o>:</span><span class=w></span>
+<span class=w>          </span><span class=err>-</span><span class=w> </span><span class=err>bird</span><span class=w></span>
+<span class=w>          </span><span class=err>-</span><span class=w> </span><span class=err>dog</span><span class=w></span>
+<span class=na>    is</span><span class=o>:</span><span class=w> </span><span class=s>[FiltrableByPrice]</span><span class=w></span>
+<span class=na>  /{id}</span><span class=o>:</span><span class=w></span>
+<span class=na>    type</span><span class=o>:</span><span class=w> </span><span class=s>{ Member: {item : Pet} }</span><span class=w></span>
+</code></pre></div></p> <h5 id=extraction-de-la-librairie>Extraction de la librairie<a class=headerlink href=#extraction-de-la-librairie title="Permanent link">&para;</a></h5> <p>Pour extraire les types définis et les représenter dans une entité réutilisable:</p> <ul> <li>Mettre le focus en dehors de toutes les structures, par exemple sur <em>title</em></li> <li>Cliquer sur <em>Extract Library</em></li> <li>Appeler la librarie <em>PetTypes</em></li> <li>Déplacer <em>Pet</em>, <em>Collection</em> et <em>Member</em> vers le panel de droite</li> <li>Cliquer sur <em>Extract</em></li> </ul> <p>Un nouveau fichier contenant les trois types sélectionnés a été créé, puis inclus comme référence dans notre fichier principal.</p> <h4 id=api-management-avec-anypoint-studio>API Management avec Anypoint Studio<a class=headerlink href=#api-management-avec-anypoint-studio title="Permanent link">&para;</a></h4> <h5 id=anypoint-platform>Anypoint Platform<a class=headerlink href=#anypoint-platform title="Permanent link">&para;</a></h5> <p><a href=https://www.mulesoft.com/platform/enterprise-integration>Anypoint</a> est une plateforme développée par l’entreprise Mulesoft qui offre les outils nécessaires pour la gestion d’APIs. Anypoint est classée par Gartner dans son Magic Quadrant dans la rubrique “Application Services Governance” d’Avril 2015 parmi les leaders du marché du API Management.</p> <p><img alt="Magic Quadrant: Application Services Governance" src=../img/tp5/gartner.png></p> <h5 id=premiere-application>Première Application<a class=headerlink href=#premiere-application title="Permanent link">&para;</a></h5> <p>Une fois Anypoint Studio téléchargé et installé, créer un nouveau projet, qu’on appellera <em>PremiereApplication</em>, et choisir Mule Server comme <em>Runtime Environment</em>. La fenêtre obtenue a l’allure suivante:</p> <p><img alt="Workspace Mulesoft Studio" src=../img/tp5/workspace-mule.png></p> <div class="admonition warning"> <p class=admonition-title>Attention</p> <p>Anypoint Studio version 6.4.1 ne fonctionne qu'avec au plus JDK 1.8.0_151!</p> </div> <p>Nous allons commencer par créer une simple application qui affiche un message dans un navigateur.</p> <ul> <li>À partir de la palette, glisser-déplacer les éléments graphiques suivants dans le canevas:<ul> <li><strong>HTTP</strong>: permet de se connecter aux ressources web via HTTP ou HTTPS.</li> <li><strong>Set Payload</strong>: modifie le message affiché (payload) en "Hello World!".</li> </ul> </li> </ul> <p>Votre flux aura l’allure suivante:</p> <p><center><img src=../img/tp5/hello-app.png width=30%></center></p> <p>Configurer votre composant HTTP :</p> <ul> <li>Ajouter une nouvelle <em>Connector Configuration</em></li> <li>Garder les options par défaut. Votre hôte se lancera à l’URL 0.0.0.0:8081</li> </ul> <p>Configurer le composant Set Payload:</p> <ul> <li>Remplacer la valeur de l’élément <em>Value</em> par <em>Hello World!</em></li> <li>Lancer votre application : Run -&gt; Run As -&gt; Mule Application. La console devrait afficher un message comme suit:</li> </ul> <p><img alt="Console Helloworld" src=../img/tp5/hello-console.png></p> <p>Dans un navigateur, taper l'adresse: 0.0.0.0:8081. Le message suivant devra s'afficher:</p> <p><center><img src=../img/tp5/hello-nav.png width=30%></center></p> <h5 id=gestion-des-apis-avec-apikit>Gestion des APIs avec APIKit<a class=headerlink href=#gestion-des-apis-avec-apikit title="Permanent link">&para;</a></h5> <p>APIKit est un toolkit open source spécialement créé pour faciliter l’implémentation d’APIs REST, en renforçant les bonnes pratiques de création d’APIs.</p> <p>Nous allons pour cela exposer l'API REST que nous avons créé dans le <a href=../tp4/ >TP précédent</a>, grâce aux microservices Spring.</p> <h6 id=creation-dun-fichier-raml-pour-le-microservice><em>Création d'un fichier RAML pour le microservice</em><a class=headerlink href=#creation-dun-fichier-raml-pour-le-microservice title="Permanent link">&para;</a></h6> <p>Pour représenter le microservice "ProductService", créer le fichier <em>api.raml</em> suivant avec Atom:</p> <div class=highlight><pre><span></span><code><span class=c>#%RAML 1.0</span><span class=w></span>
+<span class=na>title</span><span class=o>:</span><span class=w> </span><span class=s>Micro-API</span><span class=w></span>
+<span class=na>version</span><span class=o>:</span><span class=w> </span><span class=s>v1</span><span class=w></span>
+<span class=na>baseUri</span><span class=o>:</span><span class=w> </span><span class=s>http://products.tn</span><span class=w></span>
+<span class=na>/products</span><span class=o>:</span><span class=w></span>
+<span class=na>  get</span><span class=o>:</span><span class=w></span>
+<span class=na>    description</span><span class=o>:</span><span class=w> </span><span class=s>List of all the products</span><span class=w></span>
+<span class=na>    responses</span><span class=o>:</span><span class=w></span>
+<span class=na>      200</span><span class=o>:</span><span class=w></span>
+<span class=na>        body</span><span class=o>:</span><span class=w></span>
+<span class=na>          application/json</span><span class=o>:</span><span class=w></span>
+<span class=na>            example</span><span class=o>:</span><span class=w> </span><span class=s>!include products-example.json</span><span class=w></span>
+</code></pre></div> <p>Rajouter également (dans le même répertoire) un fichier <em>products-example.json</em>, où vous allez trouver un exemple de produits, tel qu'ils sont représentés par votre service sur <code>http://localhost:9999/product-service/products</code>. Cela devrait ressembler à ce qui suit:</p> <div class=highlight><pre><span></span><code><span class=p>{</span><span class=w></span>
+<span class=w>  </span><span class=nt>&quot;_embedded&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;products&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=w></span>
+<span class=w>      </span><span class=p>{</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;name&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;Sample Product&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;_links&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;self&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/1&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>},</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;product&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/1&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>}</span><span class=w></span>
+<span class=w>        </span><span class=p>}</span><span class=w></span>
+<span class=w>      </span><span class=p>}</span><span class=w></span>
+<span class=w>    </span><span class=p>]</span><span class=w></span>
+<span class=w>  </span><span class=p>},</span><span class=w></span>
+<span class=w>  </span><span class=nt>&quot;_links&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;self&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products{?page,size,sort}&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;templated&quot;</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w></span>
+<span class=w>    </span><span class=p>},</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;profile&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/profile/products&quot;</span><span class=w></span>
+<span class=w>    </span><span class=p>},</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;search&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/search&quot;</span><span class=w></span>
+<span class=w>    </span><span class=p>}</span><span class=w></span>
+<span class=w>  </span><span class=p>},</span><span class=w></span>
+<span class=w>  </span><span class=nt>&quot;page&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;size&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>20</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;totalElements&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>3</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;totalPages&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>1</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;number&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>0</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <h6 id=nouveau-projet-de-api-management><em>Nouveau Projet de API Management</em><a class=headerlink href=#nouveau-projet-de-api-management title="Permanent link">&para;</a></h6> <p>Créer un nouveau projet qu’on appellera <em>API_Project</em>:</p> <ul> <li>Choisir comme environnement d’exécution Mule Server.</li> <li>Cocher la case <em>Add APIKit components</em> et entrer votre fichier api.raml.</li> </ul> <p>Un nouveau projet sera créé avec les fichiers <em>api.raml</em> et <em>products-example.json</em> ajouté sous le répertoire <em>src/main/api</em>, ainsi que des flux de gestion des différentes méthodes ajoutées par défaut dans le canevas. Vous retrouverez notamment:</p> <table> <thead> <tr> <th>Flux</th> <th>Description</th> <th>Figure</th> </tr> </thead> <tbody> <tr> <td>api-main</td> <td>Flux principal, définissant un point d’accès HTTP, un routeur APIKit et une référence à une stratégie d'exception</td> <td><img alt=api-main src=../img/tp5/api-main.png></td> </tr> <tr> <td>action:/ressource:api-config</td> <td>Un Backend flow pour chaque paire de ressource/action dans le fichier RAML. Par exemple, get:/products:api-config représente l’action get de la ressource products</td> <td><img alt=get-products src=../img/tp5/get-products.png></td> </tr> <tr> <td>Exception Strategy Mapping</td> <td>Flux fournis par Studio pour configurer les messages d’erreur dans un format HTTP-status-code-friendly</td> <td><img alt=errors src=../img/tp5/error-mapping.png></td> </tr> </tbody> </table> <h6 id=configuration-du-flux-principal><em>Configuration du flux principal</em><a class=headerlink href=#configuration-du-flux-principal title="Permanent link">&para;</a></h6> <ul> <li>Dans les propriétés du composant HTTP, définir le Path par: /prod-services/*.</li> <li>Dans le <em>Connector Configuration</em>, cliquer sur l'icône <img alt=config src=../img/tp5/config.png>, puis cliquer sur <em>OK</em> pour valider le host (0.0.0.0) et le port (8081)</li> </ul> <div class="admonition note"> <p class=admonition-title>Remarque</p> <p>Vous pouvez changer ici le port défini par défaut, pour éviter les conflits avec vos microservices.</p> </div> <p>Lancer le projet comme <em>Mule Project</em>. Une <em>APIKit Console</em> s'affiche comme suit:</p> <p><img alt="ApiKit Console" src=../img/tp5/api-console.png></p> <p>Pour tester votre API, cliquer par exemple sur le bouton <em>GET</em> devant la ressource <em>/products</em>. la Console affichera alors la réponse (le produit <em>Sample Product</em>), qui a été définie comme exemple dans le fichier RAML de départ.</p> <p><img alt="Get Products" src=../img/tp5/products-response.png></p> <p>Pour visualiser le résultat sur le navigateur, taper le chemin de la requête comme suit:</p> <div class=highlight><pre><span></span><code>http://localhost:8081/prod-services/products
+</code></pre></div> <p>Vous obtiendrez le résultat suivant:</p> <p><center><img src=../img/tp5/get-prod-response.png width=75%></center></p> <h5 id=mapping-de-lapi-avec-votre-microservice-productservice>Mapping de l'API avec votre microservice ProductService<a class=headerlink href=#mapping-de-lapi-avec-votre-microservice-productservice title="Permanent link">&para;</a></h5> <p>Pour relier votre API créée avec le microservice Proxy (créé dans le TP précédent), et qui est déployé à l'adresse suivante:</p> <div class=highlight><pre><span></span><code>http://localhost:9999/product-service/products
+</code></pre></div> <ul> <li>Supprimer le <em>Set Payload</em> du flow : <em>get:/products:api-config</em></li> <li>Ajouter un connecteur HTTP dans la partie <em>Source</em></li> <li>Le configurer comme suit:<ul> <li>Path: /prod-services</li> <li>Cliquer sur <img alt=config src=../img/tp5/config.png> puis sur OK pour valider le hôte et port.</li> </ul> </li> <li>Ajouter un connecteur HTTP dans la partie <em>Process</em></li> <li>Le configurer comme suit:<ul> <li>Devant <em>Connector Configuration</em>, cliquer sur <img alt=add src=../img/tp5/add.png> pour ajouter une nouvelle configuration.</li> <li>Cela représente les informations du service auquel on va accéder. Définir le Host par <em>localhost</em>, le port par <em>9999</em>, et le base path par <em>/product-service</em></li> <li>Cliquer sur OK pour valider</li> </ul> </li> <li>Dans la partie <em>URL Settings</em>, définir :<ul> <li>Path: /products</li> <li>Method: Get</li> </ul> </li> <li>Sauvegarder, et lancer le service.</li> </ul> <p>Tester le service sur le navigateur avec l'URL: <code>http://localhost:8081/prod-services</code>. Vous obtiendrez la liste complète des produits, tels que retournés par le service <em>ProductService</em> initial, comme suit:</p> <div class=highlight><pre><span></span><code><span class=p>{</span><span class=w></span>
+<span class=w>  </span><span class=nt>&quot;_embedded&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;products&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=w></span>
+<span class=w>      </span><span class=p>{</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;name&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;Pencil&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;_links&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;self&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/1&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>},</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;product&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/1&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>}</span><span class=w></span>
+<span class=w>        </span><span class=p>}</span><span class=w></span>
+<span class=w>      </span><span class=p>},</span><span class=w></span>
+<span class=w>      </span><span class=p>{</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;name&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;Book&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;_links&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;self&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/2&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>},</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;product&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/2&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>}</span><span class=w></span>
+<span class=w>        </span><span class=p>}</span><span class=w></span>
+<span class=w>      </span><span class=p>},</span><span class=w></span>
+<span class=w>      </span><span class=p>{</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;name&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;Eraser&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>        </span><span class=nt>&quot;_links&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;self&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/3&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>},</span><span class=w></span>
+<span class=w>          </span><span class=nt>&quot;product&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/3&quot;</span><span class=w></span>
+<span class=w>          </span><span class=p>}</span><span class=w></span>
+<span class=w>        </span><span class=p>}</span><span class=w></span>
+<span class=w>      </span><span class=p>}</span><span class=w></span>
+<span class=w>    </span><span class=p>]</span><span class=w></span>
+<span class=w>  </span><span class=p>},</span><span class=w></span>
+<span class=w>  </span><span class=nt>&quot;_links&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;self&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products{?page,size,sort}&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;templated&quot;</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w></span>
+<span class=w>    </span><span class=p>},</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;profile&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/profile/products&quot;</span><span class=w></span>
+<span class=w>    </span><span class=p>},</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;search&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>      </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;http://localhost:9999/product-service/products/search&quot;</span><span class=w></span>
+<span class=w>    </span><span class=p>}</span><span class=w></span>
+<span class=w>  </span><span class=p>},</span><span class=w></span>
+<span class=w>  </span><span class=nt>&quot;page&quot;</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;size&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>20</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;totalElements&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>3</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;totalPages&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>1</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=nt>&quot;number&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>0</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <h5 id=transformation-du-resultat-du-microservice-productservice>Transformation du résultat du microservice ProductService<a class=headerlink href=#transformation-du-resultat-du-microservice-productservice title="Permanent link">&para;</a></h5> <p>Si vous désirez retourner un résultat différent du Microservice initial, en ne laissant par exemple que les noms des produits, sans tous les autres éléments et liens supplémentaires, utiliser un objet <em>Transform Message</em></p> <ul> <li>Copier le flow get:/products pour créer un autre flow identique</li> <li>Modifier le Path du connecteur HTTP source, pour <em>/prod-services/names</em></li> <li>Rajouter un objet <em>Transform Message</em> juste après le connecteur HTTP de droite (celui de la partie Process). Le flow devra ressembler à ce qui suit:</li> </ul> <p><center><img src=../img/tp5/flow-transform.png width=50%></center></p> <ul> <li> <p>Configurer l'objet <em>Transform Message</em>:</p> <ul> <li>L'interface suivante représente les mappings à faire entre les entrées du service et sa sortie.</li> </ul> <p><center><img src=../img/tp5/transform-mapping.png width=100%></center></p> <ul> <li>Cliquer sur <em>Define Metadata</em> du payload en entrée (à gauche) gauche)</li> <li>Cliquer sur <em>Add</em></li> <li>Entrer le nom du type en entrée, par exemple <em>products</em></li> <li>Indiquer comme type <em>JSON</em></li> <li>Indiquer dans la liste déroulante suivante que le fichier donné est un <em>Example</em>, puis choisir le fichier <em>products-example.json</em> que vous aviez créé.</li> <li>Cliquer sur Select. Le schéma du fichier donné est chargé dans la partie <em>Input</em> de <em>Transform Message</em>.</li> <li>Pour représenter le format de sortie désiré, créer un fichier appelé <em>names.json</em> à l'endroit de votre préférence sur votre ordinateur.</li> <li>Saisir le contenu suivant dans <em>names.json</em>: <div class=highlight><pre><span></span><code><span class=w>  </span><span class=p>{</span><span class=nt>&quot;name&quot;</span><span class=p>:</span><span class=s2>&quot;prod&quot;</span><span class=p>}</span><span class=w></span>
+</code></pre></div></li> <li>Cliquer sur <em>Define Metadata</em> de sortie (à droite).</li> <li>Ajouter un nouveau type que vous appellerez <em>names</em></li> <li>Définir comme type <em>Json</em> et charger le fichier <em>names.json</em> que vous venez de créer.</li> <li>Valider.</li> <li>Maintenant que les deux schémas (entrée et sortie) sont définis, créer les associations de votre choix. Dans notre cas, nous allons associer le champ <em>_embedded.products.name</em> en entrée au champ <em>name</em> en sortie, comme suit: <img alt=Mapping src=../img/tp5/names-mapping.png></li> <li>Sauvegarder, et lancer le service.</li> </ul> </li> </ul> <p>Pour tester le service, lancer dans un navigateur: <code>http://localhost:8081/prod-services/names</code>. Vous obtiendrez le résultat suivant:</p> <div class=highlight><pre><span></span><code><span class=p>{</span><span class=w></span>
+<span class=w>  </span><span class=nt>&quot;name&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=w></span>
+<span class=w>    </span><span class=s2>&quot;Pencil&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=s2>&quot;Book&quot;</span><span class=p>,</span><span class=w></span>
+<span class=w>    </span><span class=s2>&quot;Eraser&quot;</span><span class=w></span>
+<span class=w>  </span><span class=p>]</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <hr> <div class=md-source-file> <small> Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class=timeago datetime=2018-02-04T08:55:27+01:00 locale=en></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2018-02-04</span> </small> </div> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../tp4/ class="md-footer__link md-footer__link--prev" aria-label="Previous: TP4 - Microservices avec Spring Boot et Spring Cloud" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> TP4 - Microservices avec Spring Boot et Spring Cloud </div> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright &copy; 2017 - 2018 Lilia Sfaxi </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.092fa1f6.min.js"}</script> <script src=../assets/javascripts/bundle.e3b2bf44.min.js></script> <script src=../js/timeago.min.js></script> <script src=../js/timeago_mkdocs_material.js></script> </body> </html>

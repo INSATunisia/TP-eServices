@@ -1,1214 +1,162 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Les Travaux Pratiques du cours eServices"><meta name=author content="Lilia Sfaxi"><link href=http://INSATunisia.github.io/TP-eServices/tp2/ rel=canonical><link rel=icon href=../img/favicon.ico><meta name=generator content="mkdocs-1.2.3, mkdocs-material-8.1.10"><title>TP2 - Orchestration de Services avec Camunda - TP eServices</title><link rel=stylesheet href=../assets/stylesheets/main.d6be258b.min.css><link rel=stylesheet href=../assets/stylesheets/palette.e6a45f82.min.css><meta name=theme-color content=#e92063><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../css/timeago.css><link rel=stylesheet href=../stylesheets/extra.css><link rel=stylesheet href=../stylesheets/links.css><script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme data-md-color-primary=pink data-md-color-accent=amber> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#tp2-orchestration-de-services-avec-camunda class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title="TP eServices" class="md-header__button md-logo" aria-label="TP eServices" data-md-component=logo> <img src=../img/logo.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> TP eServices </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> TP2 - Orchestration de Services avec Camunda </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/INSATunisia/TP-eServices/ title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> INSATunisia/TP-eServices </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="TP eServices" class="md-nav__button md-logo" aria-label="TP eServices" data-md-component=logo> <img src=../img/logo.png alt=logo> </a> TP eServices </label> <div class=md-nav__source> <a href=https://github.com/INSATunisia/TP-eServices/ title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> INSATunisia/TP-eServices </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Travaux Pratiques eServices </a> </li> <li class=md-nav__item> <a href=../tp1/ class=md-nav__link> TP1 - Services Web REST et SOAP avec Talend </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> TP2 - Orchestration de Services avec Camunda <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> TP2 - Orchestration de Services avec Camunda </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#tp2-orchestration-de-services-avec-camunda class=md-nav__link> TP2 - Orchestration de Services avec Camunda </a> <nav class=md-nav aria-label="TP2 - Orchestration de Services avec Camunda"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#telecharger-pdf class=md-nav__link> Télécharger PDF </a> </li> <li class=md-nav__item> <a href=#objectifs-du-tp class=md-nav__link> Objectifs du TP </a> </li> <li class=md-nav__item> <a href=#outils-et-versions class=md-nav__link> Outils et Versions </a> </li> <li class=md-nav__item> <a href=#camunda class=md-nav__link> Camunda </a> </li> <li class=md-nav__item> <a href=#bpmn-20 class=md-nav__link> BPMN 2.0 </a> </li> <li class=md-nav__item> <a href=#installation class=md-nav__link> Installation </a> </li> <li class=md-nav__item> <a href=#premier-projet-camunda-bpmn-helloworld class=md-nav__link> Premier Projet Camunda BPMN: Helloworld </a> <nav class=md-nav aria-label="Premier Projet Camunda BPMN: Helloworld"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#creation-du-projet-et-dependances class=md-nav__link> Création du Projet et Dépendances </a> </li> <li class=md-nav__item> <a href=#creation-de-la-classe-principale-pour-le-processus class=md-nav__link> Création de la classe principale pour le processus </a> </li> <li class=md-nav__item> <a href=#modelisation-dun-processus-bpmn-20 class=md-nav__link> Modélisation d'un processus BPMN 2.0 </a> </li> <li class=md-nav__item> <a href=#configuration-du-processus class=md-nav__link> Configuration du processus </a> </li> <li class=md-nav__item> <a href=#deploiement-du-processus class=md-nav__link> Déploiement du processus </a> </li> <li class=md-nav__item> <a href=#verification-du-deploiement-avec-cockpit class=md-nav__link> Vérification du déploiement avec Cockpit </a> </li> <li class=md-nav__item> <a href=#demarrage-du-processus class=md-nav__link> Démarrage du processus </a> </li> <li class=md-nav__item> <a href=#configuration-des-permissions class=md-nav__link> Configuration des permissions </a> </li> <li class=md-nav__item> <a href=#creation-dun-formulaire-personnalise class=md-nav__link> Création d'un formulaire personnalisé </a> </li> <li class=md-nav__item> <a href=#ajout-dun-service-task-java class=md-nav__link> Ajout d'un Service Task Java </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#appel-dun-service-web-rest class=md-nav__link> Appel d'un Service Web REST </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../tp3/ class=md-nav__link> TP3 - Mise en Place d’un ESB avec Talend ESB </a> </li> <li class=md-nav__item> <a href=../tp4/ class=md-nav__link> TP4 - Microservices avec Spring Boot et Spring Cloud </a> </li> <li class=md-nav__item> <a href=../tp5/ class=md-nav__link> TP5 - API Management avec Atom et Anypoint </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#tp2-orchestration-de-services-avec-camunda class=md-nav__link> TP2 - Orchestration de Services avec Camunda </a> <nav class=md-nav aria-label="TP2 - Orchestration de Services avec Camunda"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#telecharger-pdf class=md-nav__link> Télécharger PDF </a> </li> <li class=md-nav__item> <a href=#objectifs-du-tp class=md-nav__link> Objectifs du TP </a> </li> <li class=md-nav__item> <a href=#outils-et-versions class=md-nav__link> Outils et Versions </a> </li> <li class=md-nav__item> <a href=#camunda class=md-nav__link> Camunda </a> </li> <li class=md-nav__item> <a href=#bpmn-20 class=md-nav__link> BPMN 2.0 </a> </li> <li class=md-nav__item> <a href=#installation class=md-nav__link> Installation </a> </li> <li class=md-nav__item> <a href=#premier-projet-camunda-bpmn-helloworld class=md-nav__link> Premier Projet Camunda BPMN: Helloworld </a> <nav class=md-nav aria-label="Premier Projet Camunda BPMN: Helloworld"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#creation-du-projet-et-dependances class=md-nav__link> Création du Projet et Dépendances </a> </li> <li class=md-nav__item> <a href=#creation-de-la-classe-principale-pour-le-processus class=md-nav__link> Création de la classe principale pour le processus </a> </li> <li class=md-nav__item> <a href=#modelisation-dun-processus-bpmn-20 class=md-nav__link> Modélisation d'un processus BPMN 2.0 </a> </li> <li class=md-nav__item> <a href=#configuration-du-processus class=md-nav__link> Configuration du processus </a> </li> <li class=md-nav__item> <a href=#deploiement-du-processus class=md-nav__link> Déploiement du processus </a> </li> <li class=md-nav__item> <a href=#verification-du-deploiement-avec-cockpit class=md-nav__link> Vérification du déploiement avec Cockpit </a> </li> <li class=md-nav__item> <a href=#demarrage-du-processus class=md-nav__link> Démarrage du processus </a> </li> <li class=md-nav__item> <a href=#configuration-des-permissions class=md-nav__link> Configuration des permissions </a> </li> <li class=md-nav__item> <a href=#creation-dun-formulaire-personnalise class=md-nav__link> Création d'un formulaire personnalisé </a> </li> <li class=md-nav__item> <a href=#ajout-dun-service-task-java class=md-nav__link> Ajout d'un Service Task Java </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#appel-dun-service-web-rest class=md-nav__link> Appel d'un Service Web REST </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <a href=https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp2.md title="Edit this page" class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg> </a> <h1>TP2 - Orchestration de Services avec Camunda</h1> <h2 id=tp2-orchestration-de-services-avec-camunda>TP2 - Orchestration de Services avec Camunda<a class=headerlink href=#tp2-orchestration-de-services-avec-camunda title="Permanent link">&para;</a></h2> <p><img alt=Orchestration src=../img/orchestration.png></p> <h3 id=telecharger-pdf>Télécharger PDF<a class=headerlink href=#telecharger-pdf title="Permanent link">&para;</a></h3> <p><a href=../tp2.pdf><img alt="Download TP2" src=../img/pdf.png></a></p> <h3 id=objectifs-du-tp>Objectifs du TP<a class=headerlink href=#objectifs-du-tp title="Permanent link">&para;</a></h3> <p>Création d'un processus métier (Business Process) en utilisant Camunda.</p> <h3 id=outils-et-versions>Outils et Versions<a class=headerlink href=#outils-et-versions title="Permanent link">&para;</a></h3> <ul> <li><a href=https://camunda.org/download/ >Camunda</a> Version: 7.7.0</li> <li><a href=http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html>Java</a> Version 1.8.0_121 (7+ needed).</li> <li><a href=https://www.jetbrains.com/idea/download/ >IntelliJ IDEA</a> Version Ultimate 2016.1 (ou tout autre IDE de votre choix)</li> <li><a href=https://camunda.org/download/modeler/ >Camunda Modeler</a> Version 1.10.0</li> </ul> <h3 id=camunda>Camunda <a href=https://camunda.org><img alt="Camunda Website" src=../img/website.png></a><a class=headerlink href=#camunda title="Permanent link">&para;</a></h3> <p>Camunda est une plateforme open source pour la gestion des processus métier. C'est un framework Java qui support <strong>BPMN</strong> pour l'automatisation des processus, <strong>CMMN</strong> pour le Case Management, et <strong>DMN</strong> pour le Business Decision Management.</p> <h3 id=bpmn-20>BPMN 2.0 <a href=http://www.bpmn.org/ ><img alt="BPMN Website" src=../img/website.png></a><a class=headerlink href=#bpmn-20 title="Permanent link">&para;</a></h3> <p>BPMN 2.0 (Business Process Modeling Notation) est un standard développé par le Object Management Group (<strong>OMG</strong>) pour fournir une notation facilement compréhensible par tous les utilisateurs métier: les analystes métier, les développeurs implémentant les technologies exécutant ces processus et les personnes gérant et supervisant ces processus. BPMN permet d'établir un pont minimisant le gap entre les conceptions des processus et leurs implémentations.</p> <p>Dans sa première version, la spécification BPMN permettait de fournir uniquement une notation graphique, et est devenue rapidement célèbre parmi les analystes métier. Elle définissait la manière dont les concepts tels que les tâches humaines et les scripts exécutables, pouvaient être visualisées de manière standard, indépendante d'un constructeur particulier.</p> <p>Cette deuxième version étend ce standard en incluant des sémantiques d'exécution et un format d'échange commun. Ce qui veut dire que les modèles de processus BPMN 2.0 peuvent être échangés entre des éditeurs graphiques différents, et exécutés sur n'importe quel moteur compatible avec BPMN 2.0, tel que Camunda et Activiti.</p> <h3 id=installation>Installation<a class=headerlink href=#installation title="Permanent link">&para;</a></h3> <p>Pour installer l'environnement nécessaire à ce TP, il faut suivre les étapes suivantes:</p> <ul> <li>Télécharger <a href=https://camunda.org/download/ >Camunda</a> (Distribution Tomcat), <a href=https://www.jetbrains.com/idea/download/ >IntelliJ IDEA</a> et <a href=https://camunda.org/download/modeler/ >Camunda Modeler</a>.</li> <li>Décompresser le fichier .zip Camunda téléchargé, et exécuter <em>start-camunda.sh</em> (pour les systèmes Unix-based) ou <em>start-camunda.bat</em> (pour les systèmes Windows).</li> <li>Ouvrir la page d'accueil du serveur d'application dans votre navigateur préféré.</li> <li>Lancer le Camunda Modeler.</li> </ul> <h3 id=premier-projet-camunda-bpmn-helloworld>Premier Projet Camunda BPMN: Helloworld<a class=headerlink href=#premier-projet-camunda-bpmn-helloworld title="Permanent link">&para;</a></h3> <h4 id=creation-du-projet-et-dependances>Création du Projet et Dépendances<a class=headerlink href=#creation-du-projet-et-dependances title="Permanent link">&para;</a></h4> <p>Vous allez maintenant créer un nouveau projet Java pour définir le comportement de votre processus.</p> <ul> <li>Ouvrir IntelliJ et créer un nouveau projet Maven (sans archetype).</li> <li> <p>Vous pouvez choisir les paramètres suivants:</p> <ul> <li>Group Id: <em>tn.insat.eservices.tp2</em></li> <li>Artifact Id: <em>Helloworld</em></li> <li>Project Name: <em>HelloworldCamunda</em></li> </ul> </li> <li> <p>Dans le fichier <em>pom.xml</em>, indiquer que l'application sera déployée plus tard sous la forme d'un fichier <em>war</em>. Pour cela, ajouter la ligne suivante, juste après la version:</p> </li> </ul> <div class=highlight><pre><span></span><code><span class=nt>&lt;packaging&gt;</span>war<span class=nt>&lt;/packaging&gt;</span>
+</code></pre></div> <ul> <li>Ajouter les dépendances nécessaires vers Camunda dans votre projet. Pour cela, insérer les lignes suivantes dans votre fichier <em>pom.xml</em></li> </ul> <div class=highlight><pre><span></span><code><span class=nt>&lt;dependencyManagement&gt;</span>
+    <span class=nt>&lt;dependencies&gt;</span>
+      <span class=nt>&lt;dependency&gt;</span>
+        <span class=nt>&lt;groupId&gt;</span>org.camunda.bpm<span class=nt>&lt;/groupId&gt;</span>
+        <span class=nt>&lt;artifactId&gt;</span>camunda-bom<span class=nt>&lt;/artifactId&gt;</span>
+        <span class=nt>&lt;version&gt;</span>7.7.0<span class=nt>&lt;/version&gt;</span>
+        <span class=nt>&lt;scope&gt;</span>import<span class=nt>&lt;/scope&gt;</span>
+        <span class=nt>&lt;type&gt;</span>pom<span class=nt>&lt;/type&gt;</span>
+      <span class=nt>&lt;/dependency&gt;</span>
+    <span class=nt>&lt;/dependencies&gt;</span>
+  <span class=nt>&lt;/dependencyManagement&gt;</span>
 
+  <span class=nt>&lt;dependencies&gt;</span>
+    <span class=nt>&lt;dependency&gt;</span>
+      <span class=nt>&lt;groupId&gt;</span>org.camunda.bpm<span class=nt>&lt;/groupId&gt;</span>
+      <span class=nt>&lt;artifactId&gt;</span>camunda-engine<span class=nt>&lt;/artifactId&gt;</span>
+      <span class=nt>&lt;scope&gt;</span>provided<span class=nt>&lt;/scope&gt;</span>
+    <span class=nt>&lt;/dependency&gt;</span>
 
+    <span class=nt>&lt;dependency&gt;</span>
+      <span class=nt>&lt;groupId&gt;</span>javax.servlet<span class=nt>&lt;/groupId&gt;</span>
+      <span class=nt>&lt;artifactId&gt;</span>javax.servlet-api<span class=nt>&lt;/artifactId&gt;</span>
+      <span class=nt>&lt;version&gt;</span>3.0.1<span class=nt>&lt;/version&gt;</span>
+      <span class=nt>&lt;scope&gt;</span>provided<span class=nt>&lt;/scope&gt;</span>
+    <span class=nt>&lt;/dependency&gt;</span>
+  <span class=nt>&lt;/dependencies&gt;</span>
 
+  <span class=nt>&lt;build&gt;</span>
+    <span class=nt>&lt;plugins&gt;</span>
+      <span class=nt>&lt;plugin&gt;</span>
+        <span class=nt>&lt;groupId&gt;</span>org.apache.maven.plugins<span class=nt>&lt;/groupId&gt;</span>
+        <span class=nt>&lt;artifactId&gt;</span>maven-war-plugin<span class=nt>&lt;/artifactId&gt;</span>
+        <span class=nt>&lt;version&gt;</span>2.3<span class=nt>&lt;/version&gt;</span>
+        <span class=nt>&lt;configuration&gt;</span>
+          <span class=nt>&lt;failOnMissingWebXml&gt;</span>false<span class=nt>&lt;/failOnMissingWebXml&gt;</span>
+        <span class=nt>&lt;/configuration&gt;</span>
+      <span class=nt>&lt;/plugin&gt;</span>
+    <span class=nt>&lt;/plugins&gt;</span>
+  <span class=nt>&lt;/build&gt;</span>
+</code></pre></div> <ul> <li>Faire un build de votre projet. Pour cela, créer une nouvelle configuration de type Maven, que vous appellerez <em>maven-install</em> par exemple, et vous écrirez dans la partie <strong>Command Line</strong> : <em>install</em>, comme suit:</li> </ul> <p><img alt="Maven Install" src=../img/tp2/maven-install.png></p> <ul> <li>Lancer le build et vérifiez bien que vos packages ont bien été installés.</li> </ul> <h4 id=creation-de-la-classe-principale-pour-le-processus>Création de la classe principale pour le processus<a class=headerlink href=#creation-de-la-classe-principale-pour-le-processus title="Permanent link">&para;</a></h4> <p>La prochaine étape permet de construire une classe pour le processus. Cette classe représente l'interface entre votre application et le moteur de processus Camunda.</p> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.eservices.tp2.helloworld</span><span class=p>;</span>
 
-<!doctype html>
-<html lang="fr" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="Les Travaux Pratiques du cours eServices">
-      
-      
-        <link rel="canonical" href="http://INSATunisia.github.io/TP-eServices/tp2/">
-      
-      
-        <meta name="author" content="Lilia Sfaxi">
-      
-      
-        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
-      
-        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
-      
-        <meta name="lang:search.language" content="fr">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Aucun document trouvé">
-      
-        <meta name="lang:search.result.one" content="1 document trouvé">
-      
-        <meta name="lang:search.result.other" content="# documents trouvés">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
-    
-    
-      
-        <title>TP2 - Orchestration de Services avec Camunda - TP eServices</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#e91e63">
-      
-    
-    
-      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
-    
-    
-    
-      
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "None", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="pink" data-md-color-accent="amber">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#tp2-orchestration-de-services-avec-camunda" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-header-nav__button md-logo">
-          
-            <img src="../img/logo.png" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              TP eServices
-            </span>
-            <span class="md-header-nav__topic">
-              
-                TP2 - Orchestration de Services avec Camunda
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Taper pour démarrer la recherche
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
+<span class=kn>import</span> <span class=nn>org.camunda.bpm.application.ProcessApplication</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.camunda.bpm.application.impl.ServletProcessApplication</span><span class=p>;</span>
 
+<span class=nd>@ProcessApplication</span><span class=p>(</span><span class=s>&quot;Helloworld App&quot;</span><span class=p>)</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>HelloworldApplication</span> <span class=kd>extends</span> <span class=n>ServletProcessApplication</span> <span class=p>{</span>
+    <span class=c1>// empty implementation</span>
+<span class=p>}</span>
+</code></pre></div> <p>Ajouter ensuite le fichier <em>processes.xml</em> sous le répertoire <em>src/main/resources/META-INF</em>. Ce fichier nous permet de fournir une configuration pour le déploiement de ce processus dans le moteur de processus.</p> <div class=highlight><pre><span></span><code><span class=cp>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class=nt>&lt;process-application</span>
+        <span class=na>xmlns=</span><span class=s>&quot;http://www.camunda.org/schema/1.0/ProcessApplication&quot;</span>
+        <span class=na>xmlns:xsi=</span><span class=s>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class=nt>&gt;</span>
 
-  
+    <span class=nt>&lt;process-archive</span> <span class=na>name=</span><span class=s>&quot;helloworld&quot;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;process-engine&gt;</span>default<span class=nt>&lt;/process-engine&gt;</span>
+        <span class=nt>&lt;properties&gt;</span>
+            <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&quot;isDeleteUponUndeploy&quot;</span><span class=nt>&gt;</span>false<span class=nt>&lt;/property&gt;</span>
+            <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&quot;isScanForProcessDefinitions&quot;</span><span class=nt>&gt;</span>true<span class=nt>&lt;/property&gt;</span>
+        <span class=nt>&lt;/properties&gt;</span>
+    <span class=nt>&lt;/process-archive&gt;</span>
 
-<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    INSATunisia/TP-eServices
-  </div>
-</a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
-</header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-nav__button md-logo">
-      
-        <img src="../img/logo.png" width="48" height="48">
-      
-    </a>
-    TP eServices
-  </label>
-  
-    <div class="md-nav__source">
-      
+<span class=nt>&lt;/process-application&gt;</span>
+</code></pre></div> <p>A partir de ce point, nous allons commencer à modéliser le processus.</p> <h4 id=modelisation-dun-processus-bpmn-20>Modélisation d'un processus BPMN 2.0<a class=headerlink href=#modelisation-dun-processus-bpmn-20 title="Permanent link">&para;</a></h4> <p>La modélisation du processus se fera grâce au <em>Camunda Modeler</em>. Pour cela:</p> <ul> <li>Démarrer l'application, et créer un nouveau diagramme BPMN en cliquant sur <em>File &gt; New File &gt; BPMN Diagram</em>.</li> </ul> <p><img alt="Premier Projet Camunda" src=../img/tp2/camunda-first-proj.png></p> <ul> <li>Double-cliquer sur l'évènement de départ (le petit rond) pour modifier son nom. Nous l'appelerons <em>Dis Bonjour</em>.</li> <li>Cliquer sur l'évènement de départ, choisir le rectangle (représentant une activité) à partir du menu contextuel qui apparaît, et le glisser vers un emplacement adéquat. Nous appellerons le nouvel évènement inséré <em>Ajouter Bonjour</em>.</li> </ul> <p><center><img src=../img/tp2/menu-contextuel.png width=200></center></p> <ul> <li>Cette tâche sera celle où l'utilisateur va indiquer son nom pour l'éternel <strong>Bonjour &lt;nom>!</strong>. Pour cela, nous devons indiquer que le traitement fait ici sera réalisé par un humain. Pour cela, en cliquant sur l'activité créée, cliquer dans le menu contextuel sur la clef à molette, puis choisir <em>User Task</em>.</li> </ul> <p><center><img src=../img/tp2/user-task.png width=500></center></p> <ul> <li>Rajouter une tâche de fin au processus.</li> </ul> <p>Nous obtenons pour finir le diagramme suivant:</p> <p><center><img src=../img/tp2/hw-process.png width=500></center></p> <h4 id=configuration-du-processus>Configuration du processus<a class=headerlink href=#configuration-du-processus title="Permanent link">&para;</a></h4> <ul> <li>Pour configurer la tâche utilisateur <em>Ajouter Bonjour</em>, cliquer dessus, et remplir le panneau des propriétés (sur la droite). Définir l'utilisateur auquel sera destinée cette activité. Pour cela, dans le champ <em>Assignee</em>, insérer <em>john</em>. John est un utilisateur prédéfini sur le serveur Camunda. Plus tard, vous pourrez définir votre propre liste d'utilisateurs et de rôles.</li> <li>Pour configurer le processus en entier, cliquer sur un endroit vide du canevas. Dans le panneau des propriétés, indiquer les champs suivants:<ul> <li>Id: <em>helloworld</em></li> <li>Name: <em>Helloworld</em></li> <li>Executable: <em>true</em></li> </ul> </li> </ul> <p>Vous obtiendrez le résultat suivant:</p> <p><img alt="Premier Processus Terminé" src=../img/tp2/process-defined.png></p> <ul> <li>Sauvegarder le diagramme sous le répertoire <em>src/main/resources</em> du projet que vous avez créé. Vous l'appellerez <em>helloworld.bpmn</em></li> </ul> <h4 id=deploiement-du-processus>Déploiement du processus<a class=headerlink href=#deploiement-du-processus title="Permanent link">&para;</a></h4> <ul> <li> <p>Configurer l'application pour qu'elle soit déployée sur le serveur tomcat intégré dans votre installation Camunda. Pour cela, dans IntelliJ:</p> <ul> <li>Aller au menu <em>File &gt; Project Structure...</em></li> <li>Cliquer sur <em>Artifacts</em>.</li> <li>Définir le type de l'archive à déployer: <em>Web Application: Archive</em></li> <li>Définir comme Output Directory le répertoire <em>webapps</em>, se trouvant en général sous le répertoire <em>$CAMUNDA_HOME/server/apache-tomcat-&lt;version>/webapps</em>.</li> <li>En bas de la fenêtre, vous trouverez un bouton <em>Create Manifest</em>. Cliquer dessus, cela permettra de créer le fichier Manifest responsable du déploiement.</li> <li>Vous obtiendrez le résultat suivant:</li> </ul> </li> </ul> <p><img alt="Configuration du déploiement" src=../img/tp2/deploy.png></p> <ul> <li>Faire un <em>make</em> du projet. Pour cela, aller au menu <em>Build &gt; Make Project</em> ou cliquer sur <img alt=make src=../img/tp2/make.png>. Normalement, un nouveau fichier <em>helloworld-1.0-SNAPSHOT.war</em> sera créé dans le répertoire <em>webapps</em> du serveur.</li> </ul> <p>Pour vérifier que le processus a bien été déployé sur le serveur Tomcat, consulter le fichier log se trouvant sous <em>$CAMUNDA_HOME/server/apache-tomcat-&lt;version>/logs</em> et ouvrir le fichier <em>catalina.out</em>.</p> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>Le meilleur moyen de consulter en permanence le fichier log sur les systèmes Linux-like est d'ouvrir un terminal, et de taper <code>tail -f catalina.out</code>.</p> </div> <p>Le fichier devra contenir les lignes suivantes:</p> <p><img alt="BPMN déployé!" src=../img/tp2/bpm-deployed.png></p> <h4 id=verification-du-deploiement-avec-cockpit>Vérification du déploiement avec Cockpit<a class=headerlink href=#verification-du-deploiement-avec-cockpit title="Permanent link">&para;</a></h4> <p>Camunda offre l'outil <em>Cockpit</em> pour inspecter les processus en cours d'exécution et complétés, et gérer les différents incidents. Pour cela, si votre serveur Camunda est bien lancé, vous pourrez visualiser vos processus dans le navigateur, en tapant: <code>http://localhost:8080/camunda/app/cockpit</code>. Identifiez-vous comme administrateur en tapant les credentials: <code>demo/demo</code>. Cliquer sur le nombre sous <em>Process Definitions</em> (cela devra être <strong>2</strong> dans votre cas), vous devriez retrouver votre processus, avec un état <em>checked</em>.</p> <p><img alt=Cockpit src=../img/tp2/cockpit.png></p> <h4 id=demarrage-du-processus>Démarrage du processus<a class=headerlink href=#demarrage-du-processus title="Permanent link">&para;</a></h4> <ul> <li>Aller au <em>Camunda Tasklist</em> (<code>http://localhost:8080/camunda/app/tasklist</code>), puis lancer le processus en cliquant sur le bouton <em>Start Process</em> (en haut à droite).</li> <li>Cliquer sur votre processus <em>Helloworld</em>.</li> <li>Ajouter autant de variables que nécessaire dans le formulaire générique. Nous allons dans notre cas ajouter une variable <em>nom</em> de type chaîne de caractères. Pour cela, cliquer sur <em>Add a variable</em> et remplir comme suit (mettez votre nom bien sûr, pas le mien <img alt=😃 class=emojione src=https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f603.svg title=:smiley:> ):</li> </ul> <p><img alt="Ajouter une variable" src=../img/tp2/run-var.png></p> <ul> <li>En rafraîchissant maintenant le Cockpit, vous trouverez que le processus est passé à l'état <em>Running</em>.</li> </ul> <h4 id=configuration-des-permissions>Configuration des permissions<a class=headerlink href=#configuration-des-permissions title="Permanent link">&para;</a></h4> <p>Pour permettre à l'utilisateur John de visualiser et lancer le processus <em>Helloworld</em>, il faudra lui rajouter les autorisations. Pour cela:</p> <ul> <li>Aller à <em>Camunda Admin</em> (<code>http://localhost:8080/camunda/app/admin/default/#/authorization?resource=0</code>).</li> <li>Ajouter une nouvelle autorisation dans la partie <em>Process Definition</em>, pour permettre à John de manipuler la définition du processus <em>Helloworld</em>.</li> </ul> <p><img alt="Ajouter une permission - Process Definition" src=../img/tp2/def-perm.png></p> <ul> <li>Dans la partie <em>Process Instance</em>, ajouter la permission de créer une instance de processus à John.</li> </ul> <p><img alt="Ajouter une permission - Process Instance" src=../img/tp2/inst-perm.png></p> <ul> <li>Vous authentifier comme étant John, en utilisant (<em>john/john</em>), de préférence sur un autre navigateur. Vous pourrez ainsi visualiser le processus Helloworld, tel qu'il est visible par John. Il pourra ainsi ajouter les variables de son choix, et compléter le processus.</li> </ul> <p><img alt="Exécuter le processus" src=../img/tp2/john-run-process.png></p> <h4 id=creation-dun-formulaire-personnalise>Création d'un formulaire personnalisé<a class=headerlink href=#creation-dun-formulaire-personnalise title="Permanent link">&para;</a></h4> <p>Pour créer votre propre formulaire, avec des variables en entrée qui peuvent être manipulées par le service, suivre les étapes suivantes:</p> <ul> <li>Revenir vers IntelliJ, et créer un fichier <em>dis-bonjour.html</em> sous le répertoire <em>src/main/webapp/forms</em>. Ajouter le contenu suivant:</li> </ul> <div class=highlight><pre><span></span><code><span class=p>&lt;</span><span class=nt>form</span> <span class=na>name</span><span class=o>=</span><span class=s>&quot;disBonjour&quot;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&quot;form-group&quot;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&quot;nom&quot;</span><span class=p>&gt;</span>Nom<span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>input</span> <span class=na>class</span><span class=o>=</span><span class=s>&quot;form-control&quot;</span>
+               <span class=na>cam-variable-type</span><span class=o>=</span><span class=s>&quot;String&quot;</span>
+               <span class=na>cam-variable-name</span><span class=o>=</span><span class=s>&quot;nom&quot;</span>
+               <span class=na>name</span><span class=o>=</span><span class=s>&quot;nom&quot;</span> <span class=p>/&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</code></pre></div> <ul> <li>Ouvrir le processus avec le Modeler, et cliquer sur l'évènement de départ. Dans le panneau des propriétés, choisir la tabulation <em>Forms</em> et insérer <code>embedded:app:forms/dis-bonjour.html</code> dans le champ <em>Key</em>. Cela indique que nous voulons utiliser un formulaire intégré dans la Tasklist, et qu'il sera chargé à partir de l'application.</li> <li>Sauvegarder, et rafraîchir le projet dans IntelliJ.</li> <li>De même, nous allons créer le formulaire qui va permettre à John de dire Bonjour. On l'appellera <em>bonjour.html</em>.</li> </ul> <div class=highlight><pre><span></span><code><span class=p>&lt;</span><span class=nt>form</span> <span class=na>name</span><span class=o>=</span><span class=s>&quot;bonjour&quot;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&quot;form-group&quot;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&quot;salutation&quot;</span><span class=p>&gt;</span>Salutation<span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>input</span> <span class=na>class</span><span class=o>=</span><span class=s>&quot;form-control&quot;</span>
+               <span class=na>cam-variable-type</span><span class=o>=</span><span class=s>&quot;String&quot;</span>
+               <span class=na>cam-variable-name</span><span class=o>=</span><span class=s>&quot;salutation&quot;</span>
+               <span class=na>name</span><span class=o>=</span><span class=s>&quot;salutation&quot;</span> <span class=p>/&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&quot;form-group&quot;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&quot;nom&quot;</span><span class=p>&gt;</span>Nom<span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>input</span> <span class=na>class</span><span class=o>=</span><span class=s>&quot;form-control&quot;</span>
+               <span class=na>cam-variable-type</span><span class=o>=</span><span class=s>&quot;String&quot;</span>
+               <span class=na>cam-variable-name</span><span class=o>=</span><span class=s>&quot;nom&quot;</span>
+               <span class=na>name</span><span class=o>=</span><span class=s>&quot;nom&quot;</span>
+               <span class=na>readonly</span><span class=o>=</span><span class=s>&quot;true&quot;</span> <span class=p>/&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</code></pre></div> <ul> <li>Affecter ce formulaire à la tâche <em>Ajouter Bonjour</em> de la même manière que précédemment.</li> <li>Sauvegarder tout et re-déployer le projet.</li> <li>Lancer maintenant le processus. Saisir votre nom dans la rubrique <em>Nom</em>.</li> </ul> <p><img alt="Exécuter le processus2" src=../img/tp2/start-process-2.png></p> <ul> <li>Identifiez-vous comme John de nouveau, vous trouverez le deuxième formulaire:</li> </ul> <p><img alt="Ajouter Bonjour!" src=../img/tp2/add-hello-2.png></p> <p>Pour l'instant, en cliquant sur compléter, rien ne se passe, car nous n'avons indiqué nulle part ce qui doit être réalisé suite à la saisie du "Bonjour" par John. Cela sera fait grâce à un <em>Service Task</em>.</p> <h4 id=ajout-dun-service-task-java>Ajout d'un Service Task Java<a class=headerlink href=#ajout-dun-service-task-java title="Permanent link">&para;</a></h4> <p>Pour définir le comportement à faire de votre service, suivre les étapes suivantes:</p> <ul> <li>Utiliser le Modeler pour ajouter un service task juste après le user task. Pour cela, sélectionner une activité dans la palette de gauche, et la glisser entre la tâche utilisateur et l'évènement de fin. Avec la clef à molette <img alt=clef-molette src=../img/tp2/clef-molette.png> , sélectionner l'option <em>Service Task</em>. Appeler le service <em>Dire Bonjour</em>. Vous obtiendrez le résultat suivant:</li> </ul> <p><img alt="Nouveau Processus avec Service Task" src=../img/tp2/service-task.png></p> <ul> <li>Ajouter maintenant l'implémentation du Service Task. Pour cela, ajouter une classe dans le projet IntelliJ appelée <em>ProcessRequestDelegate</em> qui implémente l'interface <em>JavaDelegate</em>, comme suit:</li> </ul> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.eservices.tp2.helloworld</span><span class=p>;</span>
 
+<span class=kn>import</span> <span class=nn>java.util.logging.Logger</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.camunda.bpm.engine.delegate.DelegateExecution</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.camunda.bpm.engine.delegate.JavaDelegate</span><span class=p>;</span>
 
-  
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>ProcessRequestDelegate</span> <span class=kd>implements</span> <span class=n>JavaDelegate</span> <span class=p>{</span>
 
-<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    INSATunisia/TP-eServices
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
+    <span class=kd>private</span> <span class=kd>final</span> <span class=kd>static</span> <span class=n>Logger</span> <span class=n>LOGGER</span> <span class=o>=</span> <span class=n>Logger</span><span class=p>.</span><span class=na>getLogger</span><span class=p>(</span><span class=s>&quot;Hello-Greetings&quot;</span><span class=p>);</span>
 
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>execute</span><span class=p>(</span><span class=n>DelegateExecution</span> <span class=n>execution</span><span class=p>)</span> <span class=kd>throws</span> <span class=n>Exception</span> <span class=p>{</span>
+        <span class=n>LOGGER</span><span class=p>.</span><span class=na>info</span><span class=p>(</span><span class=s>&quot;Hey! &quot;</span> <span class=o>+</span> <span class=n>execution</span><span class=p>.</span><span class=na>getVariable</span><span class=p>(</span><span class=s>&quot;salutation&quot;</span><span class=p>)</span>
+                    <span class=o>+</span> <span class=s>&quot; &quot;</span> <span class=o>+</span> <span class=n>execution</span><span class=p>.</span><span class=na>getVariable</span><span class=p>(</span><span class=s>&quot;nom&quot;</span><span class=p>)</span> <span class=o>+</span> <span class=s>&quot;!&quot;</span><span class=p>);</span>
+    <span class=p>}</span>
 
-  <li class="md-nav__item">
-    <a href=".." title="Travaux Pratiques eServices" class="md-nav__link">
-      Travaux Pratiques eServices
-    </a>
-  </li>
+<span class=p>}</span>
+</code></pre></div> <ul> <li>Utiliser le panneau des propriétés pour référencer la classe dans le processus. Pour cela, cliquer sur le Service Task, et définir son implémentation par la Java Class: <code>tn.insat.eservices.tp2.helloworld.ProcessRequestDelegate</code>.</li> <li>Déployer votre application, et observer le résultat. Il sera affiché dans le log de votre serveur Tomcat (catalina.out), comme suit:</li> </ul> <p><img alt="Bonjour Lilia!" src=../img/tp2/bonjour.png></p> <h3 id=appel-dun-service-web-rest>Appel d'un Service Web REST<a class=headerlink href=#appel-dun-service-web-rest title="Permanent link">&para;</a></h3> <p>Grâce aux connecteurs, Camunda peut intégrer des services web REST ou SOAP. Pour cela, nous allons faire appel à un service web classique de météo. Dans son formulaire, John va saisir le nom d'une ville, et le processus devra retourner la température actuelle dans cette ville, en plus de l'usuel Bonjour.</p> <ul> <li>Commencer par ajuster le formulaire <em>bonjour.html</em>, en lui ajoutant un autre champs de texte: <em>ville</em> après le champs <em>nom</em>.</li> <li>Revenir dans le Modeler, et ajouter un Service Task, qu'on appellera <em>Consulter Météo</em>, entre <em>Ajouter Bonjour</em> et <em>Dire Bonjour</em>.</li> <li>Dans ce service, indiquer que le type d'implémentation est <em>Connector</em>, et vous déplacer vers l'onglet <em>Connector</em> pour le configurer.</li> <li> <p>Donner les paramètres suivants à votre connecteur;</p> <ul> <li><strong>Id</strong>: <em>http-connector</em></li> <li><strong>Input</strong>: Les input prendront toutes les informations nécessaires pour envoyer la requête REST au service web <em>OpenWeatherMap</em>. Ce service prend en paramètre la ville, qui sera insérée dans notre cas à partir du formulaire précédent, dans le champs <em>ville</em>.</li> </ul> <table> <thead> <tr> <th>Nom</th> <th>Type</th> <th>Valeur</th> </tr> </thead> <tbody> <tr> <td>url</td> <td>Script / JavaScript / Inline Script</td> <td><code>var ville=execution.getVariable("ville"); 'http://api.openweathermap.org/data/2.5/weather?APPID=17db59488cadcad345211c36304a9266&amp;q='+ville;</code></td> </tr> <tr> <td>method</td> <td>Text</td> <td>GET</td> </tr> <tr> <td>headers</td> <td>Map</td> <td><code>key: accept, value:application/json - key:content-type, value:application/json</code></td> </tr> </tbody> </table> <ul> <li><strong>Output</strong>: Le service utilisé renvoie un document json qui ressemble à ce qui suit:</li> </ul> </li> </ul> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nx>coord</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>lon</span><span class=o>:</span> <span class=mf>10.17</span><span class=p>,</span>
+    <span class=nx>lat</span><span class=o>:</span> <span class=mf>36.82</span>
+  <span class=p>},</span>
+  <span class=nx>weather</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=nx>id</span><span class=o>:</span> <span class=mf>801</span><span class=p>,</span>
+      <span class=nx>main</span><span class=o>:</span> <span class=s2>&quot;Clouds&quot;</span><span class=p>,</span>
+      <span class=nx>description</span><span class=o>:</span> <span class=s2>&quot;few clouds&quot;</span><span class=p>,</span>
+      <span class=nx>icon</span><span class=o>:</span> <span class=s2>&quot;02d&quot;</span>
+    <span class=p>}</span>
+  <span class=p>],</span>
+  <span class=nx>base</span><span class=o>:</span> <span class=s2>&quot;stations&quot;</span><span class=p>,</span>
+  <span class=nx>main</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>temp</span><span class=o>:</span> <span class=mf>299.87</span><span class=p>,</span>
+    <span class=nx>pressure</span><span class=o>:</span> <span class=mf>1018</span><span class=p>,</span>
+    <span class=nx>humidity</span><span class=o>:</span> <span class=mf>39</span><span class=p>,</span>
+    <span class=nx>temp_min</span><span class=o>:</span> <span class=mf>299.15</span><span class=p>,</span>
+    <span class=nx>temp_max</span><span class=o>:</span> <span class=mf>301.15</span>
+  <span class=p>},</span>
+  <span class=nx>visibility</span><span class=o>:</span> <span class=mf>10000</span><span class=p>,</span>
+  <span class=nx>wind</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>speed</span><span class=o>:</span> <span class=mf>3.6</span><span class=p>,</span>
+    <span class=nx>deg</span><span class=o>:</span> <span class=mf>40</span>
+  <span class=p>},</span>
+  <span class=nx>clouds</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>all</span><span class=o>:</span> <span class=mf>20</span>
+  <span class=p>},</span>
+  <span class=nx>dt</span><span class=o>:</span> <span class=mf>1506864600</span><span class=p>,</span>
+  <span class=nx>sys</span><span class=o>:</span> <span class=p>{</span>
+    <span class=nx>type</span><span class=o>:</span> <span class=mf>1</span><span class=p>,</span>
+    <span class=nx>id</span><span class=o>:</span> <span class=mf>6318</span><span class=p>,</span>
+    <span class=nx>message</span><span class=o>:</span> <span class=mf>0.0039</span><span class=p>,</span>
+    <span class=nx>country</span><span class=o>:</span> <span class=s2>&quot;TN&quot;</span><span class=p>,</span>
+    <span class=nx>sunrise</span><span class=o>:</span> <span class=mf>1506834907</span><span class=p>,</span>
+    <span class=nx>sunset</span><span class=o>:</span> <span class=mf>1506877308</span>
+  <span class=p>},</span>
+  <span class=nx>id</span><span class=o>:</span> <span class=mf>2464470</span><span class=p>,</span>
+  <span class=nx>name</span><span class=o>:</span> <span class=s2>&quot;Tunis&quot;</span><span class=p>,</span>
+  <span class=nx>cod</span><span class=o>:</span> <span class=mf>200</span>
+<span class=p>}</span>
+</code></pre></div> <p>Si l'objectif est de retourner la valeur de la température, on doit naviguer vers l'élément <em>main</em> puis à son fils <em>temp</em>. L'output de notre service aura donc la forme suivante:</p> <table> <thead> <tr> <th>Nom</th> <th>Type</th> <th>Valeur</th> </tr> </thead> <tbody> <tr> <td>WsResponse</td> <td>Script / JavaScript / Inline Script</td> <td><code>S(response).prop("main").prop("temp").numberValue();</code></td> </tr> </tbody> </table> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>Toujours tester votre web service REST sur navigateur avant de l'utiliser dans une quelconque application!</p> </div> <ul> <li>Maintenant, ajouter le code d'exploitation de ce service dans la classe <em>ProcessRequestDelegate</em>, pour lui indiquer d'afficher le résultat de la requête:</li> </ul> <div class=highlight><pre><span></span><code><span class=kd>public</span> <span class=kd>class</span> <span class=nc>ProcessRequestDelegate</span> <span class=kd>implements</span> <span class=n>JavaDelegate</span> <span class=p>{</span>
 
-    
-      
-      
-      
+    <span class=kd>private</span> <span class=kd>final</span> <span class=kd>static</span> <span class=n>Logger</span> <span class=n>LOGGER</span> <span class=o>=</span> <span class=n>Logger</span><span class=p>.</span><span class=na>getLogger</span><span class=p>(</span><span class=s>&quot;Hello-Greetings&quot;</span><span class=p>);</span>
 
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>execute</span><span class=p>(</span><span class=n>DelegateExecution</span> <span class=n>execution</span><span class=p>)</span> <span class=kd>throws</span> <span class=n>Exception</span> <span class=p>{</span>
+        <span class=n>LOGGER</span><span class=p>.</span><span class=na>info</span><span class=p>(</span><span class=s>&quot;Hey! &quot;</span> <span class=o>+</span> <span class=n>execution</span><span class=p>.</span><span class=na>getVariable</span><span class=p>(</span><span class=s>&quot;salutation&quot;</span><span class=p>)</span> <span class=o>+</span> <span class=s>&quot; &quot;</span>
+                <span class=o>+</span> <span class=n>execution</span><span class=p>.</span><span class=na>getVariable</span><span class=p>(</span><span class=s>&quot;nom&quot;</span><span class=p>)</span>
+                <span class=o>+</span> <span class=s>&quot;! La température aujourd&#39;hui à &quot;</span>
+                <span class=o>+</span> <span class=n>execution</span><span class=p>.</span><span class=na>getVariable</span><span class=p>(</span><span class=s>&quot;ville&quot;</span><span class=p>)</span>
+                <span class=o>+</span> <span class=s>&quot; est de &quot;</span>
+                <span class=o>+</span> <span class=n>execution</span><span class=p>.</span><span class=na>getVariable</span><span class=p>(</span><span class=s>&quot;WsResponse&quot;</span><span class=p>)</span><span class=o>+</span><span class=s>&quot;!&quot;</span><span class=p>);</span>
+    <span class=p>}</span>
 
-  <li class="md-nav__item">
-    <a href="../tp1/" title="TP1 - Services Web REST et SOAP avec Talend" class="md-nav__link">
-      TP1 - Services Web REST et SOAP avec Talend
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        TP2 - Orchestration de Services avec Camunda
-      </label>
-    
-    <a href="./" title="TP2 - Orchestration de Services avec Camunda" class="md-nav__link md-nav__link--active">
-      TP2 - Orchestration de Services avec Camunda
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table des matières</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-pdf" class="md-nav__link">
-    Télécharger PDF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs-du-tp" class="md-nav__link">
-    Objectifs du TP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outils-et-versions" class="md-nav__link">
-    Outils et Versions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#camunda" class="md-nav__link">
-    Camunda
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bpmn-20" class="md-nav__link">
-    BPMN 2.0
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#premier-projet-camunda-bpmn-helloworld" class="md-nav__link">
-    Premier Projet Camunda BPMN: Helloworld
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creation-du-projet-et-dependances" class="md-nav__link">
-    Création du Projet et Dépendances
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creation-de-la-classe-principale-pour-le-processus" class="md-nav__link">
-    Création de la classe principale pour le processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modelisation-dun-processus-bpmn-20" class="md-nav__link">
-    Modélisation d'un processus BPMN 2.0
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-du-processus" class="md-nav__link">
-    Configuration du processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploiement-du-processus" class="md-nav__link">
-    Déploiement du processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verification-du-deploiement-avec-cockpit" class="md-nav__link">
-    Vérification du déploiement avec Cockpit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#demarrage-du-processus" class="md-nav__link">
-    Démarrage du processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-des-permissions" class="md-nav__link">
-    Configuration des permissions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creation-dun-formulaire-personnalise" class="md-nav__link">
-    Création d'un formulaire personnalisé
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-dun-service-task-java" class="md-nav__link">
-    Ajout d'un Service Task Java
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#appel-dun-service-web-rest" class="md-nav__link">
-    Appel d'un Service Web REST
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp3/" title="TP3 - Mise en Place d’un ESB avec Talend ESB" class="md-nav__link">
-      TP3 - Mise en Place d’un ESB avec Talend ESB
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp4/" title="TP4 - Microservices avec Spring Boot et Spring Cloud" class="md-nav__link">
-      TP4 - Microservices avec Spring Boot et Spring Cloud
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp5/" title="TP5 - API Management avec Atom et Anypoint" class="md-nav__link">
-      TP5 - API Management avec Atom et Anypoint
-    </a>
-  </li>
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table des matières</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-pdf" class="md-nav__link">
-    Télécharger PDF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs-du-tp" class="md-nav__link">
-    Objectifs du TP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outils-et-versions" class="md-nav__link">
-    Outils et Versions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#camunda" class="md-nav__link">
-    Camunda
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bpmn-20" class="md-nav__link">
-    BPMN 2.0
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#premier-projet-camunda-bpmn-helloworld" class="md-nav__link">
-    Premier Projet Camunda BPMN: Helloworld
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creation-du-projet-et-dependances" class="md-nav__link">
-    Création du Projet et Dépendances
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creation-de-la-classe-principale-pour-le-processus" class="md-nav__link">
-    Création de la classe principale pour le processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modelisation-dun-processus-bpmn-20" class="md-nav__link">
-    Modélisation d'un processus BPMN 2.0
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-du-processus" class="md-nav__link">
-    Configuration du processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploiement-du-processus" class="md-nav__link">
-    Déploiement du processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verification-du-deploiement-avec-cockpit" class="md-nav__link">
-    Vérification du déploiement avec Cockpit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#demarrage-du-processus" class="md-nav__link">
-    Démarrage du processus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-des-permissions" class="md-nav__link">
-    Configuration des permissions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creation-dun-formulaire-personnalise" class="md-nav__link">
-    Création d'un formulaire personnalisé
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ajout-dun-service-task-java" class="md-nav__link">
-    Ajout d'un Service Task Java
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#appel-dun-service-web-rest" class="md-nav__link">
-    Appel d'un Service Web REST
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp2.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
-                
-                
-                <h1 id="tp2-orchestration-de-services-avec-camunda">TP2 - Orchestration de Services avec Camunda</h1>
-<p><img alt="Orchestration" src="../img/orchestration.png" /></p>
-<h2 id="telecharger-pdf">Télécharger PDF</h2>
-<p><a href="../tp2.pdf"><img alt="Download TP2" src="../img/pdf.png" /></a></p>
-<h2 id="objectifs-du-tp">Objectifs du TP</h2>
-<p>Création d'un processus métier (Business Process) en utilisant Camunda.</p>
-<h2 id="outils-et-versions">Outils et Versions</h2>
-<ul>
-<li><a href="https://camunda.org/download/">Camunda</a> Version: 7.7.0</li>
-<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">Java</a> Version 1.8.0_121 (7+ needed).</li>
-<li><a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a> Version Ultimate 2016.1 (ou tout autre IDE de votre choix)</li>
-<li><a href="https://camunda.org/download/modeler/">Camunda Modeler</a> Version 1.10.0</li>
-</ul>
-<h2 id="camunda">Camunda <a href="https://camunda.org"><img alt="Camunda Website" src="../img/website.png" /></a></h2>
-<p>Camunda est une plateforme open source pour la gestion des processus métier. C'est un framework Java qui support <strong>BPMN</strong> pour l'automatisation des processus, <strong>CMMN</strong> pour le Case Management, et <strong>DMN</strong> pour le Business Decision Management.</p>
-<h2 id="bpmn-20">BPMN 2.0 <a href="http://www.bpmn.org/"><img alt="BPMN Website" src="../img/website.png" /></a></h2>
-<p>BPMN 2.0 (Business Process Modeling Notation) est un standard développé par le Object Management Group (<strong>OMG</strong>) pour fournir une notation facilement compréhensible par tous les utilisateurs métier: les analystes métier, les développeurs implémentant les technologies exécutant ces processus et les personnes gérant et supervisant ces processus. BPMN permet d'établir un pont minimisant le gap entre les conceptions des processus et leurs implémentations.</p>
-<p>Dans sa première version, la spécification BPMN permettait de fournir uniquement une notation graphique, et est devenue rapidement célèbre parmi les analystes métier. Elle définissait la manière dont les concepts tels que les tâches humaines et les scripts exécutables, pouvaient être visualisées de manière standard, indépendante d'un constructeur particulier.</p>
-<p>Cette deuxième version étend ce standard en incluant des sémantiques d'exécution et un format d'échange commun. Ce qui veut dire que les modèles de processus BPMN 2.0 peuvent être échangés entre des éditeurs graphiques différents, et exécutés sur n'importe quel moteur compatible avec BPMN 2.0, tel que Camunda et Activiti.</p>
-<h2 id="installation">Installation</h2>
-<p>Pour installer l'environnement nécessaire à ce TP, il faut suivre les étapes suivantes:</p>
-<ul>
-<li>Télécharger <a href="https://camunda.org/download/">Camunda</a> (Distribution Tomcat), <a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a> et <a href="https://camunda.org/download/modeler/">Camunda Modeler</a>.</li>
-<li>Décompresser le fichier .zip Camunda téléchargé, et exécuter <em>start-camunda.sh</em> (pour les systèmes Unix-based) ou <em>start-camunda.bat</em> (pour les systèmes Windows).</li>
-<li>Ouvrir la page d'accueil du serveur d'application dans votre navigateur préféré.</li>
-<li>Lancer le Camunda Modeler.</li>
-</ul>
-<h2 id="premier-projet-camunda-bpmn-helloworld">Premier Projet Camunda BPMN: Helloworld</h2>
-<h3 id="creation-du-projet-et-dependances">Création du Projet et Dépendances</h3>
-<p>Vous allez maintenant créer un nouveau projet Java pour définir le comportement de votre processus.</p>
-<ul>
-<li>Ouvrir IntelliJ et créer un nouveau projet Maven (sans archetype).</li>
-<li>
-<p>Vous pouvez choisir les paramètres suivants:</p>
-<ul>
-<li>Group Id: <em>tn.insat.eservices.tp2</em></li>
-<li>Artifact Id: <em>Helloworld</em></li>
-<li>Project Name: <em>HelloworldCamunda</em></li>
-</ul>
-</li>
-<li>
-<p>Dans le fichier <em>pom.xml</em>, indiquer que l'application sera déployée plus tard sous la forme d'un fichier <em>war</em>. Pour cela, ajouter la ligne suivante, juste après la version:</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
-</pre></div>
-
-<ul>
-<li>Ajouter les dépendances nécessaires vers Camunda dans votre projet. Pour cela, insérer les lignes suivantes dans votre fichier <em>pom.xml</em></li>
-</ul>
-<div class="codehilite"><pre><span class="nt">&lt;dependencyManagement&gt;</span>
-    <span class="nt">&lt;dependencies&gt;</span>
-      <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>camunda-bom<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>7.7.0<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
-      <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;/dependencies&gt;</span>
-  <span class="nt">&lt;/dependencyManagement&gt;</span>
-
-  <span class="nt">&lt;dependencies&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>org.camunda.bpm<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>camunda-engine<span class="nt">&lt;/artifactId&gt;</span>
-      <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-
-    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
-      <span class="nt">&lt;version&gt;</span>3.0.1<span class="nt">&lt;/version&gt;</span>
-      <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-  <span class="nt">&lt;/dependencies&gt;</span>
-
-  <span class="nt">&lt;build&gt;</span>
-    <span class="nt">&lt;plugins&gt;</span>
-      <span class="nt">&lt;plugin&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>maven-war-plugin<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>2.3<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;configuration&gt;</span>
-          <span class="nt">&lt;failOnMissingWebXml&gt;</span>false<span class="nt">&lt;/failOnMissingWebXml&gt;</span>
-        <span class="nt">&lt;/configuration&gt;</span>
-      <span class="nt">&lt;/plugin&gt;</span>
-    <span class="nt">&lt;/plugins&gt;</span>
-  <span class="nt">&lt;/build&gt;</span>
-</pre></div>
-
-<ul>
-<li>Faire un build de votre projet. Pour cela, créer une nouvelle configuration de type Maven, que vous appellerez <em>maven-install</em> par exemple, et vous écrirez dans la partie <strong>Command Line</strong> : <em>install</em>, comme suit:</li>
-</ul>
-<p><img alt="Maven Install" src="../img/tp2/maven-install.png" /></p>
-<ul>
-<li>Lancer le build et vérifiez bien que vos packages ont bien été installés.</li>
-</ul>
-<h3 id="creation-de-la-classe-principale-pour-le-processus">Création de la classe principale pour le processus</h3>
-<p>La prochaine étape permet de construire une classe pour le processus. Cette classe représente l'interface entre votre application et le moteur de processus Camunda.</p>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">eservices</span><span class="o">.</span><span class="na">tp2</span><span class="o">.</span><span class="na">helloworld</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.camunda.bpm.application.ProcessApplication</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.camunda.bpm.application.impl.ServletProcessApplication</span><span class="o">;</span>
-
-<span class="nd">@ProcessApplication</span><span class="o">(</span><span class="s">&quot;Helloworld App&quot;</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloworldApplication</span> <span class="kd">extends</span> <span class="n">ServletProcessApplication</span> <span class="o">{</span>
-    <span class="c1">// empty implementation</span>
-<span class="o">}</span>
-</pre></div>
-
-<p>Ajouter ensuite le fichier <em>processes.xml</em> sous le répertoire <em>src/main/resources/META-INF</em>. Ce fichier nous permet de fournir une configuration pour le déploiement de ce processus dans le moteur de processus.</p>
-<div class="codehilite"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
-<span class="nt">&lt;process-application</span>
-        <span class="na">xmlns=</span><span class="s">&quot;http://www.camunda.org/schema/1.0/ProcessApplication&quot;</span>
-        <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="nt">&gt;</span>
-
-    <span class="nt">&lt;process-archive</span> <span class="na">name=</span><span class="s">&quot;helloworld&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;process-engine&gt;</span>default<span class="nt">&lt;/process-engine&gt;</span>
-        <span class="nt">&lt;properties&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;isDeleteUponUndeploy&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;isScanForProcessDefinitions&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
-        <span class="nt">&lt;/properties&gt;</span>
-    <span class="nt">&lt;/process-archive&gt;</span>
-
-<span class="nt">&lt;/process-application&gt;</span>
-</pre></div>
-
-<p>A partir de ce point, nous allons commencer à modéliser le processus.</p>
-<h3 id="modelisation-dun-processus-bpmn-20">Modélisation d'un processus BPMN 2.0</h3>
-<p>La modélisation du processus se fera grâce au <em>Camunda Modeler</em>. Pour cela:</p>
-<ul>
-<li>Démarrer l'application, et créer un nouveau diagramme BPMN en cliquant sur <em>File &gt; New File &gt; BPMN Diagram</em>.</li>
-</ul>
-<p><img alt="Premier Projet Camunda" src="../img/tp2/camunda-first-proj.png" /></p>
-<ul>
-<li>Double-cliquer sur l'évènement de départ (le petit rond) pour modifier son nom. Nous l'appelerons <em>Dis Bonjour</em>.</li>
-<li>Cliquer sur l'évènement de départ, choisir le rectangle (représentant une activité) à partir du menu contextuel qui apparaît, et le glisser vers un emplacement adéquat. Nous appellerons le nouvel évènement inséré <em>Ajouter Bonjour</em>.</li>
-</ul>
-<p><center><img src="../img/tp2/menu-contextuel.png" width="200"></center></p>
-<ul>
-<li>Cette tâche sera celle où l'utilisateur va indiquer son nom pour l'éternel <strong>Bonjour &lt;nom>!</strong>. Pour cela, nous devons indiquer que le traitement fait ici sera réalisé par un humain. Pour cela, en cliquant sur l'activité créée, cliquer dans le menu contextuel sur la clef à molette, puis choisir <em>User Task</em>.</li>
-</ul>
-<p><center><img src="../img/tp2/user-task.png" width="500"></center></p>
-<ul>
-<li>Rajouter une tâche de fin au processus.</li>
-</ul>
-<p>Nous obtenons pour finir le diagramme suivant:</p>
-<p><center><img src="../img/tp2/hw-process.png" width="500"></center></p>
-<h3 id="configuration-du-processus">Configuration du processus</h3>
-<ul>
-<li>Pour configurer la tâche utilisateur <em>Ajouter Bonjour</em>, cliquer dessus, et remplir le panneau des propriétés (sur la droite). Définir l'utilisateur auquel sera destinée cette activité. Pour cela, dans le champ <em>Assignee</em>, insérer <em>john</em>. John est un utilisateur prédéfini sur le serveur Camunda. Plus tard, vous pourrez définir votre propre liste d'utilisateurs et de rôles.</li>
-<li>Pour configurer le processus en entier, cliquer sur un endroit vide du canevas. Dans le panneau des propriétés, indiquer les champs suivants:<ul>
-<li>Id: <em>helloworld</em></li>
-<li>Name: <em>Helloworld</em></li>
-<li>Executable: <em>true</em></li>
-</ul>
-</li>
-</ul>
-<p>Vous obtiendrez le résultat suivant:</p>
-<p><img alt="Premier Processus Terminé" src="../img/tp2/process-defined.png" /></p>
-<ul>
-<li>Sauvegarder le diagramme sous le répertoire <em>src/main/resources</em> du projet que vous avez créé. Vous l'appellerez <em>helloworld.bpmn</em></li>
-</ul>
-<h3 id="deploiement-du-processus">Déploiement du processus</h3>
-<ul>
-<li>
-<p>Configurer l'application pour qu'elle soit déployée sur le serveur tomcat intégré dans votre installation Camunda. Pour cela, dans IntelliJ:</p>
-<ul>
-<li>Aller au menu <em>File &gt; Project Structure...</em></li>
-<li>Cliquer sur <em>Artifacts</em>.</li>
-<li>Définir le type de l'archive à déployer: <em>Web Application: Archive</em></li>
-<li>Définir comme Output Directory le répertoire <em>webapps</em>, se trouvant en général sous le répertoire <em>$CAMUNDA_HOME/server/apache-tomcat-&lt;version>/webapps</em>.</li>
-<li>En bas de la fenêtre, vous trouverez un bouton <em>Create Manifest</em>. Cliquer dessus, cela permettra de créer le fichier Manifest responsable du déploiement.</li>
-<li>Vous obtiendrez le résultat suivant:</li>
-</ul>
-</li>
-</ul>
-<p><img alt="Configuration du déploiement" src="../img/tp2/deploy.png" /></p>
-<ul>
-<li>Faire un <em>make</em> du projet. Pour cela, aller au menu <em>Build &gt; Make Project</em> ou cliquer sur <img alt="make" src="../img/tp2/make.png" />. Normalement, un nouveau fichier <em>helloworld-1.0-SNAPSHOT.war</em> sera créé dans le répertoire <em>webapps</em> du serveur.</li>
-</ul>
-<p>Pour vérifier que le processus a bien été déployé sur le serveur Tomcat, consulter le fichier log se trouvant sous <em>$CAMUNDA_HOME/server/apache-tomcat-&lt;version>/logs</em> et ouvrir le fichier <em>catalina.out</em>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Le meilleur moyen de consulter en permanence le fichier log sur les systèmes Linux-like est d'ouvrir un terminal, et de taper <code class="codehilite"><span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">catalina</span><span class="p">.</span><span class="n">out</span></code>.</p>
-</div>
-<p>Le fichier devra contenir les lignes suivantes:</p>
-<p><img alt="BPMN déployé!" src="../img/tp2/bpm-deployed.png" /></p>
-<h3 id="verification-du-deploiement-avec-cockpit">Vérification du déploiement avec Cockpit</h3>
-<p>Camunda offre l'outil <em>Cockpit</em> pour inspecter les processus en cours d'exécution et complétés, et gérer les différents incidents. Pour cela, si votre serveur Camunda est bien lancé, vous pourrez visualiser vos processus dans le navigateur, en tapant: <code class="codehilite"><span class="nl">http:</span><span class="c1">//localhost:8080/camunda/app/cockpit</span></code>. Identifiez-vous comme administrateur en tapant les credentials: <code class="codehilite"><span class="n">demo</span><span class="o">/</span><span class="n">demo</span></code>. Cliquer sur le nombre sous <em>Process Definitions</em> (cela devra être <strong>2</strong> dans votre cas), vous devriez retrouver votre processus, avec un état <em>checked</em>.</p>
-<p><img alt="Cockpit" src="../img/tp2/cockpit.png" /></p>
-<h3 id="demarrage-du-processus">Démarrage du processus</h3>
-<ul>
-<li>Aller au <em>Camunda Tasklist</em> (<code class="codehilite"><span class="nl">http:</span><span class="c1">//localhost:8080/camunda/app/tasklist</span></code>), puis lancer le processus en cliquant sur le bouton <em>Start Process</em> (en haut à droite).</li>
-<li>Cliquer sur votre processus <em>Helloworld</em>.</li>
-<li>Ajouter autant de variables que nécessaire dans le formulaire générique. Nous allons dans notre cas ajouter une variable <em>nom</em> de type chaîne de caractères. Pour cela, cliquer sur <em>Add a variable</em> et remplir comme suit (mettez votre nom bien sûr, pas le mien <img alt="😃" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f603.svg" title=":smiley:" /> ):</li>
-</ul>
-<p><img alt="Ajouter une variable" src="../img/tp2/run-var.png" /></p>
-<ul>
-<li>En rafraîchissant maintenant le Cockpit, vous trouverez que le processus est passé à l'état <em>Running</em>.</li>
-</ul>
-<h3 id="configuration-des-permissions">Configuration des permissions</h3>
-<p>Pour permettre à l'utilisateur John de visualiser et lancer le processus <em>Helloworld</em>, il faudra lui rajouter les autorisations. Pour cela:</p>
-<ul>
-<li>Aller à <em>Camunda Admin</em> (<code class="codehilite"><span class="nl">http:</span><span class="c1">//localhost:8080/camunda/app/admin/default/#/authorization?resource=0</span></code>).</li>
-<li>Ajouter une nouvelle autorisation dans la partie <em>Process Definition</em>, pour permettre à John de manipuler la définition du processus <em>Helloworld</em>.</li>
-</ul>
-<p><img alt="Ajouter une permission - Process Definition" src="../img/tp2/def-perm.png" /></p>
-<ul>
-<li>Dans la partie <em>Process Instance</em>, ajouter la permission de créer une instance de processus à John.</li>
-</ul>
-<p><img alt="Ajouter une permission - Process Instance" src="../img/tp2/inst-perm.png" /></p>
-<ul>
-<li>Vous authentifier comme étant John, en utilisant (<em>john/john</em>), de préférence sur un autre navigateur. Vous pourrez ainsi visualiser le processus Helloworld, tel qu'il est visible par John. Il pourra ainsi ajouter les variables de son choix, et compléter le processus.</li>
-</ul>
-<p><img alt="Exécuter le processus" src="../img/tp2/john-run-process.png" /></p>
-<h3 id="creation-dun-formulaire-personnalise">Création d'un formulaire personnalisé</h3>
-<p>Pour créer votre propre formulaire, avec des variables en entrée qui peuvent être manipulées par le service,  suivre les étapes suivantes:</p>
-<ul>
-<li>Revenir vers IntelliJ, et créer un fichier <em>dis-bonjour.html</em> sous le répertoire <em>src/main/webapp/forms</em>. Ajouter le contenu suivant:</li>
-</ul>
-<div class="codehilite"><pre><span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;disBonjour&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;nom&quot;</span><span class="nt">&gt;</span>Nom<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span>
-               <span class="na">cam-variable-type=</span><span class="s">&quot;String&quot;</span>
-               <span class="na">cam-variable-name=</span><span class="s">&quot;nom&quot;</span>
-               <span class="na">name=</span><span class="s">&quot;nom&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/form&gt;</span>
-</pre></div>
-
-<ul>
-<li>Ouvrir le processus avec le Modeler, et cliquer sur l'évènement de départ. Dans le panneau des propriétés, choisir la tabulation <em>Forms</em>  et insérer <code class="codehilite"><span class="n">embedded</span><span class="o">:</span><span class="n">app</span><span class="o">:</span><span class="n">forms</span><span class="o">/</span><span class="n">dis</span><span class="o">-</span><span class="n">bonjour</span><span class="o">.</span><span class="na">html</span></code> dans le champ <em>Key</em>. Cela indique que nous voulons utiliser un formulaire intégré dans la Tasklist, et qu'il sera chargé à partir de l'application.</li>
-<li>Sauvegarder, et rafraîchir le projet dans IntelliJ.</li>
-<li>De même, nous allons créer le formulaire qui va permettre à John de dire Bonjour. On l'appellera <em>bonjour.html</em>.</li>
-</ul>
-<div class="codehilite"><pre><span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;bonjour&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;salutation&quot;</span><span class="nt">&gt;</span>Salutation<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span>
-               <span class="na">cam-variable-type=</span><span class="s">&quot;String&quot;</span>
-               <span class="na">cam-variable-name=</span><span class="s">&quot;salutation&quot;</span>
-               <span class="na">name=</span><span class="s">&quot;salutation&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;nom&quot;</span><span class="nt">&gt;</span>Nom<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span>
-               <span class="na">cam-variable-type=</span><span class="s">&quot;String&quot;</span>
-               <span class="na">cam-variable-name=</span><span class="s">&quot;nom&quot;</span>
-               <span class="na">name=</span><span class="s">&quot;nom&quot;</span>
-               <span class="na">readonly=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/form&gt;</span>
-</pre></div>
-
-<ul>
-<li>Affecter ce formulaire à la tâche <em>Ajouter Bonjour</em> de la même manière que précédemment.</li>
-<li>Sauvegarder tout et re-déployer le projet.</li>
-<li>Lancer maintenant le processus. Saisir votre nom dans la rubrique <em>Nom</em>.</li>
-</ul>
-<p><img alt="Exécuter le processus2" src="../img/tp2/start-process-2.png" /></p>
-<ul>
-<li>Identifiez-vous comme John de nouveau, vous trouverez le deuxième formulaire:</li>
-</ul>
-<p><img alt="Ajouter Bonjour!" src="../img/tp2/add-hello-2.png" /></p>
-<p>Pour l'instant, en cliquant sur compléter, rien ne se passe, car nous n'avons indiqué nulle part ce qui doit être réalisé suite à la saisie du "Bonjour" par John. Cela sera fait grâce à un <em>Service Task</em>.</p>
-<h3 id="ajout-dun-service-task-java">Ajout d'un Service Task Java</h3>
-<p>Pour définir le comportement à faire de votre service, suivre les étapes suivantes:</p>
-<ul>
-<li>Utiliser le Modeler pour ajouter un service task juste après le user task. Pour cela, sélectionner une activité dans la palette de gauche, et la glisser entre la tâche utilisateur et l'évènement de fin. Avec la clef à molette <img alt="clef-molette" src="../img/tp2/clef-molette.png" /> , sélectionner l'option <em>Service Task</em>. Appeler le service <em>Dire Bonjour</em>. Vous obtiendrez le résultat suivant:</li>
-</ul>
-<p><img alt="Nouveau Processus avec Service Task" src="../img/tp2/service-task.png" /></p>
-<ul>
-<li>Ajouter maintenant l'implémentation du Service Task. Pour cela, ajouter une classe dans le projet IntelliJ appelée <em>ProcessRequestDelegate</em> qui implémente l'interface <em>JavaDelegate</em>, comme suit:</li>
-</ul>
-<div class="codehilite"><pre><span class="n">package</span> <span class="n">tn</span><span class="o">.</span><span class="n">insat</span><span class="o">.</span><span class="n">eservices</span><span class="o">.</span><span class="n">tp2</span><span class="o">.</span><span class="n">helloworld</span><span class="p">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.logging.Logger</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.camunda.bpm.engine.delegate.DelegateExecution</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.camunda.bpm.engine.delegate.JavaDelegate</span><span class="p">;</span>
-
-<span class="n">public</span> <span class="k">class</span> <span class="nc">ProcessRequestDelegate</span> <span class="n">implements</span> <span class="n">JavaDelegate</span> <span class="p">{</span>
-
-    <span class="n">private</span> <span class="n">final</span> <span class="n">static</span> <span class="n">Logger</span> <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&quot;Hello-Greetings&quot;</span><span class="p">);</span>
-
-    <span class="n">public</span> <span class="n">void</span> <span class="n">execute</span><span class="p">(</span><span class="n">DelegateExecution</span> <span class="n">execution</span><span class="p">)</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
-        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Hey! &quot;</span> <span class="o">+</span> <span class="n">execution</span><span class="o">.</span><span class="n">getVariable</span><span class="p">(</span><span class="s">&quot;salutation&quot;</span><span class="p">)</span>
-                    <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">execution</span><span class="o">.</span><span class="n">getVariable</span><span class="p">(</span><span class="s">&quot;nom&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-</pre></div>
-
-<ul>
-<li>Utiliser le panneau des propriétés pour référencer la classe dans le processus. Pour cela, cliquer sur le Service Task, et définir son implémentation par la Java Class: <code class="codehilite"><span class="n">tn</span><span class="p">.</span><span class="n">insat</span><span class="p">.</span><span class="n">eservices</span><span class="p">.</span><span class="n">tp2</span><span class="p">.</span><span class="n">helloworld</span><span class="p">.</span><span class="n">ProcessRequestDelegate</span></code>.</li>
-<li>Déployer votre application, et observer le résultat. Il sera affiché dans le log de votre serveur Tomcat (catalina.out), comme suit:</li>
-</ul>
-<p><img alt="Bonjour Lilia!" src="../img/tp2/bonjour.png" /></p>
-<h2 id="appel-dun-service-web-rest">Appel d'un Service Web REST</h2>
-<p>Grâce aux connecteurs, Camunda peut intégrer des services web REST ou SOAP. Pour cela, nous allons faire appel à un service web classique de météo. Dans son formulaire, John va saisir le nom d'une ville, et le processus devra retourner la température actuelle dans cette ville, en plus de l'usuel Bonjour.</p>
-<ul>
-<li>Commencer par ajuster le formulaire <em>bonjour.html</em>, en lui ajoutant un autre champs de texte: <em>ville</em> après le champs <em>nom</em>.</li>
-<li>Revenir dans le Modeler, et ajouter un Service Task, qu'on appellera <em>Consulter Météo</em>, entre <em>Ajouter Bonjour</em>  et <em>Dire Bonjour</em>.</li>
-<li>Dans ce service, indiquer que le type d'implémentation est <em>Connector</em>, et vous déplacer vers l'onglet <em>Connector</em> pour le configurer.</li>
-<li>
-<p>Donner les paramètres suivants à votre connecteur;</p>
-<ul>
-<li><strong>Id</strong>: <em>http-connector</em></li>
-<li><strong>Input</strong>: Les input prendront toutes les informations nécessaires pour envoyer la requête REST au service web <em>OpenWeatherMap</em>. Ce service prend en paramètre la ville, qui sera insérée dans notre cas à partir du formulaire précédent, dans le champs <em>ville</em>.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Nom</th>
-<th>Type</th>
-<th>Valeur</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Script / JavaScript / Inline Script</td>
-<td><code class="codehilite"><span class="n">var</span> <span class="n">ville</span><span class="o">=</span><span class="n">execution</span><span class="p">.</span><span class="n">getVariable</span><span class="p">(</span><span class="s">&quot;ville&quot;</span><span class="p">);</span> <span class="err">&#39;</span><span class="n">http</span><span class="o">:</span><span class="c1">//api.openweathermap.org/data/2.5/weather?APPID=17db59488cadcad345211c36304a9266&amp;q=&#39;+ville;</span></code></td>
-</tr>
-<tr>
-<td>method</td>
-<td>Text</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>headers</td>
-<td>Map</td>
-<td><code class="codehilite"><span class="n">key</span><span class="o">:</span> <span class="n">accept</span><span class="o">,</span> <span class="n">value</span><span class="o">:</span><span class="n">application</span><span class="sr">/json -       key:content-type, value:application/</span><span class="n">json</span></code></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>Output</strong>: Le service utilisé renvoie un document json qui ressemble à ce qui suit:</li>
-</ul>
-</li>
-</ul>
-<div class="codehilite"><pre><span class="p">{</span>
-  <span class="nl">coord:</span> <span class="p">{</span>
-    <span class="nl">lon:</span> <span class="mf">10.17</span><span class="p">,</span>
-    <span class="nl">lat:</span> <span class="mf">36.82</span>
-  <span class="p">},</span>
-  <span class="nl">weather:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nl">id:</span> <span class="mi">801</span><span class="p">,</span>
-      <span class="nl">main:</span> <span class="s">&quot;Clouds&quot;</span><span class="p">,</span>
-      <span class="nl">description:</span> <span class="s">&quot;few clouds&quot;</span><span class="p">,</span>
-      <span class="nl">icon:</span> <span class="s">&quot;02d&quot;</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="nl">base:</span> <span class="s">&quot;stations&quot;</span><span class="p">,</span>
-  <span class="nl">main:</span> <span class="p">{</span>
-    <span class="nl">temp:</span> <span class="mf">299.87</span><span class="p">,</span>
-    <span class="nl">pressure:</span> <span class="mi">1018</span><span class="p">,</span>
-    <span class="nl">humidity:</span> <span class="mi">39</span><span class="p">,</span>
-    <span class="nl">temp_min:</span> <span class="mf">299.15</span><span class="p">,</span>
-    <span class="nl">temp_max:</span> <span class="mf">301.15</span>
-  <span class="p">},</span>
-  <span class="nl">visibility:</span> <span class="mi">10000</span><span class="p">,</span>
-  <span class="nl">wind:</span> <span class="p">{</span>
-    <span class="nl">speed:</span> <span class="mf">3.6</span><span class="p">,</span>
-    <span class="nl">deg:</span> <span class="mi">40</span>
-  <span class="p">},</span>
-  <span class="nl">clouds:</span> <span class="p">{</span>
-    <span class="nl">all:</span> <span class="mi">20</span>
-  <span class="p">},</span>
-  <span class="nl">dt:</span> <span class="mi">1506864600</span><span class="p">,</span>
-  <span class="nl">sys:</span> <span class="p">{</span>
-    <span class="nl">type:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nl">id:</span> <span class="mi">6318</span><span class="p">,</span>
-    <span class="nl">message:</span> <span class="mf">0.0039</span><span class="p">,</span>
-    <span class="nl">country:</span> <span class="s">&quot;TN&quot;</span><span class="p">,</span>
-    <span class="nl">sunrise:</span> <span class="mi">1506834907</span><span class="p">,</span>
-    <span class="nl">sunset:</span> <span class="mi">1506877308</span>
-  <span class="p">},</span>
-  <span class="nl">id:</span> <span class="mi">2464470</span><span class="p">,</span>
-  <span class="nl">name:</span> <span class="s">&quot;Tunis&quot;</span><span class="p">,</span>
-  <span class="nl">cod:</span> <span class="mi">200</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>Si l'objectif est de retourner la valeur de la température, on doit naviguer vers l'élément <em>main</em> puis à son fils <em>temp</em>. L'output de notre service aura donc la forme suivante:</p>
-<table>
-<thead>
-<tr>
-<th>Nom</th>
-<th>Type</th>
-<th>Valeur</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WsResponse</td>
-<td>Script / JavaScript / Inline Script</td>
-<td><code class="codehilite"><span class="n">S</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="n">prop</span><span class="p">(</span><span class="s">&quot;main&quot;</span><span class="p">).</span><span class="n">prop</span><span class="p">(</span><span class="s">&quot;temp&quot;</span><span class="p">).</span><span class="n">numberValue</span><span class="p">();</span></code></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Toujours tester votre web service REST sur navigateur avant de l'utiliser dans une quelconque application!</p>
-</div>
-<ul>
-<li>Maintenant, ajouter le code d'exploitation de ce service dans la classe <em>ProcessRequestDelegate</em>, pour lui indiquer d'afficher le résultat de la requête:</li>
-</ul>
-<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProcessRequestDelegate</span> <span class="kd">implements</span> <span class="n">JavaDelegate</span> <span class="o">{</span>
-
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Logger</span> <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="s">&quot;Hello-Greetings&quot;</span><span class="o">);</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="n">DelegateExecution</span> <span class="n">execution</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">LOGGER</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Hey! &quot;</span> <span class="o">+</span> <span class="n">execution</span><span class="o">.</span><span class="na">getVariable</span><span class="o">(</span><span class="s">&quot;salutation&quot;</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
-                <span class="o">+</span> <span class="n">execution</span><span class="o">.</span><span class="na">getVariable</span><span class="o">(</span><span class="s">&quot;nom&quot;</span><span class="o">)</span>
-                <span class="o">+</span> <span class="s">&quot;! La température aujourd&#39;hui à &quot;</span>
-                <span class="o">+</span> <span class="n">execution</span><span class="o">.</span><span class="na">getVariable</span><span class="o">(</span><span class="s">&quot;ville&quot;</span><span class="o">)</span>
-                <span class="o">+</span> <span class="s">&quot; est de &quot;</span>
-                <span class="o">+</span> <span class="n">execution</span><span class="o">.</span><span class="na">getVariable</span><span class="o">(</span><span class="s">&quot;WsResponse&quot;</span><span class="o">)+</span><span class="s">&quot;!&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-</pre></div>
-
-<ul>
-<li>
-<p>Tout sauvegarder puis déployer le service. En l'exécutant, vous obtenez le résultat suivant:</p>
-<ul>
-<li>
-<p>L'utilisateur demo saisit son nom:<br />
-<img alt="Saisie du nom" src="../img/tp2/start-process-2.png" /></p>
-</li>
-<li>
-<p>L'utilisateur john rajoute la salutation et la ville:<br />
-<img alt="Ajout du nom et de la ville" src="../img/tp2/say-hello-3.png" /></p>
-</li>
-<li>
-<p>Le processus affiche ce résultat sur le log:<br />
-<img alt="Résultat" src="../img/tp2/resultat-3.png" /></p>
-</li>
-</ul>
-</li>
-</ul>
-<div class="admonition faq">
-<p class="admonition-title">TAF</p>
-<p>Vous remarquerez que le service web REST que nous avons appelé rend la température en degré Kelvin. Chercher un service web qui fasse la conversion du ºK vers le ºC, puis appelez-le avant de faire l'affichage.</p>
-</div>
-                
-                  
-                
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../tp1/" title="TP1 - Services Web REST et SOAP avec Talend" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Précédent
-                </span>
-                TP1 - Services Web REST et SOAP avec Talend
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../tp3/" title="TP3 - Mise en Place d’un ESB avec Talend ESB" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Suivant
-                </span>
-                TP3 - Mise en Place d’un ESB avec Talend ESB
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 - 2018 Lilia Sfaxi
-          </div>
-        
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
-    
-      <a href="http://liliasfaxi.wix.com/liliasfaxi" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/liliasfaxi" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/lillitou" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://www.linkedin.com/in/liliasfaxi/" class="md-footer-social__link fa fa-linkedin"></a>
-    
-  </div>
-
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    
-      <script src="../assets/javascripts/application.808e90bb.js"></script>
-      
-        
-        
-          
-          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.fr.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-  </body>
-</html>
+<span class=p>}</span>
+</code></pre></div> <ul> <li> <p>Tout sauvegarder puis déployer le service. En l'exécutant, vous obtenez le résultat suivant:</p> <ul> <li> <p>L'utilisateur demo saisit son nom: <img alt="Saisie du nom" src=../img/tp2/start-process-2.png></p> </li> <li> <p>L'utilisateur john rajoute la salutation et la ville: <img alt="Ajout du nom et de la ville" src=../img/tp2/say-hello-3.png></p> </li> <li> <p>Le processus affiche ce résultat sur le log: <img alt=Résultat src=../img/tp2/resultat-3.png></p> </li> </ul> </li> </ul> <div class="admonition faq"> <p class=admonition-title>TAF</p> <p>Vous remarquerez que le service web REST que nous avons appelé rend la température en degré Kelvin. Chercher un service web qui fasse la conversion du ºK vers le ºC, puis appelez-le avant de faire l'affichage.</p> </div> <hr> <div class=md-source-file> <small> Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class=timeago datetime=2020-02-02T17:51:04+01:00 locale=en></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2020-02-02</span> </small> </div> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../tp1/ class="md-footer__link md-footer__link--prev" aria-label="Previous: TP1 - Services Web REST et SOAP avec Talend" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> TP1 - Services Web REST et SOAP avec Talend </div> </div> </a> <a href=../tp3/ class="md-footer__link md-footer__link--next" aria-label="Next: TP3 - Mise en Place d’un ESB avec Talend ESB" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> TP3 - Mise en Place d’un ESB avec Talend ESB </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright &copy; 2017 - 2018 Lilia Sfaxi </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.092fa1f6.min.js"}</script> <script src=../assets/javascripts/bundle.e3b2bf44.min.js></script> <script src=../js/timeago.min.js></script> <script src=../js/timeago_mkdocs_material.js></script> </body> </html>

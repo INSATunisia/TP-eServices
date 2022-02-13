@@ -1,1147 +1,190 @@
-
-
-
-
-<!doctype html>
-<html lang="fr" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="Les Travaux Pratiques du cours eServices">
-      
-      
-        <link rel="canonical" href="http://INSATunisia.github.io/TP-eServices/tp4/">
-      
-      
-        <meta name="author" content="Lilia Sfaxi">
-      
-      
-        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
-      
-        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
-      
-        <meta name="lang:search.language" content="fr">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Aucun document trouvé">
-      
-        <meta name="lang:search.result.one" content="1 document trouvé">
-      
-        <meta name="lang:search.result.other" content="# documents trouvés">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
-    
-    
-      
-        <title>TP4 - Microservices avec Spring Boot et Spring Cloud - TP eServices</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#e91e63">
-      
-    
-    
-      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
-    
-    
-    
-      
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "None", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="pink" data-md-color-accent="amber">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#tp4-microservices-avec-spring-boot-et-spring-cloud" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-header-nav__button md-logo">
-          
-            <img src="../img/logo.png" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              TP eServices
-            </span>
-            <span class="md-header-nav__topic">
-              
-                TP4 - Microservices avec Spring Boot et Spring Cloud
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Taper pour démarrer la recherche
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    INSATunisia/TP-eServices
-  </div>
-</a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
-</header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://INSATunisia.github.io/TP-eServices/" title="TP eServices" class="md-nav__button md-logo">
-      
-        <img src="../img/logo.png" width="48" height="48">
-      
-    </a>
-    TP eServices
-  </label>
-  
-    <div class="md-nav__source">
-      
-
-
-  
-
-<a href="https://github.com/INSATunisia/TP-eServices/" title="Aller au dépôt" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    INSATunisia/TP-eServices
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href=".." title="Travaux Pratiques eServices" class="md-nav__link">
-      Travaux Pratiques eServices
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp1/" title="TP1 - Services Web REST et SOAP avec Talend" class="md-nav__link">
-      TP1 - Services Web REST et SOAP avec Talend
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp2/" title="TP2 - Orchestration de Services avec Camunda" class="md-nav__link">
-      TP2 - Orchestration de Services avec Camunda
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp3/" title="TP3 - Mise en Place d’un ESB avec Talend ESB" class="md-nav__link">
-      TP3 - Mise en Place d’un ESB avec Talend ESB
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        TP4 - Microservices avec Spring Boot et Spring Cloud
-      </label>
-    
-    <a href="./" title="TP4 - Microservices avec Spring Boot et Spring Cloud" class="md-nav__link md-nav__link--active">
-      TP4 - Microservices avec Spring Boot et Spring Cloud
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table des matières</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-pdf" class="md-nav__link">
-    Télécharger PDF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs-du-tp" class="md-nav__link">
-    Objectifs du TP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#acknowledgement" class="md-nav__link">
-    Acknowledgement
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outils-et-versions" class="md-nav__link">
-    Outils et Versions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-microservices" class="md-nav__link">
-    Architecture Microservices
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#presentation" class="md-nav__link">
-    Présentation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-proposee" class="md-nav__link">
-    Architecture Proposée
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creation-des-microservices" class="md-nav__link">
-    Création des Microservices
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#microservice-productservice" class="md-nav__link">
-    Microservice ProductService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plusieurs-instances-du-microservice-productservice" class="md-nav__link">
-    Plusieurs Instances du Microservice ProductService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice-configservice" class="md-nav__link">
-    Microservice ConfigService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice-discoveryservice" class="md-nav__link">
-    Microservice DiscoveryService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice-proxyservice" class="md-nav__link">
-    Microservice ProxyService
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../tp5/" title="TP5 - API Management avec Atom et Anypoint" class="md-nav__link">
-      TP5 - API Management avec Atom et Anypoint
-    </a>
-  </li>
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table des matières</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#telecharger-pdf" class="md-nav__link">
-    Télécharger PDF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs-du-tp" class="md-nav__link">
-    Objectifs du TP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#acknowledgement" class="md-nav__link">
-    Acknowledgement
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outils-et-versions" class="md-nav__link">
-    Outils et Versions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-microservices" class="md-nav__link">
-    Architecture Microservices
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#presentation" class="md-nav__link">
-    Présentation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#architecture-proposee" class="md-nav__link">
-    Architecture Proposée
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creation-des-microservices" class="md-nav__link">
-    Création des Microservices
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#microservice-productservice" class="md-nav__link">
-    Microservice ProductService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plusieurs-instances-du-microservice-productservice" class="md-nav__link">
-    Plusieurs Instances du Microservice ProductService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice-configservice" class="md-nav__link">
-    Microservice ConfigService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice-discoveryservice" class="md-nav__link">
-    Microservice DiscoveryService
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice-proxyservice" class="md-nav__link">
-    Microservice ProxyService
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp4.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
-                
-                
-                <h1 id="tp4-microservices-avec-spring-boot-et-spring-cloud">TP4 - Microservices avec Spring Boot et Spring Cloud</h1>
-<p><img alt="Microservices" src="../img/microservices.png" /></p>
-<h2 id="telecharger-pdf">Télécharger PDF</h2>
-<p><a href="../tp4.pdf"><img alt="Download TP4" src="../img/pdf.png" /></a></p>
-<h2 id="objectifs-du-tp">Objectifs du TP</h2>
-<ol>
-<li>Création de microservices avec Spring Boot et Spring Cloud</li>
-<li>Déploiement d'un microservices sur plusieurs instances</li>
-</ol>
-<h2 id="acknowledgement">Acknowledgement</h2>
-<p>Ce TP a été largement inspiré du travail d'un binôme d'étudiants en Génie Logiciel à l'INSAT, promotion 2017 (Houssem Ben Braiek et Hadhemi Jabnoun), que je tiens à féliciter et remercier.</p>
-<h2 id="outils-et-versions">Outils et Versions</h2>
-<ul>
-<li><a href="https://projects.spring.io/spring-boot/">Spring Boot</a> Version: 1.5.8</li>
-<li><a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a> Version 1.2.4</li>
-<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html">Java</a> Version 1.8.0_121</li>
-<li><a href="https://maven.apache.org/">Maven</a> Version 3.5.2</li>
-<li><a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a> Version Ultimate 2016.1 (ou tout autre IDE de votre choix)</li>
-</ul>
-<h2 id="architecture-microservices">Architecture Microservices</h2>
-<h3 id="presentation">Présentation</h3>
-<p>Une architecture <a href="https://martinfowler.com/articles/microservices.html">Microservices</a> représente un moyen de concevoir les applications comme ensemble de services indépendamment déployables. Ces services doivent de préférence être organisés autours des compétences métier, de déploiement automatique, d'extrémités intelligentes et de contrôle décentralisé des technologies et des données.</p>
-<h3 id="architecture-proposee">Architecture Proposée</h3>
-<p>L'objectif de ce travail est de montrer comment créer plusieurs services indépendamment déployables qui communiquent entre eux, en utilisant les facilités offertes par Spring Cloud et Spring Boot. <a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a> fournit des outils pour les développeurs pour construire rapidement et facilement des patrons communs de systèmes répartis (tel que des services de configuration, de découverte ou de routage intelligent). <a href="https://projects.spring.io/spring-boot/">Spring Boot</a> permet de son côté de construire des applications Spring rapidement aussi rapidement que possible, en minimisant au maximum le temps de configuration, d'habitude pénible, des applications Spring.</p>
-<p>Nous allons donc créer les microservices suivants:</p>
-<ol>
-<li><em>Product Service</em> : Service principal, qui offre une API REST pour lister une liste de produits.</li>
-<li><em>Config Service</em> : Service de configuration, dont le rôle est de centraliser les fichiers de configuration des différents microservices dans un endroit unique.</li>
-<li><em>Proxy Service</em> : Passerelle se chargeant du routage d'une requête vers l'une des instances d'un service, de manière à gérer automatiquement la distribution de charge.</li>
-<li><em>Discovery Service</em>: Service permettant l'enregistrement des instances de services en vue d'être découvertes par d'autres services.</li>
-</ol>
-<p>L'architecture résultante aura l'allure suivante:</p>
-<p><center><img src="../img/tp4/archi.png"></center></p>
-<h2 id="creation-des-microservices">Création des Microservices</h2>
-<h3 id="microservice-productservice">Microservice <strong>ProductService</strong></h3>
-<p>Nous commençons par créer le service principal: <em>Product Service</em>.</p>
-<p><center><img src="../img/tp4/archi-s1.png"></center></p>
-<p>Chaque microservice sera sous forme d'un projet Spring. Pour créer rapidement et facilement un projet Spring avec toutes les dépendances nécessaires, Spring Boot fournit <em>Spring Initializr</em>.</p>
-<p>Pour cela, aller au site <em><a href="http://start.spring.io">start.spring.io</a></em>, et créer un projet avec les caractéristiques suivantes:</p>
-<ul>
-<li>Projet Maven avec Java et Spring Boot version 1.5.8</li>
-<li>Group: tn.insat.tpmicro</li>
-<li>Artifact: product-service</li>
-<li>Dépendances:<ul>
-<li>Web</li>
-<li>Rest Repositories</li>
-<li>JPA : Java Persistence API</li>
-<li>H2 : base de données pour le stockage</li>
-<li>Actuator : pour le montoring et la gestion de l'application</li>
-<li>Eureka Discovery : pour l'intégration avec le <em>Discovery Service</em></li>
-<li>Config Client : pour l'intégration avec le <em>Config Service</em></li>
-</ul>
-</li>
-</ul>
-<p>Suivre ensuite les étapes suivantes pour créer le microservice <em>ProductService</em>:</p>
-<ul>
-<li>Ouvrir le projet téléchargé avec IntelliJ IDEA.</li>
-<li>Sous le répertoire <em>src/main/java</em> et dans le package <em>tn.insat.tpmicro.productservice</em>, créer la classe <em>Product</em> suivante:</li>
-</ul>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="o">;</span>
-
-<span class="nd">@Entity</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
-    <span class="nd">@Id</span>
-    <span class="nd">@GeneratedValue</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="n">Product</span><span class="o">(){</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="n">Product</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="n">getId</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="n">getName</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
-<p>Cette classe est annotée avec JPA, pour stocker ensuite les objets <em>Product</em> dans la base de données H2 grâce à Spring Data. Pour cela, créer l'interface <em>ProductRepository</em> dans le même package:</p>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProductRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Product</span> <span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
-<span class="o">}</span>
-</pre></div>
-
-<p>Pour insérer les objets dans la base, nous utiliserons l'objet <em>Stream</em>. Pour cela, nous allons créer la classe <em>DummyDataCLR</em> :</p>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.boot.CommandLineRunner</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.stream.Stream</span><span class="o">;</span>
-
-<span class="nd">@Component</span>
-<span class="kd">class</span> <span class="nc">DummyDataCLR</span> <span class="kd">implements</span> <span class="n">CommandLineRunner</span> <span class="o">{</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="n">run</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">strings</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;Pencil&quot;</span><span class="o">,</span> <span class="s">&quot;Book&quot;</span><span class="o">,</span> <span class="s">&quot;Eraser&quot;</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">productRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="k">new</span> <span class="n">Product</span><span class="o">(</span><span class="n">s</span><span class="o">)));</span>
-        <span class="n">productRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getName</span><span class="o">()));</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Autowired</span>
-    <span class="kd">private</span> <span class="n">ProductRepository</span> <span class="n">productRepository</span><span class="o">;</span>
-
-<span class="o">}</span>
-</pre></div>
-
-<p>Nous remarquons ici que le <em>productRepository</em> sera instancié automatiquement grâce au mécanisme d'injection de dépendances, utilisé par Spring.</p>
-<p>Lancer la classe principale. Une base de données H2 sera créée et le <em>CommandLineRunner</em> se chargera de lui injecter les données.</p>
-<div class="admonition warning">
-<p class="admonition-title">Attention</p>
-<p>Prenez soin d'utiliser JDK 8!</p>
-</div>
-<p>Pour exécuter votre application:</p>
-<ul>
-<li>Créer une configuration <em>mvn package</em> en faisant <em>Run-&gt;Edit Configurations</em> puis en créant une nouvelle configuration de type <em>Maven</em> avec la commande <em>package</em> comme suit:</li>
-</ul>
-<p><img alt="Configuration mvn package" src="../img/tp4/package.png" /></p>
-<p>Un répertoire <em>target</em> sera créé, contenant les classes générées.</p>
-<ul>
-<li>Lancer ensuite la configuration Spring Boot <em>ProductServiceApplication</em> créée par défaut par IntelliJ. Le résultat sur la console devrait ressembler à ce qui suit:</li>
-</ul>
-<p><img alt="Configuration Spring Boot" src="../img/tp4/boot.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Pour éviter de lancer à chaque fois les deux configurations, ajouter dans la deuxième configuration une dépendance vers la première, rajouter cette dernière dans la case <em>Before Launch: Build, Maven Goal, Activate Tool Window</em>, comme suit:</p>
-<p><img alt="Ajout dépendance" src="../img/tp4/dependanceConfig.png" /></p>
-</div>
-<p>Pour tester votre application, ouvrir la page <a href="http://localhost:8080">http://localhost:8080</a> sur le navigateur. Vous obtiendrez (si tout se passe bien) le résultat suivant:</p>
-<p><img alt="Service REST" src="../img/tp4/rest1.png" /></p>
-<p>Vous remarquerez que le service REST créé respecte automatiquement la norme <a href="https://spring.io/understanding/HATEOAS">HATEOAS</a>, qui offre dans les services REST, les liens pour naviguer dynamiquement entre les interfaces.</p>
-<p>Si vous naviguez vers la page <a href="http://localhost:8080/products">http://localhost:8080/products</a>, vous verrez la liste des produits, injectés par le CLR, comme suit:</p>
-<p><img alt="Liste Produits" src="../img/tp4/products.png" /></p>
-<p>Pour voir les informations relatives à un seul produit, il suffit de connaître son ID: <a href="http://localhost:8080/products/1">http://localhost:8080/products/1</a>, par exemple.</p>
-<p>Pour rajouter une fonctionnalité de recherche par nom, par exemple, modifier l'interface <em>ProductRepository</em>, comme suit:</p>
-<p><div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.data.domain.Page</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.data.domain.Pageable</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.data.jpa.repository.Query</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.data.repository.query.Param</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.data.rest.core.annotation.RepositoryRestResource</span><span class="o">;</span>
-
-<span class="nd">@RepositoryRestResource</span>
-<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProductRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Product</span> <span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
-
-    <span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;select p from Product p where p.name like :name&quot;</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="n">productByName</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">mc</span>
-            <span class="o">,</span> <span class="n">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div><br />
-Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://localhost:8080/products/search/productByName?name=Eraser">http://localhost:8080/products/search/productByName?name=Eraser</a></p>
-<p>Le résultat obtenu sera le suivant:</p>
-<p><img alt="Résultat de la recherche par nom" src="../img/tp4/search.png" /></p>
-<p>La dépendance <em>Actuator</em> qui a été rajoutée au projet permet d'afficher des informations sur votre API REST sans avoir à implémenter explicitement la fonctionnalité. Par exemple, si vous allez vers <a href="http://localhost:8080/metrics">http://localhost:8080/metrics</a>, vous pourrez avoir plusieurs informations sur le microservice, tel que le nombre de threads, la capacité mémoire, la classe chargée en mémoire, etc. Mais d'abord, rajouter les deux lignes suivantes au fichier <em>src/main/resources/application.properties</em> pour (1) afficher des informations plus détaillées sur l'état du service et (2) désactiver les contraintes de sécurité par défaut:</p>
-<div class="codehilite"><pre>  <span class="na">endpoints.health.sensitive</span> <span class="o">=</span> <span class="s">false</span>
-  <span class="na">management.security.enabled</span> <span class="o">=</span> <span class="s">false</span>
-</pre></div>
-
-<p>Relancer le projet. Le résultat obtenu en exécutant <a href="http://localhost:8080/metrics">http://localhost:8080/metrics</a> sera comme suit:</p>
-<p><img alt="Metrics" src="../img/tp4/metrics.png" /></p>
-<p>Les informations sur l'état du service sont affichées grâce à <a href="http://localhost:8080/health">http://localhost:8080/health</a></p>
-<p><img alt="Health" src="../img/tp4/health.png" /></p>
-<h3 id="plusieurs-instances-du-microservice-productservice">Plusieurs Instances du Microservice <strong>ProductService</strong></h3>
-<p>Nous allons maintenant créer d'autres instances du même service et les déployer sur des ports différents.</p>
-<p><center><img src="../img/tp4/archi-s2.png"></center></p>
-<p>Pour lancer plusieurs instances du service <em>ProductService</em>, nous allons définir plusieurs configurations avec des numéros de port différents. Pour cela:</p>
-<ul>
-<li>Aller à <em>Run-&gt;Edit Configurations</em>, et copier la configuration <em>ProductServiceApplication</em> en la sélectionnant dans la barre latérale, et en cliquant sur l'icône <img alt="copy" src="../img/tp4/copy.png" />. Une nouvelle configuration sera créée.</li>
-<li>Changer son nom: <em>ProductServiceApplication:8081</em></li>
-<li>Ajouter dans la case <em>Program Arguments</em> l'argument suivant:</li>
-</ul>
-<div class="codehilite"><pre><span class="na">--server.port</span><span class="o">=</span><span class="s">8081</span>
-</pre></div>
-
-<ul>
-<li>Lancer la configuration. Un nouveau service sera disponible à l'adresse: <a href="http://localhost:8081">http://localhost:8081</a></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>En exécutant la seconde configuration, un popup s'affiche dans IntelliJ, qui vous demande si vous voulez afficher le dashboard pour visualiser plusieurs instances Spring Boot, comme suit:</p>
-<p><img alt="Run dashboard" src="../img/tp4/run-dashboard.png" /></p>
-<p>Cliquer dessus, et choisir : <em>Show Run Configurations in Dashboard</em>. La vue suivante s'affiche, en bas de votre écran:</p>
-<p><img alt="Spring Boot Dashboard" src="../img/tp4/dashboard.png" /></p>
-<p>Vous pouvez désormais gérer vos instances dans cette fenêtre.</p>
-</div>
-<ul>
-<li>Refaire les mêmes étapes pour créer une instance du service tourant sur le port 8082.</li>
-</ul>
-<h3 id="microservice-configservice">Microservice <strong>ConfigService</strong></h3>
-<p>Dans une architecture microservices, plusieurs services s'exécutent en même temps, sur des processus différents, avec chacun sa propre configuration et ses propres paramètres. Spring Cloud Config fournit un support côté serveur et côté client pour externaliser les configurations dans un système distribué. Grâce au service de configuration, il est possible d'avoir un endroit centralisé pour gérer les propriétés de chacun de ces services.</p>
-<p><center><img src="../img/tp4/archi-s3.png"></center></p>
-<p>Pour cela:</p>
-<ul>
-<li>Commencer par créer un service ConfigService dans <em>Spring Initializr</em>, avec les dépendances appropriées, comme indiqué sur la figure suivante:</li>
-</ul>
-<p><img alt="Nouveau ConfigService" src="../img/tp4/configservice.png" /></p>
-<ul>
-<li>Ouvrir le projet dans une autre instance d'IntelliJ IDEA.</li>
-<li>Pour exposer un service de configuration, utiliser l'annotation <em>@EnableConfigServer</em> pour la classe <em>ConfigServiceApplication</em>, comme suit:</li>
-</ul>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">configservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.cloud.config.server.EnableConfigServer</span><span class="o">;</span>
-
-<span class="nd">@EnableConfigServer</span>
-<span class="nd">@SpringBootApplication</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConfigServiceApplication</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ConfigServiceApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
-<ul>
-<li>Pour paramétrer ce service de configuration, ajouter dans son fichier <em>application.properties</em> les valeurs suivantes:</li>
-</ul>
-<div class="codehilite"><pre>  <span class="na">server.port</span><span class="o">=</span><span class="s">8888</span>
-  <span class="na">spring.cloud.config.server.git.uri</span><span class="o">=</span><span class="s">file:./src/main/resources/myConfig</span>
-</pre></div>
-
-<p>Ceci indique que le service de configuration sera lancé sur le port 8888 et que le répertoire contenant les fichiers de configuration se trouve dans le répertoire <em>src/main/resources/myConfig</em>. Il suffit maintenant de créer ce répertoire.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Pour pouvoir référencer un répertoire avec son chemin absolu, utiliser plutôt <em>file:///&lt;chemin_absolu></em>.</p>
-</div>
-<ul>
-<li>Créer le répertoire <em>myConfig</em> à l'arborescence <em>src/main/resources</em></li>
-<li>Créer dans ce répertoire le fichier <em>application.properties</em> dans lequel vous insérez l'instruction suivante:</li>
-</ul>
-<div class="codehilite"><pre><span class="na">global</span><span class="o">=</span><span class="s">xxxxx</span>
-</pre></div>
-
-<p>Ce fichier sera partagé entre tous les microservices utilisant ce service de configuration.</p>
-<ul>
-<li>Le répertoire de configuration doit être un répertoire git. Pour cela:<ul>
-<li>Ouvrir le terminal avec IntelliJ et naviguer vers ce répertoire.</li>
-<li>Initialiser votre répertoire: <code class="codehilite"><span class="n">git</span> <span class="n">init</span></code></li>
-<li>Créer une entrée racine dans le repository: <code class="codehilite"><span class="n">git</span> <span class="n">add</span> <span class="p">.</span></code></li>
-<li>Faire un commit: <code class="codehilite"><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;add .&quot;</span></code></li>
-</ul>
-</li>
-</ul>
-<p>Revenir vers le projet <em>ProductService</em> et ajouter dans le fichier de configuration <em>application.properties</em>:</p>
-<div class="codehilite"><pre><span class="na">spring.application.name</span> <span class="o">=</span> <span class="s">product-service</span>
-<span class="na">spring.cloud.config.uri</span> <span class="o">=</span> <span class="s">http://localhost:8888</span>
-</pre></div>
-
-<p>Redémarrer vos services. Pour consulter le service de configuration, aller à <a href="http://localhost:8888/product-service/master">http://localhost:8888/product-service/master</a>.</p>
-<p>Vous verrez le fichier JSON suivant:</p>
-<div class="codehilite"><pre><span class="p">{</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;product-service&quot;</span><span class="p">,</span>
-  <span class="nx">profiles</span><span class="o">:</span> <span class="p">[</span>
-    <span class="s2">&quot;master&quot;</span>
-  <span class="p">],</span>
-  <span class="nx">label</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">version</span><span class="o">:</span> <span class="s2">&quot;6e1ea61d706133e2d8b62f40c6b784192fb58e8a&quot;</span><span class="p">,</span>
-  <span class="nx">state</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">propertySources</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;file:./src/main/resources/myConfig/application.properties&quot;</span><span class="p">,</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">global</span><span class="o">:</span> <span class="s2">&quot;xxxxx&quot;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>Comme le fichier <em>application.properties</em> contient toutes les propriétés partagées des différents microservices, nous aurons besoins d'autres fichiers pour les propriétés spécifiques à un microservice. Pour cela:</p>
-<ul>
-<li>Créer dans le répertoire <em>myConfig</em> un fichier <em>product-service.properties</em> pour le service <em>ProductService</em>.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Attention</p>
-<p>Le nom du fichier doit correspondre à la propriété <em>spring.application.name</em> que vous avez saisi dans le fichier <em>application.properties</em> de votre microservice!</p>
-</div>
-<ul>
-<li>Ajouter les propriétés de votre service, à savoir, par exemple:</li>
-</ul>
-<div class="codehilite"><pre>  <span class="na">me</span><span class="o">=</span><span class="s">lilia.sfaxi@insat.rnu.tn</span>
-</pre></div>
-
-<p>Relancer le microservice de configuration. En consultant l'url <a href="http://localhost:8888/product-service/master">http://localhost:8888/product-service/master</a>, nous remarquons l'ajout de la nouvelle propriété.</p>
-<div class="codehilite"><pre><span class="p">{</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;product-service&quot;</span><span class="p">,</span>
-  <span class="nx">profiles</span><span class="o">:</span> <span class="p">[</span>
-    <span class="s2">&quot;master&quot;</span>
-  <span class="p">],</span>
-  <span class="nx">label</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">version</span><span class="o">:</span> <span class="s2">&quot;6e1ea61d706133e2d8b62f40c6b784192fb58e8a&quot;</span><span class="p">,</span>
-  <span class="nx">state</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">propertySources</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;file:./src/main/resources/myConfig/product-service.properties&quot;</span><span class="p">,</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="p">{</span>
-<span class="hll">        <span class="nx">me</span><span class="o">:</span> <span class="s2">&quot;lilia.sfaxi@insat.rnu.tn&quot;</span>
-</span>      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;file:./src/main/resources/myConfig/application.properties&quot;</span><span class="p">,</span>
-      <span class="nx">source</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">global</span><span class="o">:</span> <span class="s2">&quot;xxxxx&quot;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>Nous allons maintenant définir un appel REST à cette propriété. Pour cela:</p>
-<ul>
-<li>Créer la classe <em>ProductRestService</em> dans le projet <em>product-service</em>. Son code ressemblera à ce qui suit:</li>
-</ul>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="o">;</span>
-
-<span class="nd">@RestController</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductRestService</span> <span class="o">{</span>
-
-  <span class="nd">@Value</span><span class="o">(</span><span class="s">&quot;${me}&quot;</span><span class="o">)</span>
-  <span class="kd">private</span> <span class="n">String</span> <span class="n">me</span><span class="o">;</span>
-
-  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&quot;/messages&quot;</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="n">String</span> <span class="n">tellMe</span><span class="o">(){</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;c&#39;est moi qui ai répondu!&quot;</span><span class="o">);</span>
-      <span class="k">return</span> <span class="n">me</span><span class="o">;</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
-<ul>
-<li>Redémarrer les trois instances du service, puis appeler dans votre navigateur le service en tapant: <a href="http://localhost:8080/messages">http://localhost:8080/messages</a>. Vous verrez le résultat suivant sur le navigateur:</li>
-</ul>
-<p><img alt="Service REST" src="../img/tp4/rest-service.png" /></p>
-<ul>
-<li>Consulter votre Spring Dashboard, vous verrez le message suivant dans la console de l'instance du service lancée sur le port 8080:</li>
-</ul>
-<p><img alt="Service REST" src="../img/tp4/rest-console.png" /></p>
-<h3 id="microservice-discoveryservice">Microservice <strong>DiscoveryService</strong></h3>
-<p>Pour éviter un couplage fort entre microservices, il est fortement recommandé d'utiliser un service de découverte qui permet d'enregistrer les propriétés des différents services et d'éviter ainsi d'avoir à appeler un service directement. Au lieu de cela, le service de découverte fournira dynamiquement les informations nécessaires, ce qui permet d'assurer l'élasticité et la dynamicité propres à une architecture microservices.</p>
-<p><center><img src="../img/tp4/archi-s4.png"></center></p>
-<p>Pour réaliser cela, Netflix offre le service <a href="https://spring.io/guides/gs/service-registration-and-discovery/">Eureka Service Registration and Discovery</a>, que nous allons utiliser dans notre application.</p>
-<ul>
-<li>Revenir à <em>Spring Initializr</em> et créer un nouveau projet Spring Boot intitulé <em>discovery-service</em> avec les dépendances <em>Eureka Server</em> et <em>Config Client</em>.</li>
-<li>Lancer le projet avec IntelliJ.</li>
-<li>Dans la classe <em>DiscoveryServiceApplication</em>, ajouter l'annotation <em>EnableEurekaServer</em>.</li>
-</ul>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">discoveryservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.cloud.netflix.eureka.server.EnableEurekaServer</span><span class="o">;</span>
-
-<span class="nd">@EnableEurekaServer</span>
-<span class="nd">@SpringBootApplication</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiscoveryServiceApplication</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">DiscoveryServiceApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
-<ul>
-<li>Ajouter les propriétés suivantes dans son fichier <em>application.properties</em>.</li>
-</ul>
-<div class="codehilite"><pre><span class="na">spring.application.name</span><span class="o">=</span><span class="s">discovery-service</span>
-<span class="na">spring.cloud.config.uri</span><span class="o">=</span><span class="s">http://localhost:8888</span>
-</pre></div>
-
-<ul>
-<li>Dans le projet <em>config-service</em>, créer un fichier <em>discovery-service.properties</em> sous le répertoire <em>myConfig</em>.</li>
-<li>Ajouter les propriétés suivantes pour (1) définir le port par défaut du service de découverte et (2) empêcher un auto-enregistrement du service Eureka.</li>
-</ul>
-<div class="codehilite"><pre><span class="na">server.port</span> <span class="o">=</span> <span class="s">8761</span>
-<span class="na">eureka.client.fetch-registry</span> <span class="o">=</span> <span class="s">false</span>
-<span class="na">eureka.client.register-with-eureka</span> <span class="o">=</span> <span class="s">false</span>
-</pre></div>
-
-<p>Pour consulter le service Eureka, aller à <a href="http://localhost:8761">http://localhost:8761</a>, l'interface suivante s'affiche:</p>
-<p><img alt="Console Eureka" src="../img/tp4/eureka-console.png" /></p>
-<p>Nous remarquons qu'aucune instance n'est inscrite dans le serveur de découverte. Nous allons donc modifier le code de la classe <em>ProductServiceApplication</em> pour que le microservice <em>ProductService</em> s'enregistre:</p>
-<div class="codehilite"><pre><span class="kn">package</span> <span class="n">tn</span><span class="o">.</span><span class="na">insat</span><span class="o">.</span><span class="na">tpmicro</span><span class="o">.</span><span class="na">productservice</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><span class="o">;</span>
-
-<span class="hll"><span class="nd">@EnableDiscoveryClient</span>
-</span><span class="nd">@SpringBootApplication</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductServiceApplication</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ProductServiceApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
-<p>Redémarrer les trois instances de services <em>ProductService</em> et actualiser la fenêtre de <em>Eureka</em>, vous verrez qu'un seul service est déclaré, avec trois adresses différentes.</p>
-<p><img alt="Services sur Eureka" src="../img/tp4/eureka-services.png" /></p>
-<h3 id="microservice-proxyservice">Microservice <strong>ProxyService</strong></h3>
-<p>L'architecture microservices, en fournissant un ensemble de services indépendants et faiblement couplés, se trouve confrontée au challenge de fournir une interface unifiée pour les consommateurs, de manière à ce qu'ils ne voient pas la décomposition à faible granularité de vos services. C'est pour cela que l'utilisation d'un service proxy, responsable du routage des requêtes et de la répartition de charge, est important.</p>
-<p><center><img src="../img/tp4/archi-s5.png"></center></p>
-<p>Netflix offre le service <a href="https://github.com/Netflix/zuul">Zuul</a> pour réaliser cela. Pour créer votre microservice Proxy:</p>
-<ul>
-<li>Aller à <em>Spring Initializr</em>.</li>
-<li>Créer le projet <em>proxy-service</em> avec les dépendances suivantes: Zuul, Web, HATEOAS, Actuator, Config Client et Eureka Discovery.</li>
-<li>Ouvrir le service avec IntelliJ IDEA.</li>
-<li>Ajouter à la classe <em>ProxyServiceApplication</em> l'annotation <em>@EnableZuulProxy</em>, ainsi que <em>@EnableDiscoveryClient</em> pour que le proxy soit également enregistré dans le service de découverte.</li>
-<li>Ajouter les propriétés <em>spring.application.name</em>  et <em>spring.cloud.config.uri</em> dans le fichier <em>application.properties</em> du service proxy.</li>
-<li>Créer le fichier <em>proxy-service.properties</em> dans le répertoire <em>myConfig</em> du service de configuration, dans lequel vous allez fixer le port du service proxy à 9999.</li>
-</ul>
-<p>En lançant le service Proxy, vous remarquerez qu'il est rajouté dans Eureka.</p>
-<p><img alt="Service Proxy dans Eureka" src="../img/tp4/proxy-eureka.png" /></p>
-<p>Si vous exécutez la requête <a href="http://localhost:9999/product-service/messages">http://localhost:9999/product-service/messages</a> plusieurs fois, vous remarquerez que l'affichage <em>c'est moi qui ai répondu!</em> s'affichera sur les consoles des trois instances respectivement, à tour de rôle.</p>
-                
-                  
-                
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../tp3/" title="TP3 - Mise en Place d’un ESB avec Talend ESB" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Précédent
-                </span>
-                TP3 - Mise en Place d’un ESB avec Talend ESB
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../tp5/" title="TP5 - API Management avec Atom et Anypoint" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Suivant
-                </span>
-                TP5 - API Management avec Atom et Anypoint
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 - 2018 Lilia Sfaxi
-          </div>
-        
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
-    
-      <a href="http://liliasfaxi.wix.com/liliasfaxi" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://github.com/liliasfaxi" class="md-footer-social__link fa fa-github-alt"></a>
-    
-      <a href="https://twitter.com/lillitou" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://www.linkedin.com/in/liliasfaxi/" class="md-footer-social__link fa fa-linkedin"></a>
-    
-  </div>
-
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    
-      <script src="../assets/javascripts/application.808e90bb.js"></script>
-      
-        
-        
-          
-          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.fr.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-  </body>
-</html>
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Les Travaux Pratiques du cours eServices"><meta name=author content="Lilia Sfaxi"><link href=http://INSATunisia.github.io/TP-eServices/tp4/ rel=canonical><link rel=icon href=../img/favicon.ico><meta name=generator content="mkdocs-1.2.3, mkdocs-material-8.1.10"><title>TP4 - Microservices avec Spring Boot et Spring Cloud - TP eServices</title><link rel=stylesheet href=../assets/stylesheets/main.d6be258b.min.css><link rel=stylesheet href=../assets/stylesheets/palette.e6a45f82.min.css><meta name=theme-color content=#e92063><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../css/timeago.css><link rel=stylesheet href=../stylesheets/extra.css><link rel=stylesheet href=../stylesheets/links.css><script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme data-md-color-primary=pink data-md-color-accent=amber> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#tp4-microservices-avec-spring-boot-et-spring-cloud class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=.. title="TP eServices" class="md-header__button md-logo" aria-label="TP eServices" data-md-component=logo> <img src=../img/logo.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> TP eServices </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> TP4 - Microservices avec Spring Boot et Spring Cloud </span> </div> </div> </div> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/INSATunisia/TP-eServices/ title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> INSATunisia/TP-eServices </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="TP eServices" class="md-nav__button md-logo" aria-label="TP eServices" data-md-component=logo> <img src=../img/logo.png alt=logo> </a> TP eServices </label> <div class=md-nav__source> <a href=https://github.com/INSATunisia/TP-eServices/ title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg> </div> <div class=md-source__repository> INSATunisia/TP-eServices </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. class=md-nav__link> Travaux Pratiques eServices </a> </li> <li class=md-nav__item> <a href=../tp1/ class=md-nav__link> TP1 - Services Web REST et SOAP avec Talend </a> </li> <li class=md-nav__item> <a href=../tp2/ class=md-nav__link> TP2 - Orchestration de Services avec Camunda </a> </li> <li class=md-nav__item> <a href=../tp3/ class=md-nav__link> TP3 - Mise en Place d’un ESB avec Talend ESB </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> TP4 - Microservices avec Spring Boot et Spring Cloud <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> TP4 - Microservices avec Spring Boot et Spring Cloud </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#tp4-microservices-avec-spring-boot-et-spring-cloud class=md-nav__link> TP4 - Microservices avec Spring Boot et Spring Cloud </a> <nav class=md-nav aria-label="TP4 - Microservices avec Spring Boot et Spring Cloud"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#telecharger-pdf class=md-nav__link> Télécharger PDF </a> </li> <li class=md-nav__item> <a href=#objectifs-du-tp class=md-nav__link> Objectifs du TP </a> </li> <li class=md-nav__item> <a href=#acknowledgement class=md-nav__link> Acknowledgement </a> </li> <li class=md-nav__item> <a href=#outils-et-versions class=md-nav__link> Outils et Versions </a> </li> <li class=md-nav__item> <a href=#architecture-microservices class=md-nav__link> Architecture Microservices </a> <nav class=md-nav aria-label="Architecture Microservices"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#presentation class=md-nav__link> Présentation </a> </li> <li class=md-nav__item> <a href=#architecture-proposee class=md-nav__link> Architecture Proposée </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#creation-des-microservices class=md-nav__link> Création des Microservices </a> <nav class=md-nav aria-label="Création des Microservices"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#microservice-productservice class=md-nav__link> Microservice ProductService </a> </li> <li class=md-nav__item> <a href=#plusieurs-instances-du-microservice-productservice class=md-nav__link> Plusieurs Instances du Microservice ProductService </a> </li> <li class=md-nav__item> <a href=#microservice-configservice class=md-nav__link> Microservice ConfigService </a> </li> <li class=md-nav__item> <a href=#microservice-discoveryservice class=md-nav__link> Microservice DiscoveryService </a> </li> <li class=md-nav__item> <a href=#microservice-proxyservice class=md-nav__link> Microservice ProxyService </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../tp5/ class=md-nav__link> TP5 - API Management avec Atom et Anypoint </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#tp4-microservices-avec-spring-boot-et-spring-cloud class=md-nav__link> TP4 - Microservices avec Spring Boot et Spring Cloud </a> <nav class=md-nav aria-label="TP4 - Microservices avec Spring Boot et Spring Cloud"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#telecharger-pdf class=md-nav__link> Télécharger PDF </a> </li> <li class=md-nav__item> <a href=#objectifs-du-tp class=md-nav__link> Objectifs du TP </a> </li> <li class=md-nav__item> <a href=#acknowledgement class=md-nav__link> Acknowledgement </a> </li> <li class=md-nav__item> <a href=#outils-et-versions class=md-nav__link> Outils et Versions </a> </li> <li class=md-nav__item> <a href=#architecture-microservices class=md-nav__link> Architecture Microservices </a> <nav class=md-nav aria-label="Architecture Microservices"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#presentation class=md-nav__link> Présentation </a> </li> <li class=md-nav__item> <a href=#architecture-proposee class=md-nav__link> Architecture Proposée </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#creation-des-microservices class=md-nav__link> Création des Microservices </a> <nav class=md-nav aria-label="Création des Microservices"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#microservice-productservice class=md-nav__link> Microservice ProductService </a> </li> <li class=md-nav__item> <a href=#plusieurs-instances-du-microservice-productservice class=md-nav__link> Plusieurs Instances du Microservice ProductService </a> </li> <li class=md-nav__item> <a href=#microservice-configservice class=md-nav__link> Microservice ConfigService </a> </li> <li class=md-nav__item> <a href=#microservice-discoveryservice class=md-nav__link> Microservice DiscoveryService </a> </li> <li class=md-nav__item> <a href=#microservice-proxyservice class=md-nav__link> Microservice ProxyService </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <a href=https://github.com/INSATunisia/TP-eServices/edit/master/docs/tp4.md title="Edit this page" class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg> </a> <h1>TP4 - Microservices avec Spring Boot et Spring Cloud</h1> <h2 id=tp4-microservices-avec-spring-boot-et-spring-cloud>TP4 - Microservices avec Spring Boot et Spring Cloud<a class=headerlink href=#tp4-microservices-avec-spring-boot-et-spring-cloud title="Permanent link">&para;</a></h2> <p><img alt=Microservices src=../img/microservices.png></p> <h3 id=telecharger-pdf>Télécharger PDF<a class=headerlink href=#telecharger-pdf title="Permanent link">&para;</a></h3> <p><a href=../tp4.pdf><img alt="Download TP4" src=../img/pdf.png></a></p> <h3 id=objectifs-du-tp>Objectifs du TP<a class=headerlink href=#objectifs-du-tp title="Permanent link">&para;</a></h3> <ol> <li>Création de microservices avec Spring Boot et Spring Cloud</li> <li>Déploiement d'un microservices sur plusieurs instances</li> </ol> <h3 id=acknowledgement>Acknowledgement<a class=headerlink href=#acknowledgement title="Permanent link">&para;</a></h3> <p>Ce TP a été largement inspiré du travail d'un binôme d'étudiants en Génie Logiciel à l'INSAT, promotion 2017 (Houssem Ben Braiek et Hadhemi Jabnoun), que je tiens à féliciter et remercier.</p> <h3 id=outils-et-versions>Outils et Versions<a class=headerlink href=#outils-et-versions title="Permanent link">&para;</a></h3> <ul> <li><a href=https://projects.spring.io/spring-boot/ >Spring Boot</a> Version: 1.5.8</li> <li><a href=http://projects.spring.io/spring-cloud/ >Spring Cloud</a> Version 1.2.4</li> <li><a href=http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html>Java</a> Version 1.8.0_121</li> <li><a href=https://maven.apache.org/ >Maven</a> Version 3.5.2</li> <li><a href=https://www.jetbrains.com/idea/download/ >IntelliJ IDEA</a> Version Ultimate 2016.1 (ou tout autre IDE de votre choix)</li> </ul> <h3 id=architecture-microservices>Architecture Microservices<a class=headerlink href=#architecture-microservices title="Permanent link">&para;</a></h3> <h4 id=presentation>Présentation<a class=headerlink href=#presentation title="Permanent link">&para;</a></h4> <p>Une architecture <a href=https://martinfowler.com/articles/microservices.html>Microservices</a> représente un moyen de concevoir les applications comme ensemble de services indépendamment déployables. Ces services doivent de préférence être organisés autours des compétences métier, de déploiement automatique, d'extrémités intelligentes et de contrôle décentralisé des technologies et des données.</p> <h4 id=architecture-proposee>Architecture Proposée<a class=headerlink href=#architecture-proposee title="Permanent link">&para;</a></h4> <p>L'objectif de ce travail est de montrer comment créer plusieurs services indépendamment déployables qui communiquent entre eux, en utilisant les facilités offertes par Spring Cloud et Spring Boot. <a href=http://projects.spring.io/spring-cloud/ >Spring Cloud</a> fournit des outils pour les développeurs pour construire rapidement et facilement des patrons communs de systèmes répartis (tel que des services de configuration, de découverte ou de routage intelligent). <a href=https://projects.spring.io/spring-boot/ >Spring Boot</a> permet de son côté de construire des applications Spring rapidement aussi rapidement que possible, en minimisant au maximum le temps de configuration, d'habitude pénible, des applications Spring.</p> <p>Nous allons donc créer les microservices suivants:</p> <ol> <li><em>Product Service</em> : Service principal, qui offre une API REST pour lister une liste de produits.</li> <li><em>Config Service</em> : Service de configuration, dont le rôle est de centraliser les fichiers de configuration des différents microservices dans un endroit unique.</li> <li><em>Proxy Service</em> : Passerelle se chargeant du routage d'une requête vers l'une des instances d'un service, de manière à gérer automatiquement la distribution de charge.</li> <li><em>Discovery Service</em>: Service permettant l'enregistrement des instances de services en vue d'être découvertes par d'autres services.</li> </ol> <p>L'architecture résultante aura l'allure suivante:</p> <p><center><img src=../img/tp4/archi.png></center></p> <h3 id=creation-des-microservices>Création des Microservices<a class=headerlink href=#creation-des-microservices title="Permanent link">&para;</a></h3> <h4 id=microservice-productservice>Microservice <strong>ProductService</strong><a class=headerlink href=#microservice-productservice title="Permanent link">&para;</a></h4> <p>Nous commençons par créer le service principal: <em>Product Service</em>.</p> <p><center><img src=../img/tp4/archi-s1.png></center></p> <p>Chaque microservice sera sous forme d'un projet Spring. Pour créer rapidement et facilement un projet Spring avec toutes les dépendances nécessaires, Spring Boot fournit <em>Spring Initializr</em>.</p> <p>Pour cela, aller au site <em><a href=http://start.spring.io>start.spring.io</a></em>, et créer un projet avec les caractéristiques suivantes:</p> <ul> <li>Projet Maven avec Java et Spring Boot version 1.5.8</li> <li>Group: tn.insat.tpmicro</li> <li>Artifact: product-service</li> <li>Dépendances:<ul> <li>Web</li> <li>Rest Repositories</li> <li>JPA : Java Persistence API</li> <li>H2 : base de données pour le stockage</li> <li>Actuator : pour le montoring et la gestion de l'application</li> <li>Eureka Discovery : pour l'intégration avec le <em>Discovery Service</em></li> <li>Config Client : pour l'intégration avec le <em>Config Service</em></li> </ul> </li> </ul> <p>Suivre ensuite les étapes suivantes pour créer le microservice <em>ProductService</em>:</p> <ul> <li>Ouvrir le projet téléchargé avec IntelliJ IDEA.</li> <li>Sous le répertoire <em>src/main/java</em> et dans le package <em>tn.insat.tpmicro.productservice</em>, créer la classe <em>Product</em> suivante:</li> </ul> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.productservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>javax.persistence.Entity</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>javax.persistence.GeneratedValue</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>javax.persistence.Id</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>java.io.Serializable</span><span class=p>;</span>
+
+<span class=nd>@Entity</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>Product</span> <span class=kd>implements</span> <span class=n>Serializable</span> <span class=p>{</span>
+    <span class=nd>@Id</span>
+    <span class=nd>@GeneratedValue</span>
+    <span class=kd>private</span> <span class=kt>int</span> <span class=n>id</span><span class=p>;</span>
+    <span class=kd>private</span> <span class=n>String</span> <span class=n>name</span><span class=p>;</span>
+    <span class=kd>public</span> <span class=nf>Product</span><span class=p>(){</span>
+    <span class=p>}</span>
+    <span class=kd>public</span> <span class=nf>Product</span><span class=p>(</span><span class=n>String</span> <span class=n>name</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>this</span><span class=p>.</span><span class=na>name</span> <span class=o>=</span> <span class=n>name</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=kd>public</span> <span class=kt>int</span> <span class=nf>getId</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>id</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setId</span><span class=p>(</span><span class=kt>int</span> <span class=n>id</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>this</span><span class=p>.</span><span class=na>id</span> <span class=o>=</span> <span class=n>id</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=kd>public</span> <span class=n>String</span> <span class=nf>getName</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>name</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setName</span><span class=p>(</span><span class=n>String</span> <span class=n>name</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>this</span><span class=p>.</span><span class=na>name</span> <span class=o>=</span> <span class=n>name</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div> <p>Cette classe est annotée avec JPA, pour stocker ensuite les objets <em>Product</em> dans la base de données H2 grâce à Spring Data. Pour cela, créer l'interface <em>ProductRepository</em> dans le même package:</p> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.productservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>org.springframework.data.jpa.repository.JpaRepository</span><span class=p>;</span>
+
+<span class=kd>public</span> <span class=kd>interface</span> <span class=nc>ProductRepository</span> <span class=kd>extends</span> <span class=n>JpaRepository</span><span class=o>&lt;</span><span class=n>Product</span> <span class=p>,</span> <span class=n>Integer</span><span class=o>&gt;</span> <span class=p>{</span>
+<span class=p>}</span>
+</code></pre></div> <p>Pour insérer les objets dans la base, nous utiliserons l'objet <em>Stream</em>. Pour cela, nous allons créer la classe <em>DummyDataCLR</em> :</p> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.productservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>org.springframework.beans.factory.annotation.Autowired</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.boot.CommandLineRunner</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.stereotype.Component</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>java.util.stream.Stream</span><span class=p>;</span>
+
+<span class=nd>@Component</span>
+<span class=kd>class</span> <span class=nc>DummyDataCLR</span> <span class=kd>implements</span> <span class=n>CommandLineRunner</span> <span class=p>{</span>
+
+    <span class=nd>@Override</span>
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>run</span><span class=p>(</span><span class=n>String</span><span class=p>...</span> <span class=n>strings</span><span class=p>)</span> <span class=kd>throws</span> <span class=n>Exception</span> <span class=p>{</span>
+        <span class=n>Stream</span><span class=p>.</span><span class=na>of</span><span class=p>(</span><span class=s>&quot;Pencil&quot;</span><span class=p>,</span> <span class=s>&quot;Book&quot;</span><span class=p>,</span> <span class=s>&quot;Eraser&quot;</span><span class=p>).</span><span class=na>forEach</span><span class=p>(</span><span class=n>s</span><span class=o>-&gt;</span><span class=n>productRepository</span><span class=p>.</span><span class=na>save</span><span class=p>(</span><span class=k>new</span> <span class=n>Product</span><span class=p>(</span><span class=n>s</span><span class=p>)));</span>
+        <span class=n>productRepository</span><span class=p>.</span><span class=na>findAll</span><span class=p>().</span><span class=na>forEach</span><span class=p>(</span><span class=n>s</span><span class=o>-&gt;</span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>println</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=na>getName</span><span class=p>()));</span>
+    <span class=p>}</span>
+
+    <span class=nd>@Autowired</span>
+    <span class=kd>private</span> <span class=n>ProductRepository</span> <span class=n>productRepository</span><span class=p>;</span>
+
+<span class=p>}</span>
+</code></pre></div> <p>Nous remarquons ici que le <em>productRepository</em> sera instancié automatiquement grâce au mécanisme d'injection de dépendances, utilisé par Spring.</p> <p>Lancer la classe principale. Une base de données H2 sera créée et le <em>CommandLineRunner</em> se chargera de lui injecter les données.</p> <div class="admonition warning"> <p class=admonition-title>Attention</p> <p>Prenez soin d'utiliser JDK 8!</p> </div> <p>Pour exécuter votre application:</p> <ul> <li>Créer une configuration <em>mvn package</em> en faisant <em>Run-&gt;Edit Configurations</em> puis en créant une nouvelle configuration de type <em>Maven</em> avec la commande <em>package</em> comme suit:</li> </ul> <p><img alt="Configuration mvn package" src=../img/tp4/package.png></p> <p>Un répertoire <em>target</em> sera créé, contenant les classes générées.</p> <ul> <li>Lancer ensuite la configuration Spring Boot <em>ProductServiceApplication</em> créée par défaut par IntelliJ. Le résultat sur la console devrait ressembler à ce qui suit:</li> </ul> <p><img alt="Configuration Spring Boot" src=../img/tp4/boot.png></p> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>Pour éviter de lancer à chaque fois les deux configurations, ajouter dans la deuxième configuration une dépendance vers la première, rajouter cette dernière dans la case <em>Before Launch: Build, Maven Goal, Activate Tool Window</em>, comme suit:</p> <p><img alt="Ajout dépendance" src=../img/tp4/dependanceConfig.png></p> </div> <p>Pour tester votre application, ouvrir la page <a href=http://localhost:8080>http://localhost:8080</a> sur le navigateur. Vous obtiendrez (si tout se passe bien) le résultat suivant:</p> <p><img alt="Service REST" src=../img/tp4/rest1.png></p> <p>Vous remarquerez que le service REST créé respecte automatiquement la norme <a href=https://spring.io/understanding/HATEOAS>HATEOAS</a>, qui offre dans les services REST, les liens pour naviguer dynamiquement entre les interfaces.</p> <p>Si vous naviguez vers la page <a href=http://localhost:8080/products>http://localhost:8080/products</a>, vous verrez la liste des produits, injectés par le CLR, comme suit:</p> <p><img alt="Liste Produits" src=../img/tp4/products.png></p> <p>Pour voir les informations relatives à un seul produit, il suffit de connaître son ID: <a href=http://localhost:8080/products/1>http://localhost:8080/products/1</a>, par exemple.</p> <p>Pour rajouter une fonctionnalité de recherche par nom, par exemple, modifier l'interface <em>ProductRepository</em>, comme suit:</p> <p><div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.productservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>org.springframework.data.domain.Page</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.data.domain.Pageable</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.data.jpa.repository.JpaRepository</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.data.jpa.repository.Query</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.data.repository.query.Param</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.data.rest.core.annotation.RepositoryRestResource</span><span class=p>;</span>
+
+<span class=nd>@RepositoryRestResource</span>
+<span class=kd>public</span> <span class=kd>interface</span> <span class=nc>ProductRepository</span> <span class=kd>extends</span> <span class=n>JpaRepository</span><span class=o>&lt;</span><span class=n>Product</span> <span class=p>,</span> <span class=n>Integer</span><span class=o>&gt;</span> <span class=p>{</span>
+
+    <span class=nd>@Query</span><span class=p>(</span><span class=s>&quot;select p from Product p where p.name like :name&quot;</span><span class=p>)</span>
+    <span class=kd>public</span> <span class=n>Page</span><span class=o>&lt;</span><span class=n>Product</span><span class=o>&gt;</span> <span class=nf>productByName</span><span class=p>(</span><span class=nd>@Param</span><span class=p>(</span><span class=s>&quot;name&quot;</span><span class=p>)</span> <span class=n>String</span> <span class=n>mc</span>
+            <span class=p>,</span> <span class=n>Pageable</span> <span class=n>pageable</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></div> Pour tester cette fonctionnalité de recherche, aller au lien <a href="http://localhost:8080/products/search/productByName?name=Eraser">http://localhost:8080/products/search/productByName?name=Eraser</a></p> <p>Le résultat obtenu sera le suivant:</p> <p><img alt="Résultat de la recherche par nom" src=../img/tp4/search.png></p> <p>La dépendance <em>Actuator</em> qui a été rajoutée au projet permet d'afficher des informations sur votre API REST sans avoir à implémenter explicitement la fonctionnalité. Par exemple, si vous allez vers <a href=http://localhost:8080/metrics>http://localhost:8080/metrics</a>, vous pourrez avoir plusieurs informations sur le microservice, tel que le nombre de threads, la capacité mémoire, la classe chargée en mémoire, etc. Mais d'abord, rajouter les deux lignes suivantes au fichier <em>src/main/resources/application.properties</em> pour (1) afficher des informations plus détaillées sur l'état du service et (2) désactiver les contraintes de sécurité par défaut:</p> <div class=highlight><pre><span></span><code><span class=na>  endpoints.health.sensitive</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>false</span><span class=w></span>
+<span class=na>  management.security.enabled</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>false</span><span class=w></span>
+</code></pre></div> <p>Relancer le projet. Le résultat obtenu en exécutant <a href=http://localhost:8080/metrics>http://localhost:8080/metrics</a> sera comme suit:</p> <p><img alt=Metrics src=../img/tp4/metrics.png></p> <p>Les informations sur l'état du service sont affichées grâce à <a href=http://localhost:8080/health>http://localhost:8080/health</a></p> <p><img alt=Health src=../img/tp4/health.png></p> <h4 id=plusieurs-instances-du-microservice-productservice>Plusieurs Instances du Microservice <strong>ProductService</strong><a class=headerlink href=#plusieurs-instances-du-microservice-productservice title="Permanent link">&para;</a></h4> <p>Nous allons maintenant créer d'autres instances du même service et les déployer sur des ports différents.</p> <p><center><img src=../img/tp4/archi-s2.png></center></p> <p>Pour lancer plusieurs instances du service <em>ProductService</em>, nous allons définir plusieurs configurations avec des numéros de port différents. Pour cela:</p> <ul> <li>Aller à <em>Run-&gt;Edit Configurations</em>, et copier la configuration <em>ProductServiceApplication</em> en la sélectionnant dans la barre latérale, et en cliquant sur l'icône <img alt=copy src=../img/tp4/copy.png>. Une nouvelle configuration sera créée.</li> <li>Changer son nom: <em>ProductServiceApplication:8081</em></li> <li>Ajouter dans la case <em>Program Arguments</em> l'argument suivant:</li> </ul> <div class=highlight><pre><span></span><code><span class=na>--server.port</span><span class=o>=</span><span class=s>8081</span><span class=w></span>
+</code></pre></div> <ul> <li>Lancer la configuration. Un nouveau service sera disponible à l'adresse: <a href=http://localhost:8081>http://localhost:8081</a></li> </ul> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>En exécutant la seconde configuration, un popup s'affiche dans IntelliJ, qui vous demande si vous voulez afficher le dashboard pour visualiser plusieurs instances Spring Boot, comme suit:</p> <p><img alt="Run dashboard" src=../img/tp4/run-dashboard.png></p> <p>Cliquer dessus, et choisir : <em>Show Run Configurations in Dashboard</em>. La vue suivante s'affiche, en bas de votre écran:</p> <p><img alt="Spring Boot Dashboard" src=../img/tp4/dashboard.png></p> <p>Vous pouvez désormais gérer vos instances dans cette fenêtre.</p> </div> <ul> <li>Refaire les mêmes étapes pour créer une instance du service tourant sur le port 8082.</li> </ul> <h4 id=microservice-configservice>Microservice <strong>ConfigService</strong><a class=headerlink href=#microservice-configservice title="Permanent link">&para;</a></h4> <p>Dans une architecture microservices, plusieurs services s'exécutent en même temps, sur des processus différents, avec chacun sa propre configuration et ses propres paramètres. Spring Cloud Config fournit un support côté serveur et côté client pour externaliser les configurations dans un système distribué. Grâce au service de configuration, il est possible d'avoir un endroit centralisé pour gérer les propriétés de chacun de ces services.</p> <p><center><img src=../img/tp4/archi-s3.png></center></p> <p>Pour cela:</p> <ul> <li>Commencer par créer un service ConfigService dans <em>Spring Initializr</em>, avec les dépendances appropriées, comme indiqué sur la figure suivante:</li> </ul> <p><img alt="Nouveau ConfigService" src=../img/tp4/configservice.png></p> <ul> <li>Ouvrir le projet dans une autre instance d'IntelliJ IDEA.</li> <li>Pour exposer un service de configuration, utiliser l'annotation <em>@EnableConfigServer</em> pour la classe <em>ConfigServiceApplication</em>, comme suit:</li> </ul> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.configservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>org.springframework.boot.SpringApplication</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.boot.autoconfigure.SpringBootApplication</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.cloud.config.server.EnableConfigServer</span><span class=p>;</span>
+
+<span class=nd>@EnableConfigServer</span>
+<span class=nd>@SpringBootApplication</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>ConfigServiceApplication</span> <span class=p>{</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=p>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=p>)</span> <span class=p>{</span>
+
+        <span class=n>SpringApplication</span><span class=p>.</span><span class=na>run</span><span class=p>(</span><span class=n>ConfigServiceApplication</span><span class=p>.</span><span class=na>class</span><span class=p>,</span> <span class=n>args</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div> <ul> <li>Pour paramétrer ce service de configuration, ajouter dans son fichier <em>application.properties</em> les valeurs suivantes:</li> </ul> <div class=highlight><pre><span></span><code><span class=na>  server.port</span><span class=o>=</span><span class=s>8888</span><span class=w></span>
+<span class=na>  spring.cloud.config.server.git.uri</span><span class=o>=</span><span class=s>file:./src/main/resources/myConfig</span><span class=w></span>
+</code></pre></div> <p>Ceci indique que le service de configuration sera lancé sur le port 8888 et que le répertoire contenant les fichiers de configuration se trouve dans le répertoire <em>src/main/resources/myConfig</em>. Il suffit maintenant de créer ce répertoire.</p> <div class="admonition tip"> <p class=admonition-title>Tip</p> <p>Pour pouvoir référencer un répertoire avec son chemin absolu, utiliser plutôt <em>file:///&lt;chemin_absolu></em>.</p> </div> <ul> <li>Créer le répertoire <em>myConfig</em> à l'arborescence <em>src/main/resources</em></li> <li>Créer dans ce répertoire le fichier <em>application.properties</em> dans lequel vous insérez l'instruction suivante:</li> </ul> <div class=highlight><pre><span></span><code><span class=na>global</span><span class=o>=</span><span class=s>xxxxx</span><span class=w></span>
+</code></pre></div> <p>Ce fichier sera partagé entre tous les microservices utilisant ce service de configuration.</p> <ul> <li>Le répertoire de configuration doit être un répertoire git. Pour cela:<ul> <li>Ouvrir le terminal avec IntelliJ et naviguer vers ce répertoire.</li> <li>Initialiser votre répertoire: <code>git init</code></li> <li>Créer une entrée racine dans le repository: <code>git add .</code></li> <li>Faire un commit: <code>git commit -m "add ."</code></li> </ul> </li> </ul> <p>Revenir vers le projet <em>ProductService</em> et ajouter dans le fichier de configuration <em>application.properties</em>:</p> <div class=highlight><pre><span></span><code><span class=na>spring.application.name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>product-service</span><span class=w></span>
+<span class=na>spring.cloud.config.uri</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>http://localhost:8888</span><span class=w></span>
+</code></pre></div> <p>Redémarrer vos services. Pour consulter le service de configuration, aller à <a href=http://localhost:8888/product-service/master>http://localhost:8888/product-service/master</a>.</p> <p>Vous verrez le fichier JSON suivant:</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nx>name</span><span class=o>:</span> <span class=s2>&quot;product-service&quot;</span><span class=p>,</span>
+  <span class=nx>profiles</span><span class=o>:</span> <span class=p>[</span>
+    <span class=s2>&quot;master&quot;</span>
+  <span class=p>],</span>
+  <span class=nx>label</span><span class=o>:</span> <span class=kc>null</span><span class=p>,</span>
+  <span class=nx>version</span><span class=o>:</span> <span class=s2>&quot;6e1ea61d706133e2d8b62f40c6b784192fb58e8a&quot;</span><span class=p>,</span>
+  <span class=nx>state</span><span class=o>:</span> <span class=kc>null</span><span class=p>,</span>
+  <span class=nx>propertySources</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=nx>name</span><span class=o>:</span> <span class=s2>&quot;file:./src/main/resources/myConfig/application.properties&quot;</span><span class=p>,</span>
+      <span class=nx>source</span><span class=o>:</span> <span class=p>{</span>
+        <span class=nb>global</span><span class=o>:</span> <span class=s2>&quot;xxxxx&quot;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+  <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div> <p>Comme le fichier <em>application.properties</em> contient toutes les propriétés partagées des différents microservices, nous aurons besoins d'autres fichiers pour les propriétés spécifiques à un microservice. Pour cela:</p> <ul> <li>Créer dans le répertoire <em>myConfig</em> un fichier <em>product-service.properties</em> pour le service <em>ProductService</em>.</li> </ul> <div class="admonition warning"> <p class=admonition-title>Attention</p> <p>Le nom du fichier doit correspondre à la propriété <em>spring.application.name</em> que vous avez saisi dans le fichier <em>application.properties</em> de votre microservice!</p> </div> <ul> <li>Ajouter les propriétés de votre service, à savoir, par exemple:</li> </ul> <div class=highlight><pre><span></span><code><span class=na>  me</span><span class=o>=</span><span class=s>lilia.sfaxi@insat.rnu.tn</span><span class=w></span>
+</code></pre></div> <p>Relancer le microservice de configuration. En consultant l'url <a href=http://localhost:8888/product-service/master>http://localhost:8888/product-service/master</a>, nous remarquons l'ajout de la nouvelle propriété.</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nx>name</span><span class=o>:</span> <span class=s2>&quot;product-service&quot;</span><span class=p>,</span>
+  <span class=nx>profiles</span><span class=o>:</span> <span class=p>[</span>
+    <span class=s2>&quot;master&quot;</span>
+  <span class=p>],</span>
+  <span class=nx>label</span><span class=o>:</span> <span class=kc>null</span><span class=p>,</span>
+  <span class=nx>version</span><span class=o>:</span> <span class=s2>&quot;6e1ea61d706133e2d8b62f40c6b784192fb58e8a&quot;</span><span class=p>,</span>
+  <span class=nx>state</span><span class=o>:</span> <span class=kc>null</span><span class=p>,</span>
+  <span class=nx>propertySources</span><span class=o>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+      <span class=nx>name</span><span class=o>:</span> <span class=s2>&quot;file:./src/main/resources/myConfig/product-service.properties&quot;</span><span class=p>,</span>
+      <span class=nx>source</span><span class=o>:</span> <span class=p>{</span>
+<span class=hll>        <span class=nx>me</span><span class=o>:</span> <span class=s2>&quot;lilia.sfaxi@insat.rnu.tn&quot;</span>
+</span>      <span class=p>}</span>
+    <span class=p>},</span>
+    <span class=p>{</span>
+      <span class=nx>name</span><span class=o>:</span> <span class=s2>&quot;file:./src/main/resources/myConfig/application.properties&quot;</span><span class=p>,</span>
+      <span class=nx>source</span><span class=o>:</span> <span class=p>{</span>
+        <span class=nb>global</span><span class=o>:</span> <span class=s2>&quot;xxxxx&quot;</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+  <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div> <p>Nous allons maintenant définir un appel REST à cette propriété. Pour cela:</p> <ul> <li>Créer la classe <em>ProductRestService</em> dans le projet <em>product-service</em>. Son code ressemblera à ce qui suit:</li> </ul> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.productservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>org.springframework.beans.factory.annotation.Value</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.web.bind.annotation.RequestMapping</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.web.bind.annotation.RestController</span><span class=p>;</span>
+
+<span class=nd>@RestController</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>ProductRestService</span> <span class=p>{</span>
+
+  <span class=nd>@Value</span><span class=p>(</span><span class=s>&quot;${me}&quot;</span><span class=p>)</span>
+  <span class=kd>private</span> <span class=n>String</span> <span class=n>me</span><span class=p>;</span>
+
+  <span class=nd>@RequestMapping</span><span class=p>(</span><span class=s>&quot;/messages&quot;</span><span class=p>)</span>
+  <span class=kd>public</span> <span class=n>String</span> <span class=nf>tellMe</span><span class=p>(){</span>
+      <span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>println</span><span class=p>(</span><span class=s>&quot;c&#39;est moi qui ai répondu!&quot;</span><span class=p>);</span>
+      <span class=k>return</span> <span class=n>me</span><span class=p>;</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div> <ul> <li>Redémarrer les trois instances du service, puis appeler dans votre navigateur le service en tapant: <a href=http://localhost:8080/messages>http://localhost:8080/messages</a>. Vous verrez le résultat suivant sur le navigateur:</li> </ul> <p><img alt="Service REST" src=../img/tp4/rest-service.png></p> <ul> <li>Consulter votre Spring Dashboard, vous verrez le message suivant dans la console de l'instance du service lancée sur le port 8080:</li> </ul> <p><img alt="Service REST" src=../img/tp4/rest-console.png></p> <h4 id=microservice-discoveryservice>Microservice <strong>DiscoveryService</strong><a class=headerlink href=#microservice-discoveryservice title="Permanent link">&para;</a></h4> <p>Pour éviter un couplage fort entre microservices, il est fortement recommandé d'utiliser un service de découverte qui permet d'enregistrer les propriétés des différents services et d'éviter ainsi d'avoir à appeler un service directement. Au lieu de cela, le service de découverte fournira dynamiquement les informations nécessaires, ce qui permet d'assurer l'élasticité et la dynamicité propres à une architecture microservices.</p> <p><center><img src=../img/tp4/archi-s4.png></center></p> <p>Pour réaliser cela, Netflix offre le service <a href=https://spring.io/guides/gs/service-registration-and-discovery/ >Eureka Service Registration and Discovery</a>, que nous allons utiliser dans notre application.</p> <ul> <li>Revenir à <em>Spring Initializr</em> et créer un nouveau projet Spring Boot intitulé <em>discovery-service</em> avec les dépendances <em>Eureka Server</em> et <em>Config Client</em>.</li> <li>Lancer le projet avec IntelliJ.</li> <li>Dans la classe <em>DiscoveryServiceApplication</em>, ajouter l'annotation <em>EnableEurekaServer</em>.</li> </ul> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.discoveryservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>org.springframework.boot.SpringApplication</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.boot.autoconfigure.SpringBootApplication</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.cloud.netflix.eureka.server.EnableEurekaServer</span><span class=p>;</span>
+
+<span class=nd>@EnableEurekaServer</span>
+<span class=nd>@SpringBootApplication</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>DiscoveryServiceApplication</span> <span class=p>{</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=p>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>SpringApplication</span><span class=p>.</span><span class=na>run</span><span class=p>(</span><span class=n>DiscoveryServiceApplication</span><span class=p>.</span><span class=na>class</span><span class=p>,</span> <span class=n>args</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div> <ul> <li>Ajouter les propriétés suivantes dans son fichier <em>application.properties</em>.</li> </ul> <div class=highlight><pre><span></span><code><span class=na>spring.application.name</span><span class=o>=</span><span class=s>discovery-service</span><span class=w></span>
+<span class=na>spring.cloud.config.uri</span><span class=o>=</span><span class=s>http://localhost:8888</span><span class=w></span>
+</code></pre></div> <ul> <li>Dans le projet <em>config-service</em>, créer un fichier <em>discovery-service.properties</em> sous le répertoire <em>myConfig</em>.</li> <li>Ajouter les propriétés suivantes pour (1) définir le port par défaut du service de découverte et (2) empêcher un auto-enregistrement du service Eureka.</li> </ul> <div class=highlight><pre><span></span><code><span class=na>server.port</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>8761</span><span class=w></span>
+<span class=na>eureka.client.fetch-registry</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>false</span><span class=w></span>
+<span class=na>eureka.client.register-with-eureka</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>false</span><span class=w></span>
+</code></pre></div> <p>Pour consulter le service Eureka, aller à <a href=http://localhost:8761>http://localhost:8761</a>, l'interface suivante s'affiche:</p> <p><img alt="Console Eureka" src=../img/tp4/eureka-console.png></p> <p>Nous remarquons qu'aucune instance n'est inscrite dans le serveur de découverte. Nous allons donc modifier le code de la classe <em>ProductServiceApplication</em> pour que le microservice <em>ProductService</em> s'enregistre:</p> <div class=highlight><pre><span></span><code><span class=kn>package</span> <span class=nn>tn.insat.tpmicro.productservice</span><span class=p>;</span>
+
+<span class=kn>import</span> <span class=nn>org.springframework.boot.SpringApplication</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.boot.autoconfigure.SpringBootApplication</span><span class=p>;</span>
+<span class=kn>import</span> <span class=nn>org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><span class=p>;</span>
+
+<span class=hll><span class=nd>@EnableDiscoveryClient</span>
+</span><span class=nd>@SpringBootApplication</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>ProductServiceApplication</span> <span class=p>{</span>
+
+    <span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=p>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>SpringApplication</span><span class=p>.</span><span class=na>run</span><span class=p>(</span><span class=n>ProductServiceApplication</span><span class=p>.</span><span class=na>class</span><span class=p>,</span> <span class=n>args</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div> <p>Redémarrer les trois instances de services <em>ProductService</em> et actualiser la fenêtre de <em>Eureka</em>, vous verrez qu'un seul service est déclaré, avec trois adresses différentes.</p> <p><img alt="Services sur Eureka" src=../img/tp4/eureka-services.png></p> <h4 id=microservice-proxyservice>Microservice <strong>ProxyService</strong><a class=headerlink href=#microservice-proxyservice title="Permanent link">&para;</a></h4> <p>L'architecture microservices, en fournissant un ensemble de services indépendants et faiblement couplés, se trouve confrontée au challenge de fournir une interface unifiée pour les consommateurs, de manière à ce qu'ils ne voient pas la décomposition à faible granularité de vos services. C'est pour cela que l'utilisation d'un service proxy, responsable du routage des requêtes et de la répartition de charge, est important.</p> <p><center><img src=../img/tp4/archi-s5.png></center></p> <p>Netflix offre le service <a href=https://github.com/Netflix/zuul>Zuul</a> pour réaliser cela. Pour créer votre microservice Proxy:</p> <ul> <li>Aller à <em>Spring Initializr</em>.</li> <li>Créer le projet <em>proxy-service</em> avec les dépendances suivantes: Zuul, Web, HATEOAS, Actuator, Config Client et Eureka Discovery.</li> <li>Ouvrir le service avec IntelliJ IDEA.</li> <li>Ajouter à la classe <em>ProxyServiceApplication</em> l'annotation <em>@EnableZuulProxy</em>, ainsi que <em>@EnableDiscoveryClient</em> pour que le proxy soit également enregistré dans le service de découverte.</li> <li>Ajouter les propriétés <em>spring.application.name</em> et <em>spring.cloud.config.uri</em> dans le fichier <em>application.properties</em> du service proxy.</li> <li>Créer le fichier <em>proxy-service.properties</em> dans le répertoire <em>myConfig</em> du service de configuration, dans lequel vous allez fixer le port du service proxy à 9999.</li> </ul> <p>En lançant le service Proxy, vous remarquerez qu'il est rajouté dans Eureka.</p> <p><img alt="Service Proxy dans Eureka" src=../img/tp4/proxy-eureka.png></p> <p>Si vous exécutez la requête <a href=http://localhost:9999/product-service/messages>http://localhost:9999/product-service/messages</a> plusieurs fois, vous remarquerez que l'affichage <em>c'est moi qui ai répondu!</em> s'affichera sur les consoles des trois instances respectivement, à tour de rôle.</p> <hr> <div class=md-source-file> <small> Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class=timeago datetime=2020-02-02T17:51:04+01:00 locale=en></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2020-02-02</span> </small> </div> </article> </div> </div> </main> <footer class=md-footer> <nav class="md-footer__inner md-grid" aria-label=Footer> <a href=../tp3/ class="md-footer__link md-footer__link--prev" aria-label="Previous: TP3 - Mise en Place d’un ESB avec Talend ESB" rel=prev> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Previous </span> TP3 - Mise en Place d’un ESB avec Talend ESB </div> </div> </a> <a href=../tp5/ class="md-footer__link md-footer__link--next" aria-label="Next: TP5 - API Management avec Atom et Anypoint" rel=next> <div class=md-footer__title> <div class=md-ellipsis> <span class=md-footer__direction> Next </span> TP5 - API Management avec Atom et Anypoint </div> </div> <div class="md-footer__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright &copy; 2017 - 2018 Lilia Sfaxi </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.092fa1f6.min.js"}</script> <script src=../assets/javascripts/bundle.e3b2bf44.min.js></script> <script src=../js/timeago.min.js></script> <script src=../js/timeago_mkdocs_material.js></script> </body> </html>
