@@ -9,57 +9,33 @@ repo_url: https://github.com/INSATunisia/TP-eServices
 
 # Copyright
 copyright: 'Copyright &copy; 2017 - 2018 Lilia Sfaxi'
-
 # Theme directory
-theme_dir: material
+plugins:
+  - search
+  - autolink_references:
+        autolinks:
+            - reference_prefix: AF-
+              target_url: https://linear.com/AF-<num>
+            - reference_prefix: PROJ-
+              target_url: https://jiracloud.com/PROJ-<num> 
+  - git-revision-date-localized:
+      type: timeago
+  - minify:
+      minify_html: true
 
-theme:
-  name: 'material'
-  feature:
-    tabs: false
-  palette:
-    text: 'Ubuntu'
-    code: 'Ubuntu Mono'
-    accent: Amber
-    primary: Pink
-  logo: 'img/logo.png'
-  favicon: 'img/favicon.ico'
-  language: 'fr'
-
-
-# Options
-extra:
-  feature:
-    tabs: false
-  palette:
-    accent: Amber
-    text: 'Ubuntu'
-    code: 'Ubuntu Mono'
-  logo: 'img/logo.png'
-
-  social:
-    - type: globe
-      link: http://liliasfaxi.wix.com/liliasfaxi
-    - type: github-alt
-      link: https://github.com/liliasfaxi
-    - type: twitter
-      link: https://twitter.com/lillitou
-    - type: linkedin
-      link: https://www.linkedin.com/in/liliasfaxi/
-
-# Extensions
 markdown_extensions:
   - footnotes
-  - markdown.extensions.admonition
-  - markdown.extensions.codehilite
-  - markdown.extensions.def_list
-  - markdown.extensions.footnotes
-  - markdown.extensions.meta
-  - markdown.extensions.toc
+  - admonition
+  - meta
+  - toc:
+      permalink: true
+      baselevel: 2
   - pymdownx.arithmatex
-  - pymdownx.betterem
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
@@ -67,17 +43,22 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - codehilite
-  - fenced_code
-  - fontawesome_markdown
-  - nl2br
-  - tables
+
+theme:
+  name: material
+  favicon: img/favicon.ico
+  logo: "img/logo.png"
+  palette:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+    accent: Amber
+    primary: Pink
+extra_css:
+  - 'stylesheets/extra.css'
+  - 'stylesheets/links.css'
 
 # Page tree
 pages:
@@ -88,11 +69,3 @@ pages:
    - TP4 - Microservices avec Spring Boot et Spring Cloud: 'tp4.md'
    - TP5 - API Management avec Atom et Anypoint: 'tp5.md'
 
-extra_javascript: []
-extra_css: []
-use_directory_urls: true
-
-# Google Analytics
-google_analytics:
-  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
-  - auto
