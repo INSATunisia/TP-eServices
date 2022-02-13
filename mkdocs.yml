@@ -49,6 +49,7 @@ extra:
 
 # Extensions
 markdown_extensions:
+  - footnotes
   - markdown.extensions.admonition
   - markdown.extensions.codehilite
   - markdown.extensions.def_list
